@@ -1,5 +1,8 @@
 package ar.com.unpaz.gestionfinales.presentation.view;
 
+import static ar.com.unpaz.gestionfinales.presentation.view.IconResource.load;
+import static ar.com.unpaz.gestionfinales.presentation.view.IconResource.IconPathOf.BACKGROUND;
+import static java.awt.BorderLayout.CENTER;
 import static java.awt.event.InputEvent.CTRL_MASK;
 import static java.awt.event.KeyEvent.VK_A;
 import static java.awt.event.KeyEvent.VK_F;
@@ -7,11 +10,14 @@ import static java.awt.event.KeyEvent.VK_M;
 import static java.awt.event.KeyEvent.VK_S;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import static javax.swing.KeyStroke.getKeyStroke;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 public class AppView {
 
@@ -55,11 +61,19 @@ public class AppView {
     menuItemAbout = new JMenuItem("Acerca de");
     menuItemSystem.add(menuItemAbout);
     menuItemExit = new JMenuItem("Salir de Sistema");
-    menuItemExit.addActionListener((ActionEvent e) ->{
-      
+    menuItemExit.addActionListener((ActionEvent e) -> {
+
     });
     menuItemExit.setAccelerator(getKeyStroke(VK_S, CTRL_MASK));
     menuItemSystem.add(menuItemExit);
+    frame.getContentPane().add(new JPanel() {
+      private static final long serialVersionUID = 1L;
+      @Override
+      public void paint(Graphics g) {
+        g.drawImage(((ImageIcon) load(BACKGROUND)).getImage(), 0, 0,
+            getWidth(), getHeight(), this);
+      }
+    }, CENTER);
     frame.setLocationRelativeTo(null);
     frame.setVisible(true);
   }
