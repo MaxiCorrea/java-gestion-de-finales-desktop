@@ -26,7 +26,7 @@ public class IconResource {
 
     SAVE("/images/save.png") ,
     
-    CANCEL("/images/cancel/.png");
+    CANCEL("/images/cancel.png");
     
     private String path;
 
