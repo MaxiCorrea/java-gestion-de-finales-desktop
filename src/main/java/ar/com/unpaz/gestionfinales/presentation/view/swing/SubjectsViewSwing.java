@@ -30,6 +30,7 @@ public class SubjectsViewSwing implements SubjectView {
 
   public SubjectsViewSwing() {
     dialog = new JDialog();
+    dialog.setTitle("Materias");
     dialog.setModal(true);
     dialog.setSize(300, 300);
     dialog.getContentPane().setLayout(new BorderLayout());
