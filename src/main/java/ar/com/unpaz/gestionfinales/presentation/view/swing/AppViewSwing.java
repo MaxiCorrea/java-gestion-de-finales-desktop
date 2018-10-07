@@ -1,7 +1,7 @@
-package ar.com.unpaz.gestionfinales.presentation.view;
+package ar.com.unpaz.gestionfinales.presentation.view.swing;
 
-import static ar.com.unpaz.gestionfinales.presentation.view.IconResource.load;
-import static ar.com.unpaz.gestionfinales.presentation.view.IconResource.IconPathOf.BACKGROUND;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.IconResource.load;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.IconResource.IconPathOf.BACKGROUND;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.event.InputEvent.CTRL_MASK;
 import static java.awt.event.KeyEvent.VK_A;
@@ -18,8 +18,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import ar.com.unpaz.gestionfinales.presentation.view.AppPresentationContext;
 
-public class AppView {
+public class AppViewSwing {
 
   private JFrame frame;
   private JMenuBar menuBar;
@@ -31,7 +32,7 @@ public class AppView {
   private JMenuItem menuItemAbout;
   private JMenuItem menuItemExit;
 
-  public AppView() {
+  public AppViewSwing() {
     frame = new JFrame();
     frame.setBounds(100, 100, 800, 600);
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -44,11 +45,14 @@ public class AppView {
     menuBar.add(menuItemAMB);
     menuItemSubjects = new JMenuItem("Materias");
     menuItemSubjects.addActionListener((ActionEvent e) -> {
-
+      AppPresentationContext.subjectView.show();
     });
     menuItemSubjects.setAccelerator(getKeyStroke(VK_M, CTRL_MASK));
     menuItemAMB.add(menuItemSubjects);
     menuItemStudents = new JMenuItem("Alumnos");
+    menuItemStudents.addActionListener((ActionEvent e) -> {
+      AppPresentationContext.studentView.show();
+    });
     menuItemStudents.setAccelerator(getKeyStroke(VK_A, CTRL_MASK));
     menuItemAMB.add(menuItemStudents);
     menuItemFinals = new JMenuItem("Finales");
@@ -68,10 +72,10 @@ public class AppView {
     menuItemSystem.add(menuItemExit);
     frame.getContentPane().add(new JPanel() {
       private static final long serialVersionUID = 1L;
+
       @Override
       public void paint(Graphics g) {
-        g.drawImage(((ImageIcon) load(BACKGROUND)).getImage(), 0, 0,
-            getWidth(), getHeight(), this);
+        g.drawImage(((ImageIcon) load(BACKGROUND)).getImage(), 0, 0, getWidth(), getHeight(), this);
       }
     }, CENTER);
     frame.setLocationRelativeTo(null);
