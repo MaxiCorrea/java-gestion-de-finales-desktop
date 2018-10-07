@@ -16,14 +16,18 @@ public class IconResource {
 
   public static enum IconPathOf {
 
-    BACKGROUND("/images"),
+    BACKGROUND("/images/background.jpg"),
 
-    ADD("/images"),
+    ADD("/images/add.png"),
 
-    UPDATE("/images"),
+    UPDATE("/images/update.png"),
 
-    DELETE("/images");
+    DELETE("/images/delete.png"),
 
+    SAVE("/images/save.png") ,
+    
+    CANCEL("/images/cancel/.png");
+    
     private String path;
 
     private IconPathOf(String path) {
