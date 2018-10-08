@@ -1,5 +1,5 @@
 package ar.com.unpaz.gestionfinales.presentation.model;
 
-public class StudentTableColumn {
+public class StudentColumn {
 
 }

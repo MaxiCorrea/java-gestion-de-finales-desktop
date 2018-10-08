@@ -8,15 +8,17 @@ import ar.com.unpaz.gestionfinales.persistence.SubjectSpecification;
 
 public class InMemorySubjectRepository implements SubjectRepository {
 
+  private static int id = 0;
+
   private final List<Subject> subjects;
 
   public InMemorySubjectRepository() {
     subjects = new ArrayList<>();
   }
-  
+
   @Override
   public void addSubject(Subject subject) {
-    subjects.add(subject);
+    subjects.add(new Subject(id++, subject.getDescription(), subject.getYear()));
   }
 
   @Override
@@ -38,12 +40,17 @@ public class InMemorySubjectRepository implements SubjectRepository {
   @Override
   public List<Subject> query(SubjectSpecification spec) {
     List<Subject> result = new ArrayList<>();
-    for(Subject each : subjects) {
-      if(spec.specified(each)) {
+    for (Subject each : subjects) {
+      if (spec.specified(each)) {
         result.add(each);
       }
     }
     return result;
+  }
+
+  @Override
+  public List<Subject> getAll() {
+    return subjects;
   }
 
 }

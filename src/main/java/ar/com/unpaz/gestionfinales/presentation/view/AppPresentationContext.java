@@ -4,4 +4,6 @@ public class AppPresentationContext {
 
   public static SubjectView subjectView;
   public static StudentView studentView;
+  public static SubjectAddDialog subjectAddDialog;
+  
 }

@@ -1,7 +1,7 @@
 package ar.com.unpaz.gestionfinales.presentation.view.swing;
 
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.IconResource.load;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.IconResource.IconPathOf.BACKGROUND;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.load;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.BACKGROUND;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.event.InputEvent.CTRL_MASK;
 import static java.awt.event.KeyEvent.VK_A;

@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.presentation.view.swing;
+package ar.com.unpaz.gestionfinales.presentation.view.swing.util;
 
 import static java.lang.String.valueOf;
 import javax.swing.Icon;
