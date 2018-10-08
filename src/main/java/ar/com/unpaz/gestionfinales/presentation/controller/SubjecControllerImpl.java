@@ -1,14 +1,13 @@
-package ar.com.unpaz.gestionfinales.presentation.controller.local;
+package ar.com.unpaz.gestionfinales.presentation.controller;
 
 import static ar.com.unpaz.gestionfinales.persistence.AppRepositoryContext.subjectRepository;
 import static ar.com.unpaz.gestionfinales.presentation.view.AppPresentationContext.subjectAddDialog;
 import static ar.com.unpaz.gestionfinales.presentation.view.AppPresentationContext.subjectView;
 import ar.com.unpaz.gestionfinales.persistence.filters.FilterByFirstYearSpecification;
 import ar.com.unpaz.gestionfinales.persistence.filters.FilterBySecondYearSpecification;
-import ar.com.unpaz.gestionfinales.presentation.controller.SubjectController;
 import ar.com.unpaz.gestionfinales.presentation.model.YearCombo;
 
-public class LocalSubjecController implements SubjectController {
+public class SubjecControllerImpl implements SubjectController {
 
   @Override
   public void addSubject() {

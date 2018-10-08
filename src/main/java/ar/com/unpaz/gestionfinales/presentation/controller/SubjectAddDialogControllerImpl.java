@@ -1,12 +1,11 @@
-package ar.com.unpaz.gestionfinales.presentation.controller.local;
+package ar.com.unpaz.gestionfinales.presentation.controller;
 
 import static ar.com.unpaz.gestionfinales.persistence.AppRepositoryContext.subjectRepository;
 import static ar.com.unpaz.gestionfinales.presentation.view.AppPresentationContext.subjectAddDialog;
 import static ar.com.unpaz.gestionfinales.presentation.view.AppPresentationContext.subjectView;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.controller.SubjectAddDialogController;
 
-public class LocalSubjectAddDialogController implements SubjectAddDialogController {
+public class SubjectAddDialogControllerImpl implements SubjectAddDialogController {
 
   @Override
   public void save() {
