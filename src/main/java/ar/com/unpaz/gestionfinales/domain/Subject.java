@@ -1,5 +1,7 @@
 package ar.com.unpaz.gestionfinales.domain;
 
+import static java.lang.String.format;
+
 public class Subject extends Entity {
 
   private final String description;
@@ -25,7 +27,7 @@ public class Subject extends Entity {
 
   @Override
   public String toString() {
-    return getId() + " " + getDescription() + " " + getYear();
+    return format("%d %s %d", getId() , getDescription() , getYear());
   }
 
 }
