@@ -1,1 +1,1 @@
-# :smirk: gestion-de-finales :smiling_imp:
+# :smirk: gestion-de-finales 
