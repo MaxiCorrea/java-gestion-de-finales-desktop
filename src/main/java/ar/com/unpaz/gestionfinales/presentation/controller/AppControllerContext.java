@@ -4,4 +4,6 @@ public class AppControllerContext {
 
   public static SubjectController subjectController;
  
+  public static DialogController dialogController;
+  
 }

@@ -10,9 +10,11 @@ public interface SubjectRepository {
   void removeSubject(Subject subject);
 
   void updateSubject(Subject subject);
-  
+
   List<Subject> getAll();
-  
+
+  List<Subject> filterByYear(int year);
+
   List<Subject> query(SubjectSpecification spec);
 
 }

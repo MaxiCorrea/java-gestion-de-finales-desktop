@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.presentation.view.swing;
+package ar.com.unpaz.gestionfinales.application;
 
 import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.load;
 import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.BACKGROUND;

@@ -3,15 +3,11 @@ package ar.com.unpaz.gestionfinales.presentation.controller;
 public interface SubjectController {
 
   void addSubject();
-  
-  void deleteSubject();
-  
-  void updateSubject();
-  
-  void filterByYear();
-  
-  void save();
 
-  void cancel();
-  
+  void deleteSubject();
+
+  void updateSubject();
+
+  void filterByYear();
+
 }

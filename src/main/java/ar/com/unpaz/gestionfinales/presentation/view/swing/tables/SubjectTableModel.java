@@ -30,10 +30,14 @@ public class SubjectTableModel extends AbstractTableModel {
   public Object getValueAt(int rowIndex, int columnIndex) {
     return SubjectColumn.at(columnIndex).valueIn(snapshots.get(rowIndex));
   }
-  
+
   public void setSubjects(List<Subject> subject) {
     snapshots = subject;
     fireTableDataChanged();
+  }
+
+  public Subject getInRow(int rowIndex) {
+    return snapshots.get(rowIndex);
   }
 
 }

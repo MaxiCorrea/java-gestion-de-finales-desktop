@@ -3,20 +3,14 @@ package ar.com.unpaz.gestionfinales.presentation.view.swing;
 import static ar.com.unpaz.gestionfinales.presentation.controller.AppControllerContext.subjectController;
 import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.load;
 import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.ADD;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.CANCEL;
 import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.DELETE;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.SAVE;
 import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.UPDATE;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 import static java.awt.FlowLayout.LEFT;
 import static java.awt.event.ItemEvent.SELECTED;
-import static java.lang.Integer.valueOf;
-import static javax.swing.BorderFactory.createTitledBorder;
-import static javax.swing.JOptionPane.showMessageDialog;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
@@ -27,10 +21,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SpinnerNumberModel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.model.YearCombo;
 import ar.com.unpaz.gestionfinales.presentation.view.SubjectView;
@@ -44,8 +35,7 @@ public class SubjectsViewSwing implements SubjectView {
   private JButton buttonAdd;
   private JButton buttonUpdate;
   private JButton buttonDelete;
-
-  private SubjectAddDialogSwing addDialog;
+  private SubjectTableModel tableModel;
 
   public SubjectsViewSwing() {
     dialog = new JDialog();
@@ -57,7 +47,6 @@ public class SubjectsViewSwing implements SubjectView {
     dialog.getContentPane().add(createNorthPane(), NORTH);
     dialog.getContentPane().add(createCenterPane(), CENTER);
     dialog.getContentPane().add(createSouthPane(), SOUTH);
-    addDialog = new SubjectAddDialogSwing();
   }
 
   private JPanel createNorthPane() {
@@ -76,7 +65,8 @@ public class SubjectsViewSwing implements SubjectView {
   private JScrollPane createCenterPane() {
     JScrollPane pane = new JScrollPane();
     pane.setVerticalScrollBarPolicy(22);
-    tableSubjects = new JTable(new SubjectTableModel());
+    tableModel = new SubjectTableModel();
+    tableSubjects = new JTable(tableModel);
     pane.setViewportView(tableSubjects);
     return pane;
   }
@@ -106,134 +96,29 @@ public class SubjectsViewSwing implements SubjectView {
 
   @Override
   public void show() {
-    dialog.setLocationRelativeTo(dialog.getParent());
+    dialog.setLocationRelativeTo(null);
     dialog.setVisible(true);
   }
 
   @Override
-  public void update(List<Subject> subjects) {
-    ((SubjectTableModel) tableSubjects.getModel()).setSubjects(subjects);
+  public void setSubjects(List<Subject> subjects) {
+    System.out.println(subjects);
+    tableModel.setSubjects(subjects);
   }
 
   @Override
-  public YearCombo getSelectedYear() {
+  public int getSelectedRow() {
+    return tableSubjects.getSelectedRow();
+  }
+
+  @Override
+  public Subject getSubjectInRow(int rowIndex) {
+    return tableModel.getInRow(rowIndex);
+  }
+
+  @Override
+  public YearCombo getYearSelected() {
     return comboxYear.getItemAt(comboxYear.getSelectedIndex());
-  }
-
-  @Override
-  public String getDescription() {
-    return addDialog.getDescription();
-  }
-
-  @Override
-  public int getYear() {
-    return addDialog.getYear();
-  }
-
-  @Override
-  public void showDialog() {
-    addDialog.show();
-  }
-
-  @Override
-  public void closeDialog() {
-    addDialog.close();
-  }
-
-  @Override
-  public void clearDescription() {
-    addDialog.clearDescription();
-  }
-
-  @Override
-  public void resetYear() {
-    addDialog.resetYear();
-  }
-
-  @Override
-  public void message(String message) {
-    addDialog.message(message);
-  }
-
-  private class SubjectAddDialogSwing {
-
-    private JDialog dialog;
-    private JTextField fieldDescription;
-    private JSpinner spinnerYear;
-    private JButton okButton;
-    private JButton cancelButton;
-
-    public SubjectAddDialogSwing() {
-      dialog = new JDialog();
-      dialog.setResizable(false);
-      dialog.setModal(true);
-      dialog.setBounds(100, 100, 420, 150);
-      dialog.setTitle("Nueva Materia");
-      dialog.getContentPane().setLayout(new BorderLayout());
-      dialog.getContentPane().add(createCenterPane(), NORTH);
-      dialog.getContentPane().add(createSouthPane(), SOUTH);
-    }
-
-    private JPanel createCenterPane() {
-      JPanel pane = new JPanel(new BorderLayout());
-      spinnerYear = new JSpinner(new SpinnerNumberModel(1, 1, 5, 1));
-      spinnerYear.setBorder(createTitledBorder("Año"));
-      pane.add(spinnerYear, NORTH);
-      fieldDescription = new JTextField();
-      fieldDescription.setBorder(createTitledBorder("Descripcion"));
-      JScrollPane scrollPane = new JScrollPane(fieldDescription);
-      scrollPane.setPreferredSize(new Dimension(5, 40));
-      pane.add(scrollPane, CENTER);
-      return pane;
-    }
-
-    private JPanel createSouthPane() {
-      JPanel pane = new JPanel();
-      okButton = new JButton(load(SAVE));
-      okButton.setText("Guardar");
-      okButton.addActionListener((ActionEvent e) -> {
-        subjectController.save();
-      });
-      pane.add(okButton);
-      cancelButton = new JButton(load(CANCEL));
-      cancelButton.setText("Cancelar");
-      cancelButton.addActionListener((ActionEvent e) -> {
-        subjectController.cancel();
-      });
-      pane.add(cancelButton);
-      return pane;
-    }
-
-    public String getDescription() {
-      return fieldDescription.getText();
-    }
-
-    public int getYear() {
-      return (int) spinnerYear.getValue();
-    }
-
-    public void message(String message) {
-      showMessageDialog(null, message);
-    }
-
-    public void show() {
-      dialog.setLocationRelativeTo(SubjectsViewSwing.this.dialog);
-      dialog.setVisible(true);
-    }
-
-    public void close() {
-      dialog.setVisible(false);
-      dialog.dispose();
-    }
-
-    public void clearDescription() {
-      fieldDescription.setText("");
-    }
-
-    public void resetYear() {
-      spinnerYear.setValue(valueOf("1"));
-    }
-
   }
 
 }

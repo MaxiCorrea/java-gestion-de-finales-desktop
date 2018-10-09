@@ -25,7 +25,7 @@ public class Subject extends Entity {
 
   @Override
   public String toString() {
-    return getId() + " " + getDescription();
+    return getId() + " " + getDescription() + " " + getYear();
   }
 
 }

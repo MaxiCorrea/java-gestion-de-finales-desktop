@@ -8,25 +8,12 @@ public interface SubjectView {
 
   void show();
 
-  void update(List<Subject> subjects);
+  void setSubjects(List<Subject> subjects);
 
-  YearCombo getSelectedYear();
+  int getSelectedRow();
 
+  Subject getSubjectInRow(int rowIndex);
+
+  YearCombo getYearSelected();
   
-  /// ----- 
-  
-  String getDescription();
-
-  int getYear();
-
-  void showDialog();
-
-  void closeDialog();
-
-  void clearDescription();
-
-  void resetYear();
-
-  void message(String message);
-
 }
