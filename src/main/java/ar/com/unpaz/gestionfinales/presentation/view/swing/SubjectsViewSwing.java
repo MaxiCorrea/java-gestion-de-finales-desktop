@@ -47,7 +47,7 @@ public class SubjectsViewSwing implements SubjectView {
     dialog = new JDialog();
     dialog.setResizable(false);
     dialog.setModal(true);
-    dialog.setSize(500, 300);
+    dialog.setSize(600, 300);
     dialog.setTitle("Materias");
     dialog.getContentPane().setLayout(new BorderLayout());
     dialog.getContentPane().add(createNorthPane(), NORTH);
@@ -90,16 +90,22 @@ public class SubjectsViewSwing implements SubjectView {
     pane.setBackground(Color.WHITE);
     buttonAdd = new JButton(load(ADD));
     buttonAdd.setText("Agregar");
+    buttonAdd.setBackground(WHITE);
+    buttonAdd.setFocusPainted(false);
     buttonAdd.addActionListener((ActionEvent e) -> {
       subjectController.addSubject();
     });
     buttonUpdate = new JButton(load(UPDATE));
     buttonUpdate.setText("Modificar");
+    buttonUpdate.setBackground(WHITE);
+    buttonUpdate.setFocusPainted(false);
     buttonUpdate.addActionListener((ActionEvent e) -> {
       subjectController.updateSubject();
     });
     buttonDelete = new JButton(load(DELETE));
     buttonDelete.setText("Borrar");
+    buttonDelete.setBackground(WHITE);
+    buttonDelete.setFocusPainted(false);
     buttonDelete.addActionListener((ActionEvent e) -> {
       subjectController.deleteSubject();
     });
@@ -117,7 +123,6 @@ public class SubjectsViewSwing implements SubjectView {
 
   @Override
   public void setSubjects(List<Subject> subjects) {
-    System.out.println(subjects);
     tableModel.setSubjects(subjects);
   }
 
