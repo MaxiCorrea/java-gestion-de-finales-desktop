@@ -18,7 +18,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import ar.com.unpaz.gestionfinales.presentation.view.AppPresentationContext;
+import ar.com.unpaz.gestionfinales.presentation.view.AppViewContext;
 
 public class AppViewSwing {
 
@@ -45,13 +45,13 @@ public class AppViewSwing {
     menuBar.add(menuItemAMB);
     menuItemSubjects = new JMenuItem("Materias");
     menuItemSubjects.addActionListener((ActionEvent e) -> {
-      AppPresentationContext.subjectView.show();
+      AppViewContext.subjectView.show();
     });
     menuItemSubjects.setAccelerator(getKeyStroke(VK_M, CTRL_MASK));
     menuItemAMB.add(menuItemSubjects);
     menuItemStudents = new JMenuItem("Alumnos");
     menuItemStudents.addActionListener((ActionEvent e) -> {
-      AppPresentationContext.studentView.show();
+      
     });
     menuItemStudents.setAccelerator(getKeyStroke(VK_A, CTRL_MASK));
     menuItemAMB.add(menuItemStudents);

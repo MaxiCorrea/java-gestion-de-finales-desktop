@@ -10,4 +10,8 @@ public interface SubjectController {
   
   void filterByYear();
   
+  void save();
+
+  void cancel();
+  
 }

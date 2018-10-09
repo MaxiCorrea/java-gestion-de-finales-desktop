@@ -12,4 +12,21 @@ public interface SubjectView {
 
   YearCombo getSelectedYear();
 
+  
+  /// ----- 
+  
+  String getDescription();
+
+  int getYear();
+
+  void showDialog();
+
+  void closeDialog();
+
+  void clearDescription();
+
+  void resetYear();
+
+  void message(String message);
+
 }
