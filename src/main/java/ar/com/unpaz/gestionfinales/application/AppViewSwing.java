@@ -34,7 +34,7 @@ public class AppViewSwing {
 
   public AppViewSwing() {
     frame = new JFrame();
-    frame.setBounds(100, 100, 800, 600);
+    frame.setSize(900, 600);
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     frame.setTitle("Sistema de Gestión de Finales");
     menuBar = new JMenuBar();

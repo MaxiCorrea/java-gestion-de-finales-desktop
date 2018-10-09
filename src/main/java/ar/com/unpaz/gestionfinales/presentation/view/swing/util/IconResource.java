@@ -16,7 +16,7 @@ public class IconResource {
 
   public static enum IconPathOf {
 
-    BACKGROUND("/images/background.jpg"),
+    BACKGROUND("/images/background.png"),
 
     ADD("/images/add.png"),
 

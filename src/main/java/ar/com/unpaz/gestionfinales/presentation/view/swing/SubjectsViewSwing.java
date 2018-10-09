@@ -8,9 +8,13 @@ import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResou
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
+import static java.awt.Color.BLACK;
+import static java.awt.Color.WHITE;
 import static java.awt.FlowLayout.LEFT;
 import static java.awt.event.ItemEvent.SELECTED;
+import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
@@ -29,6 +33,8 @@ import ar.com.unpaz.gestionfinales.presentation.view.swing.tables.SubjectTableMo
 
 public class SubjectsViewSwing implements SubjectView {
 
+  private static final Color HEADER_COLOR = new Color(0, 133, 198);
+  
   private JDialog dialog;
   private JTable tableSubjects;
   private JComboBox<YearCombo> comboxYear;
@@ -51,7 +57,9 @@ public class SubjectsViewSwing implements SubjectView {
 
   private JPanel createNorthPane() {
     JPanel pane = new JPanel(new FlowLayout(LEFT));
+    pane.setBackground(Color.WHITE);
     comboxYear = new JComboBox<>(YearCombo.values());
+    comboxYear.setBackground(WHITE);
     comboxYear.addItemListener((ItemEvent e) -> {
       if (e.getStateChange() == SELECTED) {
         subjectController.filterByYear();
@@ -64,15 +72,22 @@ public class SubjectsViewSwing implements SubjectView {
 
   private JScrollPane createCenterPane() {
     JScrollPane pane = new JScrollPane();
+    pane.getViewport().setBackground(WHITE);
     pane.setVerticalScrollBarPolicy(22);
     tableModel = new SubjectTableModel();
     tableSubjects = new JTable(tableModel);
+    tableSubjects.setSelectionMode(SINGLE_SELECTION);
+    tableSubjects.getTableHeader().setBackground(HEADER_COLOR);
+    tableSubjects.getTableHeader().setForeground(WHITE);
+    tableSubjects.setBackground(WHITE);
+    tableSubjects.setForeground(BLACK);
     pane.setViewportView(tableSubjects);
     return pane;
   }
 
   private JPanel createSouthPane() {
     JPanel pane = new JPanel();
+    pane.setBackground(Color.WHITE);
     buttonAdd = new JButton(load(ADD));
     buttonAdd.setText("Agregar");
     buttonAdd.addActionListener((ActionEvent e) -> {
