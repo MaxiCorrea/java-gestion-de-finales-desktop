@@ -24,7 +24,7 @@ import ar.com.unpaz.gestionfinales.presentation.controller.AppControllerContext;
 import ar.com.unpaz.gestionfinales.presentation.view.StudentView;
 import ar.com.unpaz.gestionfinales.presentation.view.swing.tables.StudentTableModel;
 
-public class StudentViewSwing implements StudentView {
+public class StudentsViewSwing implements StudentView {
 
   private static final int HEIGHT = 300;
   private static final int WIDTH = 600;
@@ -38,7 +38,7 @@ public class StudentViewSwing implements StudentView {
   private JButton buttonDelete;
   private StudentTableModel tableModel;
 
-  public StudentViewSwing() {
+  public StudentsViewSwing() {
     dialog = new JDialog();
     dialog.setModal(true);
     dialog.setTitle(TITLE);
