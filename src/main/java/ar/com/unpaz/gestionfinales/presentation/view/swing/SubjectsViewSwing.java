@@ -28,10 +28,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.model.YearCombo;
-import ar.com.unpaz.gestionfinales.presentation.view.SubjectView;
+import ar.com.unpaz.gestionfinales.presentation.view.SubjectsView;
 import ar.com.unpaz.gestionfinales.presentation.view.swing.tables.SubjectTableModel;
 
-public class SubjectsViewSwing implements SubjectView {
+public class SubjectsViewSwing implements SubjectsView {
 
   private static final int HEIGHT = 300;
   private static final int WIDTH = 600;

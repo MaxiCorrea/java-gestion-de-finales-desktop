@@ -21,10 +21,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.controller.AppControllerContext;
-import ar.com.unpaz.gestionfinales.presentation.view.StudentView;
+import ar.com.unpaz.gestionfinales.presentation.view.StudentsView;
 import ar.com.unpaz.gestionfinales.presentation.view.swing.tables.StudentTableModel;
 
-public class StudentsViewSwing implements StudentView {
+public class StudentsViewSwing implements StudentsView {
 
   private static final int HEIGHT = 300;
   private static final int WIDTH = 600;

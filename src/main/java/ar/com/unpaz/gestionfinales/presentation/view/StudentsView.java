@@ -3,7 +3,7 @@ package ar.com.unpaz.gestionfinales.presentation.view;
 import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Student;
 
-public interface StudentView {
+public interface StudentsView {
 
   int getSelectedRow();
 

@@ -4,7 +4,7 @@ import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.model.YearCombo;
 
-public interface SubjectView {
+public interface SubjectsView {
 
   void show();
 
