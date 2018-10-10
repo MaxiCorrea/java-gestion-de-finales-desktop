@@ -4,4 +4,6 @@ public class AppRepositoryContext {
 
   public static SubjectRepository subjectRepository;
   
+  public static StudentRepository studentRepository;
+  
 }

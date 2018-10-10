@@ -3,8 +3,13 @@ package ar.com.unpaz.gestionfinales.presentation.view;
 public class AppViewContext {
 
   public static SubjectView subjectView;
-  public static AddNewSubjectDialog addSubjectDialog;
+  public static AddSubjectDialog addSubjectDialog;
   public static DeleteSubjectDialog delSubjectDialog;
   public static UpdateSubjectDialog updSubjectDialog;
+  
+  public static StudentView studentView;
+  public static AddStudentDialog addStudentDialog;
+  public static UpdateStudentDialog updStudentDialog;
+  public static DeleteStudentDialog delStudentDialog;
   
 }

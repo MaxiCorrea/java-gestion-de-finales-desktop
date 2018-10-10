@@ -51,7 +51,7 @@ public class AppViewSwing {
     menuItemAMB.add(menuItemSubjects);
     menuItemStudents = new JMenuItem("Alumnos");
     menuItemStudents.addActionListener((ActionEvent e) -> {
-      
+      AppViewContext.studentView.show();
     });
     menuItemStudents.setAccelerator(getKeyStroke(VK_A, CTRL_MASK));
     menuItemAMB.add(menuItemStudents);

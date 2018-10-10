@@ -11,7 +11,7 @@ public enum SubjectColumn {
     }
   } ,
   
-  DESCRIPTION("Descripcion") {
+  DESCRIPTION("Descripción") {
     @Override
     public Object valueIn(Subject subject) {
       return subject.getDescription();

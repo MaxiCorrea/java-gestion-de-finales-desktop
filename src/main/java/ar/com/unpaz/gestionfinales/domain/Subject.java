@@ -1,9 +1,9 @@
 package ar.com.unpaz.gestionfinales.domain;
 
-import static java.lang.String.format;
-
 public class Subject extends Entity {
 
+  public static final Subject EMPTY = new Subject("", 1);
+  
   private final String description;
   private final int year;
 
@@ -23,11 +23,6 @@ public class Subject extends Entity {
 
   public int getYear() {
     return year;
-  }
-
-  @Override
-  public String toString() {
-    return format("%d %s %d", getId() , getDescription() , getYear());
   }
 
 }

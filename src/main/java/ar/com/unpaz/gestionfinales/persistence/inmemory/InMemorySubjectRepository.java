@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.persistence.SubjectRepository;
-import ar.com.unpaz.gestionfinales.persistence.SubjectSpecification;
 
-public class InMemorySubjectRepository implements SubjectRepository {
+public class InMemorySubjectRepository extends AbstractInMemoryRepository<Subject>
+    implements SubjectRepository {
 
   private static int id = 0;
 
@@ -19,30 +19,18 @@ public class InMemorySubjectRepository implements SubjectRepository {
   }
 
   @Override
-  public void addSubject(Subject subject) {
+  public void add(Subject subject) {
     subjects.put(id++, subject);
   }
 
   @Override
-  public void removeSubject(Subject subject) {
+  public void remove(Subject subject) {
     subjects.remove(subject.getId());
   }
 
   @Override
-  public void updateSubject(Subject subject) {
+  public void update(Subject subject) {
     subjects.put(subject.getId(), subject);
-  }
-
-  @Override
-  public List<Subject> query(SubjectSpecification spec) {
-    List<Subject> result = new ArrayList<>();
-    for (Integer key : subjects.keySet()) {
-      Subject subject = subjects.get(key);
-      if (spec.specified(subject)) {
-        result.add(subject);
-      }
-    }
-    return result;
   }
 
   @Override
@@ -53,19 +41,6 @@ public class InMemorySubjectRepository implements SubjectRepository {
       String des = subject.getDescription();
       int year = subject.getYear();
       result.add(new Subject(key, des, year));
-    }
-    return result;
-  }
-
-  @Override
-  public List<Subject> filterByYear(int year) {
-    List<Subject> result = new ArrayList<>();
-    for (Integer key : subjects.keySet()) {
-      Subject subject = subjects.get(key);
-      if (subject.getYear() == year) {
-        String des = subject.getDescription();
-        result.add(new Subject(key, des, year));
-      }
     }
     return result;
   }

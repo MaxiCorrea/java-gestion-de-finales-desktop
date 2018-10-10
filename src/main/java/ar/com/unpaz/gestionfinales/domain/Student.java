@@ -2,6 +2,8 @@ package ar.com.unpaz.gestionfinales.domain;
 
 public class Student extends Entity {
 
+  public final static Student EMPTY = new Student(0, "", "", "");
+
   private final String name;
   private final String surname;
   private final String email;

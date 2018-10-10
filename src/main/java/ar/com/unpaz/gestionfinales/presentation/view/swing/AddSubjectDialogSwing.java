@@ -19,9 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.controller.DialogController;
-import ar.com.unpaz.gestionfinales.presentation.view.AddNewSubjectDialog;
+import ar.com.unpaz.gestionfinales.presentation.view.AddSubjectDialog;
 
-public class AddNewSubjectDialogSwing implements AddNewSubjectDialog {
+public class AddSubjectDialogSwing implements AddSubjectDialog {
 
   private JDialog dialog;
   private JTextField fieldDescription;
@@ -29,14 +29,14 @@ public class AddNewSubjectDialogSwing implements AddNewSubjectDialog {
   private JButton acceptButton;
   private JButton cancelButton;
 
-  public AddNewSubjectDialogSwing() {
+  public AddSubjectDialogSwing() {
     dialog = new JDialog();
     dialog.setModal(true);
     dialog.setSize(420, 150);
     dialog.setResizable(false);
     dialog.setTitle("Nueva Materia");
     dialog.getContentPane().setLayout(new BorderLayout());
-    dialog.getContentPane().add(createCenterPane(), NORTH);
+    dialog.getContentPane().add(createCenterPane(), CENTER);
     dialog.getContentPane().add(createSouthPane(), SOUTH);
   }
 
@@ -93,12 +93,8 @@ public class AddNewSubjectDialogSwing implements AddNewSubjectDialog {
   }
 
   @Override
-  public void clearDescription() {
-    fieldDescription.setText("");
-  }
-
-  @Override
-  public void clearYear() {
-    spinnerYear.setValue(Integer.valueOf("1"));
+  public void setSubject(Subject subject) {
+    fieldDescription.setText(subject.getDescription());
+    spinnerYear.setValue(subject.getYear());
   }
 }
