@@ -35,7 +35,7 @@ public class UpdateSubjectDialogSwing implements UpdateSubjectDialog  {
     dialog.setModal(true);
     dialog.setSize(420, 150);
     dialog.setResizable(false);
-    dialog.setTitle("Nueva Materia");
+    dialog.setTitle("Actualizar Materia");
     dialog.getContentPane().setLayout(new BorderLayout());
     dialog.getContentPane().add(createCenterPane(), NORTH);
     dialog.getContentPane().add(createSouthPane(), SOUTH);

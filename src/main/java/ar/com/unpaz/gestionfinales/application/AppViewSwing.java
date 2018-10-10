@@ -3,11 +3,13 @@ package ar.com.unpaz.gestionfinales.application;
 import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.load;
 import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.BACKGROUND;
 import static java.awt.BorderLayout.CENTER;
+import static java.awt.Toolkit.getDefaultToolkit;
 import static java.awt.event.InputEvent.CTRL_MASK;
 import static java.awt.event.KeyEvent.VK_A;
 import static java.awt.event.KeyEvent.VK_F;
 import static java.awt.event.KeyEvent.VK_M;
 import static java.awt.event.KeyEvent.VK_S;
+import static java.lang.String.valueOf;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import static javax.swing.KeyStroke.getKeyStroke;
 import java.awt.Graphics;
@@ -19,6 +21,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import ar.com.unpaz.gestionfinales.presentation.view.AppViewContext;
+import ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource;
 
 public class AppViewSwing {
 
@@ -34,6 +37,8 @@ public class AppViewSwing {
 
   public AppViewSwing() {
     frame = new JFrame();
+    frame.setIconImage(getDefaultToolkit()
+        .getImage(getClass().getResource(valueOf(IconResource.IconPathOf.ICON))));
     frame.setSize(1_000, 600);
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     frame.setTitle("Sistema de Gestión de Finales");

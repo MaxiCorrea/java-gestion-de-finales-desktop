@@ -32,7 +32,7 @@ public class DeleteStudentDialogSwing implements DeleteStudentDialog {
     dialog.setModal(true);
     dialog.setSize(300, 280);
     dialog.setResizable(false);
-    dialog.setTitle("Nuevo Estudiante");
+    dialog.setTitle("Borrar Alumno");
     dialog.getContentPane().setLayout(new BorderLayout());
     dialog.getContentPane().add(createCenterPane(), CENTER);
     dialog.getContentPane().add(createSouthPane(), SOUTH);

@@ -32,7 +32,7 @@ public class AddStudentDialogSwing implements AddStudentDialog {
     dialog.setModal(true);
     dialog.setSize(300, 280);
     dialog.setResizable(false);
-    dialog.setTitle("Nuevo Estudiante");
+    dialog.setTitle("Nuevo Alumno");
     dialog.getContentPane().setLayout(new BorderLayout());
     dialog.getContentPane().add(createCenterPane(), CENTER);
     dialog.getContentPane().add(createSouthPane(), SOUTH);
