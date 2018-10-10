@@ -12,6 +12,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.domain.Year;
 import ar.com.unpaz.gestionfinales.presentation.controller.DialogController;
 import ar.com.unpaz.gestionfinales.presentation.view.DeleteSubjectDialog;
 
@@ -88,7 +89,7 @@ public class DeleteSubjectDialogSwing implements DeleteSubjectDialog {
     int id = Integer.valueOf(idLabel.getText());
     String description = descriptionLabel.getText();
     int year = Integer.valueOf(yearLabel.getText());
-    return new Subject(id, description, year);
+    return new Subject(id, description, Year.of(year));
   }
 
   @Override

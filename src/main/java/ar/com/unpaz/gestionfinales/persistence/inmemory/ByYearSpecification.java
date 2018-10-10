@@ -1,14 +1,15 @@
 package ar.com.unpaz.gestionfinales.persistence.inmemory;
 
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.domain.Year;
 import ar.com.unpaz.gestionfinales.persistence.Specification;
 
 public class ByYearSpecification implements Specification<Subject> {
 
-  private final int year;
+  private final Year year;
 
   public ByYearSpecification(int year) {
-    this.year = year;
+    this.year = Year.values()[year - 1];
   }
 
   @Override

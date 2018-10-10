@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.domain.Year;
 import ar.com.unpaz.gestionfinales.persistence.SubjectRepository;
 
 public class InMemorySubjectRepository extends AbstractInMemoryRepository<Subject>
@@ -39,7 +40,7 @@ public class InMemorySubjectRepository extends AbstractInMemoryRepository<Subjec
     for (Integer key : subjects.keySet()) {
       Subject subject = subjects.get(key);
       String des = subject.getDescription();
-      int year = subject.getYear();
+      Year year = subject.getYear();
       result.add(new Subject(key, des, year));
     }
     return result;

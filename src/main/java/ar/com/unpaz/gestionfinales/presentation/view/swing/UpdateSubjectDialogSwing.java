@@ -18,10 +18,11 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.domain.Year;
 import ar.com.unpaz.gestionfinales.presentation.controller.DialogController;
 import ar.com.unpaz.gestionfinales.presentation.view.UpdateSubjectDialog;
 
-public class UpdateSubjectDialogSwing implements UpdateSubjectDialog  {
+public class UpdateSubjectDialogSwing implements UpdateSubjectDialog {
 
   private JDialog dialog;
   private JTextField fieldDescription;
@@ -29,7 +30,7 @@ public class UpdateSubjectDialogSwing implements UpdateSubjectDialog  {
   private JButton okButton;
   private JButton cancelButton;
   private int id;
-  
+
   public UpdateSubjectDialogSwing() {
     dialog = new JDialog();
     dialog.setModal(true);
@@ -66,13 +67,6 @@ public class UpdateSubjectDialogSwing implements UpdateSubjectDialog  {
   }
 
   @Override
-  public void setSubject(Subject selected) {
-    this.id = selected.getId();
-    fieldDescription.setText(selected.getDescription());
-    spinnerYear.setValue(selected.getYear());
-  }
-
-  @Override
   public void setController(DialogController controller) {
     okButton.addActionListener((ActionEvent e) -> {
       controller.accept();
@@ -92,7 +86,14 @@ public class UpdateSubjectDialogSwing implements UpdateSubjectDialog  {
   public Subject getSubject() {
     String description = fieldDescription.getText();
     int year = (int) spinnerYear.getValue();
-    return new Subject(id, description, year);
+    return new Subject(id, description, Year.of(year));
+  }
+
+  @Override
+  public void setSubject(Subject selected) {
+    this.id = selected.getId();
+    fieldDescription.setText(selected.getDescription());
+    spinnerYear.setValue(selected.getYear().number);
   }
 
   @Override

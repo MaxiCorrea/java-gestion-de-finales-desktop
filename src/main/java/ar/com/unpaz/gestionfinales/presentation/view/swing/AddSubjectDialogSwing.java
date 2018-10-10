@@ -18,6 +18,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.domain.Year;
 import ar.com.unpaz.gestionfinales.presentation.controller.DialogController;
 import ar.com.unpaz.gestionfinales.presentation.view.AddSubjectDialog;
 
@@ -89,12 +90,12 @@ public class AddSubjectDialogSwing implements AddSubjectDialog {
   public Subject getSubject() {
     String description = fieldDescription.getText();
     int year = (int) spinnerYear.getValue();
-    return new Subject(description, year);
+    return new Subject(description, Year.of(year));
   }
 
   @Override
   public void setSubject(Subject subject) {
     fieldDescription.setText(subject.getDescription());
-    spinnerYear.setValue(subject.getYear());
+    spinnerYear.setValue(subject.getYear().number);
   }
 }
