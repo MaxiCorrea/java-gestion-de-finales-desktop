@@ -9,7 +9,7 @@ public class ByYearSpecification implements Specification<Subject> {
   private final Year year;
 
   public ByYearSpecification(int year) {
-    this.year = Year.values()[year - 1];
+    this.year = Year.of(year);
   }
 
   @Override
