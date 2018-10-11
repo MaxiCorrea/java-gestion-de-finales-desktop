@@ -6,6 +6,15 @@ import ar.com.unpaz.gestionfinales.presentation.view.AddFinalDialog;
 
 public class AddFinalDialogSwing implements AddFinalDialog {
 
+  //private JDialog dialog;
+  //private JButton selectSubjectButton;
+  //private JTextField selectedSubjectField;
+  //private JButton selectStudentButton;
+  //private JTextField selectedStudentField;
+  //private JComboBox<Note> comboNote;
+  //private JButton acceptButton;
+  //private JButton cancelButton;
+  
   @Override
   public void setFinal(Final finalObj) {
     

@@ -50,17 +50,20 @@ public class AppViewSwing {
     menuBar.add(menuItemAMB);
     menuItemSubjects = new JMenuItem("Materias");
     menuItemSubjects.addActionListener((ActionEvent e) -> {
-      AppViewContext.subjectView.show();
+      AppViewContext.subjectView.show(); // llevar a un controllador esto
     });
     menuItemSubjects.setAccelerator(getKeyStroke(VK_M, CTRL_MASK));
     menuItemAMB.add(menuItemSubjects);
     menuItemStudents = new JMenuItem("Alumnos");
     menuItemStudents.addActionListener((ActionEvent e) -> {
-      AppViewContext.studentView.show();
+      AppViewContext.studentView.show(); // llevar a un controllador esto
     });
     menuItemStudents.setAccelerator(getKeyStroke(VK_A, CTRL_MASK));
     menuItemAMB.add(menuItemStudents);
     menuItemFinals = new JMenuItem("Finales");
+    menuItemFinals.addActionListener((ActionEvent e) ->{
+      AppViewContext.finalsView.show(); // llevar a un controllador esto
+    });
     menuItemFinals.setAccelerator(getKeyStroke(VK_F, CTRL_MASK));
     menuItemAMB.add(menuItemFinals);
     menuItemSystem = new JMenu("Sistema");
