@@ -6,4 +6,6 @@ public class AppRepositoryContext {
   
   public static StudentRepository studentRepository;
   
+  public static FinalRepository finalRepository;
+  
 }

@@ -12,4 +12,9 @@ public class AppViewContext {
   public static UpdateStudentDialog updStudentDialog;
   public static DeleteStudentDialog delStudentDialog;
   
+  public static FinalsView finalsView;
+  public static AddFinalDialog addFinalDialog;
+  public static UpdateFinalDialog updFinalDialog;
+  public static DeleteFinalDialog delFinalDialog;
+  
 }
