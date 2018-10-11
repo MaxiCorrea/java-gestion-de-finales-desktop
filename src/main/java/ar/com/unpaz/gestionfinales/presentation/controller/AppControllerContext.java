@@ -6,6 +6,8 @@ public class AppControllerContext {
 
   public static StudentController studentController;
   
+  public static FinalController finalController;
+  
   public static DialogController dialogController;
   
 }
