@@ -1,7 +1,7 @@
 package ar.com.unpaz.gestionfinales.presentation.view;
 
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.presentation.controller.DialogController;
+import ar.com.unpaz.gestionfinales.presentation.controller.FinalDialogController;
 
 public interface UpdateFinalDialog {
 
@@ -9,7 +9,7 @@ public interface UpdateFinalDialog {
 
   Final getFinal();
 
-  void setController(DialogController controller);
+  void setController(FinalDialogController controller);
 
   void show();
 

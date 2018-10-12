@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Final extends Entity {
 
   public static final Final EMPTY =
-      new Final(0, Subject.EMPTY, Student.EMPTY, LocalDate.now(), Note.ONE);
+      new Final(0, Subject.EMPTY, Student.EMPTY, LocalDate.now(), Note.NONE);
 
   private final Subject subject;
   private final Student student;

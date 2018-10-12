@@ -14,6 +14,8 @@ public class AppViewContext {
   
   public static FinalsView finalsView;
   public static AddFinalDialog addFinalDialog;
+  public static SelectSubjectDialog selectSubjectDialog;
+  public static SelectStudentDialog selectStudentDialog;
   public static UpdateFinalDialog updFinalDialog;
   public static DeleteFinalDialog delFinalDialog;
   

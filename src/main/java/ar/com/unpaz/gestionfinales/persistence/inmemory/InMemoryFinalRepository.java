@@ -12,11 +12,11 @@ public class InMemoryFinalRepository extends AbstractInMemoryRepository<Final>
 
   private static int ids;
   private Map<Integer, Final> finals;
-  
+
   public InMemoryFinalRepository() {
     finals = new HashMap<>();
   }
-  
+
   @Override
   public void add(Final entity) {
     finals.put(ids++, entity);
@@ -35,8 +35,10 @@ public class InMemoryFinalRepository extends AbstractInMemoryRepository<Final>
   @Override
   public List<Final> getAll() {
     List<Final> result = new ArrayList<>();
-    for(Integer key : finals.keySet()) {
-      result.add(finals.get(key));
+    for (Integer key : finals.keySet()) {
+      Final f = finals.get(key);
+      result.add(new Final(key, f.getSubject(), 
+          f.getStudent(), f.getDate(), f.getNote()));
     }
     return result;
   }

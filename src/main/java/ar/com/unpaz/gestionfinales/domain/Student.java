@@ -23,6 +23,10 @@ public class Student extends Entity {
     return surname;
   }
 
+  public String getFullName() {
+    return String.format("%s %s", getName() , getSurname());
+  }
+  
   public String getEmail() {
     return email;
   }

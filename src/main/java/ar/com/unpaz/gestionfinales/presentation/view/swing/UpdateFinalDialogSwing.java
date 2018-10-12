@@ -1,7 +1,7 @@
 package ar.com.unpaz.gestionfinales.presentation.view.swing;
 
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.presentation.controller.DialogController;
+import ar.com.unpaz.gestionfinales.presentation.controller.FinalDialogController;
 import ar.com.unpaz.gestionfinales.presentation.view.UpdateFinalDialog;
 
 public class UpdateFinalDialogSwing implements UpdateFinalDialog {
@@ -17,7 +17,7 @@ public class UpdateFinalDialogSwing implements UpdateFinalDialog {
   }
 
   @Override
-  public void setController(DialogController controller) {
+  public void setController(FinalDialogController controller) {
     
   }
 

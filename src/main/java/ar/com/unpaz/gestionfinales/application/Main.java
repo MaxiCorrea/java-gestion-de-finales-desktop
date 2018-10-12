@@ -16,6 +16,8 @@ import ar.com.unpaz.gestionfinales.presentation.view.swing.DeleteFinalDialogSwin
 import ar.com.unpaz.gestionfinales.presentation.view.swing.DeleteStudentDialogSwing;
 import ar.com.unpaz.gestionfinales.presentation.view.swing.DeleteSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.presentation.view.swing.FinalsViewSwing;
+import ar.com.unpaz.gestionfinales.presentation.view.swing.SelectStudentDialogSwing;
+import ar.com.unpaz.gestionfinales.presentation.view.swing.SelectSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.presentation.view.swing.StudentsViewSwing;
 import ar.com.unpaz.gestionfinales.presentation.view.swing.SubjectsViewSwing;
 import ar.com.unpaz.gestionfinales.presentation.view.swing.UpdateFinalDialogSwing;
@@ -44,6 +46,8 @@ public class Main {
     AppViewContext.addFinalDialog = new AddFinalDialogSwing();
     AppViewContext.updFinalDialog = new UpdateFinalDialogSwing();
     AppViewContext.delFinalDialog = new DeleteFinalDialogSwing();
+    AppViewContext.selectStudentDialog = new SelectStudentDialogSwing();
+    AppViewContext.selectSubjectDialog = new SelectSubjectDialogSwing();
     
     AppControllerContext.subjectController = new SubjecControllerImpl();
     AppControllerContext.studentController = new StudentControllerImpl();
