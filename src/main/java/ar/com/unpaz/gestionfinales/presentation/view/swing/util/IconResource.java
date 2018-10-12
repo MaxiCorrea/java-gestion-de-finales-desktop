@@ -18,17 +18,7 @@ public class IconResource {
 
     ICON("/images/icon.png"),
     
-    BACKGROUND("/images/background.png"),
-
-    ADD("/images/add.png"),
-
-    UPDATE("/images/update.png"),
-
-    DELETE("/images/delete.png"),
-
-    SAVE("/images/save.png") ,
-    
-    CANCEL("/images/cancel.png");
+    BACKGROUND("/images/background.png");
     
     private String path;
 
