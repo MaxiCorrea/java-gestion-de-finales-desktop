@@ -2,7 +2,7 @@ package ar.com.unpaz.gestionfinales.domain;
 
 public class Subject extends Entity {
 
-  public static final Subject EMPTY = new Subject("", Year.FIRST);
+  public static final Subject EMPTY = new Subject("", Year.NONE);
 
   private final String description;
   private final Year year;

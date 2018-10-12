@@ -11,29 +11,29 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import javax.swing.SpinnerNumberModel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
 import ar.com.unpaz.gestionfinales.presentation.controller.DialogController;
+import ar.com.unpaz.gestionfinales.presentation.model.YearCombo;
 import ar.com.unpaz.gestionfinales.presentation.view.AddSubjectDialog;
 
 public class AddSubjectDialogSwing implements AddSubjectDialog {
 
   private JDialog dialog;
   private JTextField fieldDescription;
-  private JSpinner spinnerYear;
+  private JComboBox<YearCombo> comboYear;
   private JButton acceptButton;
   private JButton cancelButton;
 
   public AddSubjectDialogSwing() {
     dialog = new JDialog();
     dialog.setModal(true);
-    dialog.setSize(420, 150);
+    dialog.setSize(420, 160);
     dialog.setResizable(false);
     dialog.setTitle("Nueva Materia");
     dialog.getContentPane().setLayout(new BorderLayout());
@@ -43,9 +43,9 @@ public class AddSubjectDialogSwing implements AddSubjectDialog {
 
   private JPanel createCenterPane() {
     JPanel pane = new JPanel(new BorderLayout());
-    spinnerYear = new JSpinner(new SpinnerNumberModel(1, 1, 5, 1));
-    spinnerYear.setBorder(createTitledBorder("Año"));
-    pane.add(spinnerYear, NORTH);
+    comboYear = new JComboBox<>(YearCombo.values());
+    comboYear.setBorder(createTitledBorder("Año"));
+    pane.add(comboYear, NORTH);
     fieldDescription = new JTextField();
     fieldDescription.setBorder(createTitledBorder("Descripcion"));
     JScrollPane scrollPane = new JScrollPane(fieldDescription);
@@ -89,13 +89,13 @@ public class AddSubjectDialogSwing implements AddSubjectDialog {
   @Override
   public Subject getSubject() {
     String description = fieldDescription.getText();
-    int year = (int) spinnerYear.getValue();
-    return new Subject(description, Year.of(year));
+    int index = comboYear.getSelectedIndex();
+    return new Subject(description,Year.of(index));
   }
 
   @Override
   public void setSubject(Subject subject) {
     fieldDescription.setText(subject.getDescription());
-    spinnerYear.setValue(subject.getYear().number);
+    comboYear.setSelectedItem(subject.getYear());
   }
 }
