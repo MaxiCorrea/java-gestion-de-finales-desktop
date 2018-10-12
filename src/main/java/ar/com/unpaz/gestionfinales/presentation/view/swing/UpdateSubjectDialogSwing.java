@@ -1,8 +1,7 @@
 package ar.com.unpaz.gestionfinales.presentation.view.swing;
 
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.load;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.CANCEL;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.SAVE;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.ColorConstants.BUTTON_BACKGROUND_COLOR;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.ColorConstants.BUTTON_FOREGROUND_COLOR;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
@@ -27,7 +26,7 @@ public class UpdateSubjectDialogSwing implements UpdateSubjectDialog {
   private JDialog dialog;
   private JTextField fieldDescription;
   private JComboBox<YearCombo> comboYear;
-  private JButton okButton;
+  private JButton acceptButton;
   private JButton cancelButton;
   private int id;
 
@@ -57,18 +56,25 @@ public class UpdateSubjectDialogSwing implements UpdateSubjectDialog {
 
   private JPanel createSouthPane() {
     JPanel pane = new JPanel();
-    okButton = new JButton(load(SAVE));
-    okButton.setText("Guardar");
-    pane.add(okButton);
-    cancelButton = new JButton(load(CANCEL));
-    cancelButton.setText("Cancelar");
+    acceptButton = createButton("Guardar");
+    pane.add(acceptButton);
+    cancelButton = createButton("Cancelar");
     pane.add(cancelButton);
     return pane;
   }
 
+  private JButton createButton(String text) {
+    JButton button = new JButton(text);
+    button.setBackground(BUTTON_BACKGROUND_COLOR);
+    button.setForeground(BUTTON_FOREGROUND_COLOR);
+    button.setPreferredSize(new Dimension(105, 25));
+    button.setFocusPainted(false);
+    return button;
+  }
+  
   @Override
   public void setController(DialogController controller) {
-    okButton.addActionListener((ActionEvent e) -> {
+    acceptButton.addActionListener((ActionEvent e) -> {
       controller.accept();
     });
     cancelButton.addActionListener((ActionEvent e) -> {

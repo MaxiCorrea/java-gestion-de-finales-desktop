@@ -1,9 +1,7 @@
 package ar.com.unpaz.gestionfinales.presentation.view.swing;
 
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.load;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.ADD;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.DELETE;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.UPDATE;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.ColorConstants.BUTTON_BACKGROUND_COLOR;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.ColorConstants.BUTTON_FOREGROUND_COLOR;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
@@ -12,6 +10,7 @@ import static java.awt.Color.WHITE;
 import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.JButton;
@@ -33,9 +32,6 @@ public class StudentsViewSwing implements StudentsView {
 
   private JDialog dialog;
   private JTable tableStudents;
-  private JButton buttonAdd;
-  private JButton buttonUpdate;
-  private JButton buttonDelete;
   private StudentTableModel tableModel;
 
   public StudentsViewSwing() {
@@ -74,24 +70,15 @@ public class StudentsViewSwing implements StudentsView {
   private JPanel createSouthPane() {
     JPanel pane = new JPanel();
     pane.setBackground(Color.WHITE);
-    buttonAdd = new JButton(load(ADD));
-    buttonAdd.setText("Agregar");
-    buttonAdd.setBackground(WHITE);
-    buttonAdd.setFocusPainted(false);
+    JButton buttonAdd = createButton("Agregar");
     buttonAdd.addActionListener((ActionEvent e) -> {
       AppControllerContext.studentController.addStudent();
     });
-    buttonUpdate = new JButton(load(UPDATE));
-    buttonUpdate.setText("Modificar");
-    buttonUpdate.setBackground(WHITE);
-    buttonUpdate.setFocusPainted(false);
+    JButton buttonUpdate = createButton("Modificar");
     buttonUpdate.addActionListener((ActionEvent e) -> {
       AppControllerContext.studentController.updateStudent();
     });
-    buttonDelete = new JButton(load(DELETE));
-    buttonDelete.setText("Borrar");
-    buttonDelete.setBackground(WHITE);
-    buttonDelete.setFocusPainted(false);
+    JButton buttonDelete = createButton("Borrar");
     buttonDelete.addActionListener((ActionEvent e) -> {
       AppControllerContext.studentController.deleteStudent();
     });
@@ -101,6 +88,15 @@ public class StudentsViewSwing implements StudentsView {
     return pane;
   }
 
+  private JButton createButton(String text) {
+    JButton button = new JButton(text);
+    button.setBackground(BUTTON_BACKGROUND_COLOR);
+    button.setForeground(BUTTON_FOREGROUND_COLOR);
+    button.setPreferredSize(new Dimension(105, 25));
+    button.setFocusPainted(false);
+    return button;
+  }
+  
   @Override
   public int getSelectedRow() {
     return tableStudents.getSelectedRow();

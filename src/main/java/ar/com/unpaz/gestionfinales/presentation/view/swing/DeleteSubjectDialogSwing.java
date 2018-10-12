@@ -1,11 +1,11 @@
 package ar.com.unpaz.gestionfinales.presentation.view.swing;
 
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.load;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.CANCEL;
-import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf.SAVE;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.ColorConstants.BUTTON_BACKGROUND_COLOR;
+import static ar.com.unpaz.gestionfinales.presentation.view.swing.util.ColorConstants.BUTTON_FOREGROUND_COLOR;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -52,15 +52,22 @@ public class DeleteSubjectDialogSwing implements DeleteSubjectDialog {
 
   private JPanel createSouthPane() {
     JPanel pane = new JPanel();
-    acceptButton = new JButton(load(SAVE));
-    acceptButton.setText("Guardar");
+    acceptButton = createButton("Guardar");
     pane.add(acceptButton);
-    cancelButton = new JButton(load(CANCEL));
-    cancelButton.setText("Cancelar");
+    cancelButton = createButton("Cancelar");
     pane.add(cancelButton);
     return pane;
   }
 
+  private JButton createButton(String text) {
+    JButton button = new JButton(text);
+    button.setBackground(BUTTON_BACKGROUND_COLOR);
+    button.setForeground(BUTTON_FOREGROUND_COLOR);
+    button.setPreferredSize(new Dimension(105, 25));
+    button.setFocusPainted(false);
+    return button;
+  }
+  
   @Override
   public void setSubject(Subject selected) {
     idLabel.setText(String.valueOf(selected.getId()));
