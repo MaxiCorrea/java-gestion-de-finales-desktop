@@ -46,7 +46,7 @@ public class FinalViewSwing implements FinalsView {
 
   private JPanel createNorthPane() {
     JPanel pane = new JPanel();
-    pane.setBackground(Color.blue);
+    pane.setBackground(Color.WHITE);
     return pane;
   }
 

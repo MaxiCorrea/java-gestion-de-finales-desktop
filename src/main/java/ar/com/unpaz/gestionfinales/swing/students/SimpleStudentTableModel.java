@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.usecase.students;
+package ar.com.unpaz.gestionfinales.swing.students;
 
 import java.util.ArrayList;
 import java.util.List;

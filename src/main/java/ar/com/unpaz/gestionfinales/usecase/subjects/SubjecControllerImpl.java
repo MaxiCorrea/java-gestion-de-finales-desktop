@@ -4,25 +4,14 @@ import ar.com.unpaz.gestionfinales.application.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.application.AppViewContext;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.inmemory.ByYearSpecification;
-import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
 public class SubjecControllerImpl implements SubjectController {
 
   public SubjecControllerImpl() {
-    AppViewContext.addSubjectDialog.setController(new AddSubjectDialogController());
-    AppViewContext.updSubjectDialog.setController(new UpdSubjectDialogController());
-    AppViewContext.delSubjectDialog.setController(new DelSubjectDialogController());
+    AppViewContext.addSubjectDialog.setController(new AddSubjectUseCase());
+    AppViewContext.updSubjectDialog.setController(new UpdateSubjectUseCase());
+    AppViewContext.delSubjectDialog.setController(new DeleteSubjectUseCase());
   }
-
-  public SubjecControllerImpl(DialogController addNewSubjectDialogController,
-                              DialogController updSubjectDialogController, 
-                              DialogController delSubjectDialogController) {
-
-    AppViewContext.addSubjectDialog.setController(addNewSubjectDialogController);
-    AppViewContext.updSubjectDialog.setController(updSubjectDialogController);
-    AppViewContext.delSubjectDialog.setController(delSubjectDialogController);
-  }
-
 
   @Override
   public void addSubject() {
@@ -57,57 +46,5 @@ public class SubjecControllerImpl implements SubjectController {
         .setSubjects((year == 0) ? AppRepositoryContext.subjectRepository.getAll()
             : AppRepositoryContext.subjectRepository.query(new ByYearSpecification(year)));
   }
-
-  public class AddSubjectDialogController implements DialogController {
-
-    @Override
-    public void accept() {
-      Subject subject = AppViewContext.addSubjectDialog.getSubject();
-      AppRepositoryContext.subjectRepository.add(subject);
-      AppViewContext.subjectsView.setSubjects(AppRepositoryContext.subjectRepository.getAll());
-      AppViewContext.addSubjectDialog.close();
-    }
-
-    @Override
-    public void cancel() {
-      AppViewContext.addSubjectDialog.close();
-    }
-    
-  }
-  
-  public class DelSubjectDialogController implements DialogController {
-
-    @Override
-    public void accept() {
-      Subject subject = AppViewContext.delSubjectDialog.getSubject();
-      AppRepositoryContext.subjectRepository.remove(subject);
-      AppViewContext.subjectsView.setSubjects(AppRepositoryContext.subjectRepository.getAll());
-      AppViewContext.delSubjectDialog.close();
-    }
-
-    @Override
-    public void cancel() {
-      AppViewContext.delSubjectDialog.close();
-    }
-    
-  }
-
-  public class UpdSubjectDialogController implements DialogController {
-
-    @Override
-    public void accept() {
-      Subject subject = AppViewContext.updSubjectDialog.getSubject();
-      AppRepositoryContext.subjectRepository.update(subject);
-      AppViewContext.subjectsView.setSubjects(AppRepositoryContext.subjectRepository.getAll());
-      AppViewContext.updSubjectDialog.close();
-    }
-
-    @Override
-    public void cancel() {
-      AppViewContext.updSubjectDialog.close();
-    }
-    
-  }
-
   
 }

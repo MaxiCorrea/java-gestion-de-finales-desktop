@@ -38,7 +38,7 @@ public class AppViewSwing implements AppView {
     frame = new JFrame();
     frame.setIconImage(getDefaultToolkit()
         .getImage(getClass().getResource(valueOf(IconResource.IconPathOf.ICON))));
-    frame.setSize(1_000, 600);
+    frame.setSize(900, 550);
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     frame.setTitle("Sistema de Gestión de Finales");
     menuBar = new JMenuBar();

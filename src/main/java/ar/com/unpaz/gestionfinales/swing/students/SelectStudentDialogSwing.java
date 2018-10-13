@@ -18,7 +18,6 @@ import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.students.SelectStudentDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
-import ar.com.unpaz.gestionfinales.usecase.students.SimpleStudentTableModel;
 
 public class SelectStudentDialogSwing implements SelectStudentDialog {
 
