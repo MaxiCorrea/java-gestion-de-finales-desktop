@@ -17,7 +17,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.subjects.SelectSubjectDialog;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SimpleSubjectTableModel;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
 public class SelectSubjectDialogSwing implements SelectSubjectDialog {
@@ -26,7 +25,7 @@ public class SelectSubjectDialogSwing implements SelectSubjectDialog {
 
   private JDialog dialog;
   private JTable tableSubjects;
-  private SimpleSubjectTableModel tableModel;
+  private SimpleSubjectTableModelSwing tableModel;
   private JButton acceptButton;
   private JButton cancelButton;
 
@@ -44,7 +43,7 @@ public class SelectSubjectDialogSwing implements SelectSubjectDialog {
     JScrollPane pane = new JScrollPane();
     pane.getViewport().setBackground(WHITE);
     pane.setVerticalScrollBarPolicy(22);
-    tableModel = new SimpleSubjectTableModel();
+    tableModel = new SimpleSubjectTableModelSwing();
     tableSubjects = new JTable(tableModel);
     tableSubjects.setSelectionMode(SINGLE_SELECTION);
     tableSubjects.getTableHeader().setBackground(HEADER_COLOR);

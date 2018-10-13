@@ -38,7 +38,7 @@ public class SubjectsViewSwing implements SubjectsView {
   private JDialog dialog;
   private JTable tableSubjects;
   private JComboBox<YearCombo> comboxYear;
-  private SubjectTableModel tableModel;
+  private SubjectTableModelSwing tableModel;
 
   public SubjectsViewSwing() {
     dialog = new JDialog();
@@ -71,7 +71,7 @@ public class SubjectsViewSwing implements SubjectsView {
     JScrollPane pane = new JScrollPane();
     pane.getViewport().setBackground(WHITE);
     pane.setVerticalScrollBarPolicy(22);
-    tableModel = new SubjectTableModel();
+    tableModel = new SubjectTableModelSwing();
     tableSubjects = new JTable(tableModel);
     tableSubjects.setSelectionMode(SINGLE_SELECTION);
     tableSubjects.getTableHeader().setBackground(HEADER_COLOR);

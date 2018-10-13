@@ -19,7 +19,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.application.AppControllerContext;
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.presentation.finals.FinalTableModel;
 import ar.com.unpaz.gestionfinales.presentation.finals.FinalsView;
 
 public class FinalViewSwing implements FinalsView {
@@ -31,7 +30,7 @@ public class FinalViewSwing implements FinalsView {
 
   private JDialog dialog;
   private JTable tableFinals;
-  private FinalTableModel tableModel;
+  private FinalTableModelSwing tableModel;
 
   public FinalViewSwing() {
     dialog = new JDialog();
@@ -55,7 +54,7 @@ public class FinalViewSwing implements FinalsView {
     JScrollPane pane = new JScrollPane();
     pane.getViewport().setBackground(WHITE);
     pane.setVerticalScrollBarPolicy(22);
-    tableModel = new FinalTableModel();
+    tableModel = new FinalTableModelSwing();
     tableFinals = new JTable(tableModel);
     tableFinals.setSelectionMode(SINGLE_SELECTION);
     tableFinals.getTableHeader().setBackground(HEADER_COLOR);

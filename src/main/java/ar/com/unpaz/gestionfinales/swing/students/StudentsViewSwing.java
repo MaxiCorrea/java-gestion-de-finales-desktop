@@ -19,7 +19,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.application.AppControllerContext;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.students.StudentTableModel;
 import ar.com.unpaz.gestionfinales.presentation.students.StudentsView;
 
 public class StudentsViewSwing implements StudentsView {
@@ -31,7 +30,7 @@ public class StudentsViewSwing implements StudentsView {
 
   private JDialog dialog;
   private JTable tableStudents;
-  private StudentTableModel tableModel;
+  private StudentTableModelSwing tableModel;
 
   public StudentsViewSwing() {
     dialog = new JDialog();
@@ -55,7 +54,7 @@ public class StudentsViewSwing implements StudentsView {
     JScrollPane pane = new JScrollPane();
     pane.getViewport().setBackground(WHITE);
     pane.setVerticalScrollBarPolicy(22);
-    tableModel = new StudentTableModel();
+    tableModel = new StudentTableModelSwing();
     tableStudents = new JTable(tableModel);
     tableStudents.setSelectionMode(SINGLE_SELECTION);
     tableStudents.getTableHeader().setBackground(HEADER_COLOR);

@@ -1,11 +1,12 @@
-package ar.com.unpaz.gestionfinales.presentation.finals;
+package ar.com.unpaz.gestionfinales.swing.finals;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import ar.com.unpaz.gestionfinales.domain.Final;
+import ar.com.unpaz.gestionfinales.presentation.finals.FinalColumn;
 
-public class FinalTableModel extends AbstractTableModel {
+public class FinalTableModelSwing extends AbstractTableModel {
 
   private static final long serialVersionUID = 1L;
 

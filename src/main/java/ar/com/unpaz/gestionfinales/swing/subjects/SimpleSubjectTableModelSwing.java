@@ -4,17 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectColumn;
+import ar.com.unpaz.gestionfinales.presentation.subjects.SimpleSubjectColumn;
 
-public class SubjectTableModel extends AbstractTableModel {
+public class SimpleSubjectTableModelSwing extends AbstractTableModel {
 
   private static final long serialVersionUID = 1L;
   private List<Subject> snapshots = new ArrayList<>();
-
-  @Override
-  public int getColumnCount() {
-    return SubjectColumn.values().length;
-  }
 
   @Override
   public int getRowCount() {
@@ -23,12 +18,17 @@ public class SubjectTableModel extends AbstractTableModel {
 
   @Override
   public String getColumnName(int column) {
-    return SubjectColumn.at(column).name;
+    return SimpleSubjectColumn.at(column).name;
+  }
+
+  @Override
+  public int getColumnCount() {
+    return SimpleSubjectColumn.values().length;
   }
 
   @Override
   public Object getValueAt(int rowIndex, int columnIndex) {
-    return SubjectColumn.at(columnIndex).valueIn(snapshots.get(rowIndex));
+    return SimpleSubjectColumn.at(columnIndex).valueIn(snapshots.get(rowIndex));
   }
 
   public void setSubjects(List<Subject> subject) {
