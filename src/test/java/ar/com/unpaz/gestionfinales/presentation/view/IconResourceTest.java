@@ -2,8 +2,8 @@ package ar.com.unpaz.gestionfinales.presentation.view;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource;
-import ar.com.unpaz.gestionfinales.presentation.view.swing.util.IconResource.IconPathOf;
+import ar.com.unpaz.gestionfinales.swing.IconResource;
+import ar.com.unpaz.gestionfinales.swing.IconResource.IconPathOf;
 
 public class IconResourceTest {
 
