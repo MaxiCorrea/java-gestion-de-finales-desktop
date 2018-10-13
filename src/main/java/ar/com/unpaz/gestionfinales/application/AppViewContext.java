@@ -12,6 +12,7 @@ import ar.com.unpaz.gestionfinales.presentation.students.StudentsView;
 import ar.com.unpaz.gestionfinales.presentation.students.UpdateStudentDialog;
 import ar.com.unpaz.gestionfinales.presentation.subjects.AddSubjectDialog;
 import ar.com.unpaz.gestionfinales.presentation.subjects.DeleteSubjectDialog;
+import ar.com.unpaz.gestionfinales.presentation.subjects.ReportSubjectDialog;
 import ar.com.unpaz.gestionfinales.presentation.subjects.SelectSubjectDialog;
 import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectsView;
 import ar.com.unpaz.gestionfinales.presentation.subjects.UpdateSubjectDialog;
@@ -24,6 +25,7 @@ public class AppViewContext {
   public static AddSubjectDialog addSubjectDialog;
   public static DeleteSubjectDialog delSubjectDialog;
   public static UpdateSubjectDialog updSubjectDialog;
+  public static ReportSubjectDialog reportSubjectDialog;
   
   public static StudentsView studentsView;
   public static AddStudentDialog addStudentDialog;

@@ -8,6 +8,8 @@ public interface SubjectController {
 
   void updateSubject();
 
+  void generateReport();
+  
   void filterByYear();
 
 }

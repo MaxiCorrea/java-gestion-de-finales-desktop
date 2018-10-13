@@ -8,4 +8,6 @@ public interface StudentController {
 
   void updateStudent();
   
+  void generateReport();
+  
 }

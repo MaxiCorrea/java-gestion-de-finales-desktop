@@ -54,6 +54,11 @@ public class FinalControllerImpl implements FinalController {
     }
   }
 
+  @Override
+  public void generateReport() {
+    
+  }
+  
   private class AddFinalDialogController implements FinalDialogController {
 
     @Override
@@ -166,5 +171,7 @@ public class FinalControllerImpl implements FinalController {
     }
 
   }
+
+ 
 
 }

@@ -11,6 +11,7 @@ public class SubjecControllerImpl implements SubjectController {
     AppViewContext.addSubjectDialog.setController(new AddSubjectUseCase());
     AppViewContext.updSubjectDialog.setController(new UpdateSubjectUseCase());
     AppViewContext.delSubjectDialog.setController(new DeleteSubjectUseCase());
+    AppViewContext.reportSubjectDialog.setController(new ReportSubjectUseCase());
   }
 
   @Override
@@ -46,5 +47,10 @@ public class SubjecControllerImpl implements SubjectController {
         .setSubjects((year == 0) ? AppRepositoryContext.subjectRepository.getAll()
             : AppRepositoryContext.subjectRepository.query(new ByYearSpecification(year)));
   }
-  
+
+  @Override
+  public void generateReport() {
+    AppViewContext.reportSubjectDialog.show();
+  }
+
 }

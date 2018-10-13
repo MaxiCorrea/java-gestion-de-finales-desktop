@@ -97,7 +97,12 @@ public class SubjectsViewSwing implements SubjectsView {
     buttonDelete.addActionListener((e) -> {
       subjectController.deleteSubject();
     });
+    JButton buttonReport = createButton("Reporte");
+    buttonReport.addActionListener((e)->{
+      subjectController.generateReport();
+    });
     pane.add(buttonUpdate);
+    pane.add(buttonReport);
     pane.add(buttonDelete);
     pane.add(buttonAdd);
     return pane;

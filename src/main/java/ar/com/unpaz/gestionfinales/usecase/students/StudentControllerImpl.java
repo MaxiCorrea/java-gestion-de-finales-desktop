@@ -36,5 +36,10 @@ public class StudentControllerImpl implements StudentController {
       AppViewContext.updStudentDialog.show();
     }
   }
+
+  @Override
+  public void generateReport() {
+    
+  }
   
 }

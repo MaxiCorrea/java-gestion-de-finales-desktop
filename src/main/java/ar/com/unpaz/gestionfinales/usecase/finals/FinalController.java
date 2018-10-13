@@ -8,4 +8,6 @@ public interface FinalController {
 
   void updateFinal();
   
+  void generateReport();
+  
 }
