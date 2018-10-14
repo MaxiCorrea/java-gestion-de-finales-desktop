@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.plantext;
+package ar.com.unpaz.gestionfinales.plaintext;
 
 import static java.lang.String.valueOf;
 import java.io.BufferedWriter;

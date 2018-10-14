@@ -3,7 +3,7 @@ package ar.com.unpaz.gestionfinales.application;
 import ar.com.unpaz.gestionfinales.inmemory.finals.InMemoryFinalRepository;
 import ar.com.unpaz.gestionfinales.inmemory.students.InMemoryStudentRepository;
 import ar.com.unpaz.gestionfinales.inmemory.subjects.InMemorySubjectRepository;
-import ar.com.unpaz.gestionfinales.plantext.PlainTextSubjectReport;
+import ar.com.unpaz.gestionfinales.plaintext.PlainTextSubjectReport;
 import ar.com.unpaz.gestionfinales.swing.AppViewSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.AddFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.DeleteFinalDialogSwing;
