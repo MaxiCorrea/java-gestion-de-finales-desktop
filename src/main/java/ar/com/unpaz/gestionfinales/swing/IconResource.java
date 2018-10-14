@@ -18,7 +18,7 @@ public class IconResource {
 
     ICON("/images/icon.png"),
     
-    BACKGROUND("/images/unpaz.jpg");
+    BACKGROUND("/images/unpaz.png");
     
     private String path;
 
