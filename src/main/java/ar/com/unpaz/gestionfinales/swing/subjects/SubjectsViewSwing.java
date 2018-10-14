@@ -1,8 +1,8 @@
 package ar.com.unpaz.gestionfinales.swing.subjects;
 
-import static ar.com.unpaz.gestionfinales.application.AppControllerContext.subjectController;
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_BACKGROUND_COLOR;
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND_COLOR;
+import static ar.com.unpaz.gestionfinales.usecase.AppControllerContext.subjectController;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;

@@ -1,30 +1,30 @@
 package ar.com.unpaz.gestionfinales.plaintext;
 
-import static java.lang.String.valueOf;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
-import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.reports.ReportException;
+import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.reports.Report;
+import ar.com.unpaz.gestionfinales.reports.ReportException;
 
-public class PlainTextSubjectReport implements Report {
+public class PlainTextStudentReport implements Report {
 
   @Override
   public void generateReport(String absolutePath) throws ReportException {
-    try (FileWriter out = new FileWriter(absolutePath);
+    try(FileWriter out = new FileWriter(absolutePath) ;
         BufferedWriter buffer = new BufferedWriter(out)) {
-      for (Subject subject : AppRepositoryContext.subjectRepository.getAll()) {
-        buffer.write(valueOf(subject.getId()));
+      for(Student student : AppRepositoryContext.studentRepository.getAll()) {
+        buffer.write(String.valueOf(student.getId()));
         buffer.write("\t");
-        buffer.write(subject.getDescription());
+        buffer.write(student.getName());
         buffer.write("\t");
-        buffer.write(valueOf(subject.getYear().number));
+        buffer.write(student.getSurname());
         buffer.write("\t");
+        buffer.write(student.getEmail());
         buffer.newLine();
       }
-    } catch (IOException exception) {
+    } catch(IOException ex) {
       throw new ReportException();
     }
   }

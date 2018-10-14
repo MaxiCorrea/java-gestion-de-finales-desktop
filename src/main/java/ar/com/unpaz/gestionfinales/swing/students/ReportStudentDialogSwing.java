@@ -1,18 +1,18 @@
-package ar.com.unpaz.gestionfinales.swing.subjects;
+package ar.com.unpaz.gestionfinales.swing.students;
 
 import java.io.File;
 import javax.swing.JFileChooser;
 import ar.com.unpaz.gestionfinales.presentation.ReportDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class ReportSubjectDialogSwing implements ReportDialog {
+public class ReportStudentDialogSwing implements ReportDialog {
 
-  private static final String TITLE = "Ubicacion de Reporte de Materias";
+  private static final String TITLE = "Ubicacion de Reporte de Alumnos";
   private JFileChooser chooser;
   private File fileSelected;
   private DialogController controller;
 
-  public ReportSubjectDialogSwing() {
+  public ReportStudentDialogSwing() {
     chooser = new JFileChooser();
     chooser.setDialogTitle(TITLE);
   }

@@ -1,7 +1,5 @@
-package ar.com.unpaz.gestionfinales.application;
+package ar.com.unpaz.gestionfinales.usecase;
 
-import ar.com.unpaz.gestionfinales.usecase.AppController;
-import ar.com.unpaz.gestionfinales.usecase.DialogController;
 import ar.com.unpaz.gestionfinales.usecase.finals.FinalController;
 import ar.com.unpaz.gestionfinales.usecase.students.StudentController;
 import ar.com.unpaz.gestionfinales.usecase.subjects.SubjectController;

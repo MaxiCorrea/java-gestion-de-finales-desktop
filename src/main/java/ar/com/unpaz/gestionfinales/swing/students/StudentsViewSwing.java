@@ -17,9 +17,9 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import ar.com.unpaz.gestionfinales.application.AppControllerContext;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.students.StudentsView;
+import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 
 public class StudentsViewSwing implements StudentsView {
 
@@ -80,7 +80,12 @@ public class StudentsViewSwing implements StudentsView {
     buttonDelete.addActionListener((e) -> {
       AppControllerContext.studentController.deleteStudent();
     });
+    JButton buttonReport = createButton("Reporte");
+    buttonReport.addActionListener((e)->{
+      AppControllerContext.studentController.generateReport();
+    });
     pane.add(buttonUpdate);
+    pane.add(buttonReport);
     pane.add(buttonDelete);
     pane.add(buttonAdd);
     return pane;

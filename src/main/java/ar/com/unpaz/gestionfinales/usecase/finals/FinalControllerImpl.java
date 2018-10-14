@@ -1,10 +1,10 @@
 package ar.com.unpaz.gestionfinales.usecase.finals;
 
-import ar.com.unpaz.gestionfinales.application.AppRepositoryContext;
-import ar.com.unpaz.gestionfinales.application.AppViewContext;
+import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
 public class FinalControllerImpl implements FinalController {

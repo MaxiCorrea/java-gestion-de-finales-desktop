@@ -17,9 +17,9 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import ar.com.unpaz.gestionfinales.application.AppControllerContext;
 import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.presentation.finals.FinalsView;
+import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 
 public class FinalViewSwing implements FinalsView {
 

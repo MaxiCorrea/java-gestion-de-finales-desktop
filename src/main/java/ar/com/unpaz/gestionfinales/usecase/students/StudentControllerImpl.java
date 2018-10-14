@@ -1,14 +1,15 @@
 package ar.com.unpaz.gestionfinales.usecase.students;
 
-import ar.com.unpaz.gestionfinales.application.AppViewContext;
 import ar.com.unpaz.gestionfinales.domain.Student;
+import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 
 public class StudentControllerImpl implements StudentController {
- 
+
   public StudentControllerImpl() {
     AppViewContext.addStudentDialog.setController(new AddStudentUseCase());
     AppViewContext.updStudentDialog.setController(new UpdateStudentUseCase());
     AppViewContext.delStudentDialog.setController(new DeleteStudentUseCase());
+    AppViewContext.reportStudentDialog.setController(new ReportStudentUseCase());
   }
 
   @Override
@@ -39,7 +40,7 @@ public class StudentControllerImpl implements StudentController {
 
   @Override
   public void generateReport() {
-    
+    AppViewContext.reportStudentDialog.show();
   }
-  
+
 }

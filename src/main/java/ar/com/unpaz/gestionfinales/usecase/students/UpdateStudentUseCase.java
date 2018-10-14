@@ -1,8 +1,8 @@
 package ar.com.unpaz.gestionfinales.usecase.students;
 
-import ar.com.unpaz.gestionfinales.application.AppRepositoryContext;
-import ar.com.unpaz.gestionfinales.application.AppViewContext;
+import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Student;
+import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
 public class UpdateStudentUseCase implements DialogController {

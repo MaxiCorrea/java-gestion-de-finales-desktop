@@ -1,9 +1,9 @@
-package ar.com.unpaz.gestionfinales.presentation.subjects;
+package ar.com.unpaz.gestionfinales.presentation;
 
 import java.io.File;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public interface ReportSubjectDialog {
+public interface ReportDialog {
 
   void setController(DialogController controller);
 
