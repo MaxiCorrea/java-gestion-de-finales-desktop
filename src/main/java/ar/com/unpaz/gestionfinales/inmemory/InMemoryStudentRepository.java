@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.inmemory.students;
+package ar.com.unpaz.gestionfinales.inmemory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import ar.com.unpaz.gestionfinales.database.StudentRepository;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.inmemory.AbstractInMemoryRepository;
 
 public class InMemoryStudentRepository extends AbstractInMemoryRepository<Student>
     implements StudentRepository {

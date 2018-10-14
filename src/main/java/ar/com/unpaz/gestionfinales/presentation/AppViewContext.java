@@ -38,4 +38,6 @@ public class AppViewContext {
   public static UpdateFinalDialog updFinalDialog;
   public static DeleteFinalDialog delFinalDialog;
 
+  public static AboutDialog aboutDialog;
+  
 }

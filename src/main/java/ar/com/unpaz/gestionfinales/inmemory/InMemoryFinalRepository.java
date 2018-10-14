@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.inmemory.finals;
+package ar.com.unpaz.gestionfinales.inmemory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import ar.com.unpaz.gestionfinales.database.FinalRepository;
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.inmemory.AbstractInMemoryRepository;
 
 public class InMemoryFinalRepository extends AbstractInMemoryRepository<Final>
     implements FinalRepository {

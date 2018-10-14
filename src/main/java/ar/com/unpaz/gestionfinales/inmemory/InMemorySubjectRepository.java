@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.inmemory.subjects;
+package ar.com.unpaz.gestionfinales.inmemory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,6 @@ import java.util.Map;
 import ar.com.unpaz.gestionfinales.database.SubjectRepository;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
-import ar.com.unpaz.gestionfinales.inmemory.AbstractInMemoryRepository;
 
 public class InMemorySubjectRepository extends AbstractInMemoryRepository<Subject>
     implements SubjectRepository {

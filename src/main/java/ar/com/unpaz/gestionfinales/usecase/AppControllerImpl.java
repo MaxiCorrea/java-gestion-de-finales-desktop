@@ -25,7 +25,7 @@ public class AppControllerImpl implements AppController {
 
   @Override
   public void selectedAbout() {
-
+    AppViewContext.aboutDialog.show();
   }
 
   @Override

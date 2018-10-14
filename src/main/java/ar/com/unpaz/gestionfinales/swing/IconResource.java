@@ -18,7 +18,11 @@ public class IconResource {
 
     ICON("/images/icon.png"),
     
-    BACKGROUND("/images/unpaz.png");
+    BACKGROUND("/images/unpaz.png"),
+    
+    GITHUB("/images/github.png"),
+    
+    LINKEDIN("/images/linkedin.png");
     
     private String path;
 
