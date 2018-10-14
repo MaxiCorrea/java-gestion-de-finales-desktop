@@ -10,17 +10,19 @@ import ar.com.unpaz.gestionfinales.reports.ReportException;
 
 public class PlainTextStudentReport implements Report {
 
+  private static final String SLASH = "/";
+  
   @Override
   public void generateReport(String absolutePath) throws ReportException {
     try(FileWriter out = new FileWriter(absolutePath) ;
         BufferedWriter buffer = new BufferedWriter(out)) {
       for(Student student : AppRepositoryContext.studentRepository.getAll()) {
         buffer.write(String.valueOf(student.getId()));
-        buffer.write("\t");
+        buffer.write(SLASH);
         buffer.write(student.getName());
-        buffer.write("\t");
+        buffer.write(SLASH);
         buffer.write(student.getSurname());
-        buffer.write("\t");
+        buffer.write(SLASH);
         buffer.write(student.getEmail());
         buffer.newLine();
       }

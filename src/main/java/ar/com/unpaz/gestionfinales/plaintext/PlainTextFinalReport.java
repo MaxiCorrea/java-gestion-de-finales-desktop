@@ -5,28 +5,31 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
-import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.reports.ReportException;
+import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.reports.Report;
+import ar.com.unpaz.gestionfinales.reports.ReportException;
 
-public class PlainTextSubjectReport implements Report {
+public class PlainTextFinalReport implements Report {
 
   private static final String SLASH = "/";
   
   @Override
   public void generateReport(String absolutePath) throws ReportException {
-    try (FileWriter out = new FileWriter(absolutePath);
+    try(FileWriter out = new FileWriter(absolutePath) ;
         BufferedWriter buffer = new BufferedWriter(out)) {
-      for (Subject subject : AppRepositoryContext.subjectRepository.getAll()) {
-        buffer.write(valueOf(subject.getId()));
+      for(Final finalObj : AppRepositoryContext.finalRepository.getAll()) {
+        buffer.write(valueOf(finalObj.getId()));
         buffer.write(SLASH);
-        buffer.write(subject.getDescription());
+        buffer.write(finalObj.getSubject().getDescription());
         buffer.write(SLASH);
-        buffer.write(valueOf(subject.getYear().number));
+        buffer.write(finalObj.getStudent().getFullName());
         buffer.write(SLASH);
+        buffer.write(valueOf(finalObj.getDate()));
+        buffer.write(SLASH);
+        buffer.write(valueOf(finalObj.getNote().number));
         buffer.newLine();
       }
-    } catch (IOException exception) {
+    } catch(IOException ex) {
       throw new ReportException();
     }
   }

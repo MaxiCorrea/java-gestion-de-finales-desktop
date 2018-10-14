@@ -37,6 +37,7 @@ public class AppViewContext {
   public static SelectStudentDialog selectStudentDialog;
   public static UpdateFinalDialog updFinalDialog;
   public static DeleteFinalDialog delFinalDialog;
+  public static ReportDialog reportFinalDialog;
 
   public static AboutDialog aboutDialog;
   

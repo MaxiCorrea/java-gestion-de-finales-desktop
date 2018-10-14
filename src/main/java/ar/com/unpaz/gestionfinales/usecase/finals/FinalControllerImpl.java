@@ -15,17 +15,7 @@ public class FinalControllerImpl implements FinalController {
     AppViewContext.updFinalDialog.setController(new UpdFinalDialogController());
     AppViewContext.selectStudentDialog.setController(new SelectStudentController());
     AppViewContext.selectSubjectDialog.setController(new SelectSubjectController());
-  }
-
-  public FinalControllerImpl(FinalDialogController addFinalDialogController,
-      DialogController delFinalDialogController, FinalDialogController updFinalDialogController,
-      DialogController selectStudentController, DialogController selectSubjectController) {
-
-    AppViewContext.addFinalDialog.setController(addFinalDialogController);
-    AppViewContext.delFinalDialog.setController(delFinalDialogController);
-    AppViewContext.updFinalDialog.setController(updFinalDialogController);
-    AppViewContext.selectStudentDialog.setController(selectStudentController);
-    AppViewContext.selectSubjectDialog.setController(selectSubjectController);
+    AppViewContext.reportFinalDialog.setController( new ReportFinalController());
   }
 
   @Override
@@ -56,7 +46,7 @@ public class FinalControllerImpl implements FinalController {
 
   @Override
   public void generateReport() {
-    
+    AppViewContext.reportFinalDialog.show();
   }
   
   private class AddFinalDialogController implements FinalDialogController {

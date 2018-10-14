@@ -80,7 +80,12 @@ public class FinalViewSwing implements FinalsView {
     buttonDelete.addActionListener((e) -> {
       AppControllerContext.finalController.deleteFinal();
     });
+    JButton buttonReport = createButton("Reporte");
+    buttonReport.addActionListener((e)->{
+      AppControllerContext.finalController.generateReport();
+    });
     pane.add(buttonUpdate);
+    pane.add(buttonReport);
     pane.add(buttonDelete);
     pane.add(buttonAdd);
     return pane;
