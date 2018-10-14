@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="students" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="168a6b56-3984-4770-ba0a-952a0ad9cfe2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="511"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="475"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="surname" class="java.lang.String">
+		<fieldDescription><![CDATA[surname]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="450" height="100" uuid="add8f35b-d8b5-40d0-a494-98a9db90bd06"/>
+				<staticText>
+					<reportElement x="100" y="35" width="350" height="30" uuid="f35c324c-0f8d-4c1f-9dc3-57aa86fe4fb1"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="24"/>
+					</textElement>
+					<text><![CDATA[Reporte de Alumnos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="8" width="170" height="22" uuid="3ebf5eec-8ed6-49c2-9b7a-2f7093a19903"/>
+					<textElement>
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[Designer : jmaxicorrea@gmail.com]]></text>
+				</staticText>
+			</frame>
+			<image>
+				<reportElement x="450" y="0" width="100" height="100" uuid="ebf8a336-32d6-4d63-a07d-410653e5026a"/>
+				<imageExpression><![CDATA["src/main/resources/images/icon.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="46" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="550" height="46" uuid="731ae0bd-638b-467c-8cef-d950e4ba5efe"/>
+				<staticText>
+					<reportElement x="0" y="16" width="110" height="30" uuid="faf1afb0-3323-44d9-9379-73af70b894e7"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="16"/>
+					</textElement>
+					<text><![CDATA[Dni]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="390" y="16" width="160" height="30" uuid="09e0dcf7-b43b-4c84-b7e8-469f58033038"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="16"/>
+					</textElement>
+					<text><![CDATA[Email]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="110" y="16" width="140" height="30" uuid="4ad0629a-77ec-44d8-9912-463402e1a3e4"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="16"/>
+					</textElement>
+					<text><![CDATA[Nombre]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="250" y="16" width="140" height="30" uuid="e2b46e94-7065-42e6-9243-12f63afdd9df"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="16"/>
+					</textElement>
+					<text><![CDATA[Apellido]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="550" height="30" uuid="1ab99e13-6e52-4b11-bfb2-34cb7a878330"/>
+				<textField>
+					<reportElement x="0" y="0" width="110" height="30" uuid="a13c8212-6dbf-4903-b136-f24020ee1cd2"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="110" y="0" width="140" height="30" uuid="80b6a233-d7f8-4b91-9a0f-e0da59d342d9"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="250" y="0" width="140" height="30" uuid="066eeabc-d2ee-4f06-a673-c82082d0f5e1"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{surname}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="390" y="0" width="160" height="30" uuid="3aed01c4-a4c0-4e30-8623-b55bd89f309d"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="350" y="0" width="100" height="30" uuid="efb3c963-63da-44e1-b1f3-1f87a72f9dc6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="450" y="0" width="100" height="30" uuid="0c48a7c9-d4d9-451b-8a0c-f5243fc3323f"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

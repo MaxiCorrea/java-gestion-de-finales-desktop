@@ -4,8 +4,8 @@ import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.inmemory.finals.InMemoryFinalRepository;
 import ar.com.unpaz.gestionfinales.inmemory.students.InMemoryStudentRepository;
 import ar.com.unpaz.gestionfinales.inmemory.subjects.InMemorySubjectRepository;
+import ar.com.unpaz.gestionfinales.jasper.StudentJasperReport;
 import ar.com.unpaz.gestionfinales.jasper.SubjectJasperReport;
-import ar.com.unpaz.gestionfinales.plaintext.PlainTextStudentReport;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.reports.AppReportContext;
 import ar.com.unpaz.gestionfinales.swing.AppViewSwing;
@@ -39,7 +39,7 @@ public class Main {
     AppRepositoryContext.finalRepository = new InMemoryFinalRepository();
 
     AppReportContext.subjectReport = new SubjectJasperReport();
-    AppReportContext.studentReport = new PlainTextStudentReport();
+    AppReportContext.studentReport = new StudentJasperReport();
     
     AppViewContext.appView = new AppViewSwing();
     AppViewContext.subjectsView = new SubjectsViewSwing();
