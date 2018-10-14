@@ -6,7 +6,7 @@ import ar.com.unpaz.gestionfinales.reports.AppReportContext;
 import ar.com.unpaz.gestionfinales.reports.ReportException;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class ReportFinalController implements DialogController {
+public class ReportFinalUseCase implements DialogController {
 
   @Override
   public void accept() {

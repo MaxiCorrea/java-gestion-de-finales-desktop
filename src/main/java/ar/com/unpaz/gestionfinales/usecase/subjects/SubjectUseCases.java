@@ -1,6 +1,6 @@
 package ar.com.unpaz.gestionfinales.usecase.subjects;
 
-public interface SubjectController {
+public interface SubjectUseCases {
 
   void addSubject();
 

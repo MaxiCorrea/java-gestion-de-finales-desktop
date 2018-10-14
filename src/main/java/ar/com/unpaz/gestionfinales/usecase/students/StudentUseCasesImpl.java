@@ -3,9 +3,9 @@ package ar.com.unpaz.gestionfinales.usecase.students;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 
-public class StudentControllerImpl implements StudentController {
+public class StudentUseCasesImpl implements StudentUseCases {
 
-  public StudentControllerImpl() {
+  public StudentUseCasesImpl() {
     AppViewContext.addStudentDialog.setController(new AddStudentUseCase());
     AppViewContext.updStudentDialog.setController(new UpdateStudentUseCase());
     AppViewContext.delStudentDialog.setController(new DeleteStudentUseCase());

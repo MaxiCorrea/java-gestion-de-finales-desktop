@@ -29,9 +29,9 @@ import ar.com.unpaz.gestionfinales.swing.subjects.SubjectsViewSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.UpdateSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 import ar.com.unpaz.gestionfinales.usecase.AppControllerImpl;
-import ar.com.unpaz.gestionfinales.usecase.finals.FinalControllerImpl;
-import ar.com.unpaz.gestionfinales.usecase.students.StudentControllerImpl;
-import ar.com.unpaz.gestionfinales.usecase.subjects.SubjecControllerImpl;
+import ar.com.unpaz.gestionfinales.usecase.finals.FinalUseCasesImpl;
+import ar.com.unpaz.gestionfinales.usecase.students.StudentUseCasesImpl;
+import ar.com.unpaz.gestionfinales.usecase.subjects.SubjecUseCasesImpl;
 
 public class Main {
 
@@ -68,9 +68,9 @@ public class Main {
     AppViewContext.reportFinalDialog = new ReportFinalDialogSwing();
 
     AppControllerContext.appController = new AppControllerImpl();
-    AppControllerContext.subjectController = new SubjecControllerImpl();
-    AppControllerContext.studentController = new StudentControllerImpl();
-    AppControllerContext.finalController = new FinalControllerImpl();
+    AppControllerContext.subjectController = new SubjecUseCasesImpl();
+    AppControllerContext.studentController = new StudentUseCasesImpl();
+    AppControllerContext.finalController = new FinalUseCasesImpl();
 
     AppControllerContext.appController.startApp();
 

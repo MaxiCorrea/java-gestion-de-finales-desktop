@@ -5,9 +5,9 @@ import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.inmemory.ByYearSpecification;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 
-public class SubjecControllerImpl implements SubjectController {
+public class SubjecUseCasesImpl implements SubjectUseCases {
 
-  public SubjecControllerImpl() {
+  public SubjecUseCasesImpl() {
     AppViewContext.addSubjectDialog.setController(new AddSubjectUseCase());
     AppViewContext.updSubjectDialog.setController(new UpdateSubjectUseCase());
     AppViewContext.delSubjectDialog.setController(new DeleteSubjectUseCase());

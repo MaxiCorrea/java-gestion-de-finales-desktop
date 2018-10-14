@@ -7,15 +7,15 @@ import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class FinalControllerImpl implements FinalController {
+public class FinalUseCasesImpl implements FinalUseCases {
 
-  public FinalControllerImpl() {
+  public FinalUseCasesImpl() {
     AppViewContext.addFinalDialog.setController(new AddFinalDialogController());
     AppViewContext.delFinalDialog.setController(new DelFinalDialogController());
     AppViewContext.updFinalDialog.setController(new UpdFinalDialogController());
     AppViewContext.selectStudentDialog.setController(new SelectStudentController());
     AppViewContext.selectSubjectDialog.setController(new SelectSubjectController());
-    AppViewContext.reportFinalDialog.setController( new ReportFinalController());
+    AppViewContext.reportFinalDialog.setController( new ReportFinalUseCase());
   }
 
   @Override
@@ -161,7 +161,5 @@ public class FinalControllerImpl implements FinalController {
     }
 
   }
-
- 
 
 }

@@ -1,6 +1,6 @@
 package ar.com.unpaz.gestionfinales.usecase.finals;
 
-public interface FinalController {
+public interface FinalUseCases {
 
   void addFinal();
 

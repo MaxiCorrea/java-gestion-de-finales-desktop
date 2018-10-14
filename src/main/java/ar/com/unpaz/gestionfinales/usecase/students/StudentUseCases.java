@@ -1,6 +1,6 @@
 package ar.com.unpaz.gestionfinales.usecase.students;
 
-public interface StudentController {
+public interface StudentUseCases {
 
   void addStudent();
 
