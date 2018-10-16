@@ -26,7 +26,7 @@ public class PlainTextFinalReport implements Report {
         buffer.write(SLASH);
         buffer.write(valueOf(finalObj.getDate()));
         buffer.write(SLASH);
-        buffer.write(valueOf(finalObj.getNote().number));
+        buffer.write(valueOf(finalObj.getQualification().number));
         buffer.newLine();
       }
     } catch(IOException ex) {

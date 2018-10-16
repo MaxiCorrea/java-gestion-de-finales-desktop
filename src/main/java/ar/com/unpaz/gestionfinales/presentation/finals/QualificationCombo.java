@@ -1,6 +1,6 @@
 package ar.com.unpaz.gestionfinales.presentation.finals;
 
-public enum NoteCombo {
+public enum QualificationCombo {
 
   NONE("Seleccionar"),
 
@@ -26,7 +26,7 @@ public enum NoteCombo {
 
   private final String name;
 
-  private NoteCombo(String name) {
+  private QualificationCombo(String name) {
     this.name = name;
   }
 

@@ -38,7 +38,7 @@ public class InMemoryFinalRepository extends AbstractInMemoryRepository<Final>
     for (Integer key : finals.keySet()) {
       Final f = finals.get(key);
       result.add(new Final(key, f.getSubject(), 
-          f.getStudent(), f.getDate(), f.getNote()));
+          f.getStudent(), f.getDate(), f.getQualification()));
     }
     return result;
   }

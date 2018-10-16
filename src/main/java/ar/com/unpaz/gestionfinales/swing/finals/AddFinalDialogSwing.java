@@ -17,11 +17,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.domain.Note;
+import ar.com.unpaz.gestionfinales.domain.Qualification;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.finals.AddFinalDialog;
-import ar.com.unpaz.gestionfinales.presentation.finals.NoteCombo;
+import ar.com.unpaz.gestionfinales.presentation.finals.QualificationCombo;
 import ar.com.unpaz.gestionfinales.usecase.finals.FinalDialogController;
 
 public class AddFinalDialogSwing implements AddFinalDialog {
@@ -31,7 +31,7 @@ public class AddFinalDialogSwing implements AddFinalDialog {
   private JTextField selectedSubjectField;
   private JButton selectStudentButton;
   private JTextField selectedStudentField;
-  private JComboBox<NoteCombo> comboNote;
+  private JComboBox<QualificationCombo> comboQualification;
   private JButton acceptButton;
   private JButton cancelButton;
   private JLabel errorLabel;
@@ -53,9 +53,9 @@ public class AddFinalDialogSwing implements AddFinalDialog {
   private JPanel createCenterPane() {
     JPanel pane = new JPanel();
     pane.setBackground(WHITE);
-    comboNote = new JComboBox<>(NoteCombo.values());
-    comboNote.setBackground(WHITE);
-    pane.add(comboNote);
+    comboQualification = new JComboBox<>(QualificationCombo.values());
+    comboQualification.setBackground(WHITE);
+    pane.add(comboQualification);
     pane.add(createSubPanelSubject());
     pane.add(createSubPanelStudent());
     errorLabel = new JLabel("",JLabel.CENTER);
@@ -108,18 +108,18 @@ public class AddFinalDialogSwing implements AddFinalDialog {
 
   @Override
   public void setFinal(Final finalObj) {
-    comboNote.setSelectedIndex(finalObj.getNote().number);
+    comboQualification.setSelectedIndex(finalObj.getQualification().number);
     selectedStudentField.setText(finalObj.getStudent().getName());
     selectedStudent = finalObj.getStudent();
     selectedSubjectField.setText(finalObj.getSubject().getDescription());
     selectedSubject = finalObj.getSubject();
-    comboNote.setSelectedIndex(finalObj.getNote().number);
+    comboQualification.setSelectedIndex(finalObj.getQualification().number);
   }
 
   @Override
   public Final getFinal() {
     return new Final(0, selectedSubject, selectedStudent, LocalDate.now(),
-        Note.of(comboNote.getSelectedIndex()));
+        Qualification.of(comboQualification.getSelectedIndex()));
   }
 
   @Override

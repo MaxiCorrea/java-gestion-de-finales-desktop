@@ -15,33 +15,34 @@ public class Final extends Entity {
   public static final Final EMPTY = new Final();
 
   public static String validateFieldsOf(Final finalObj) {
-    if(Note.NONE == finalObj.getNote()) {
+    if (Qualification.NONE == finalObj.getQualification()) {
       return NOTE_ERROR;
     }
-    if(Student.EMPTY.equals(finalObj.getStudent())) {
+    if (Student.EMPTY.equals(finalObj.getStudent())) {
       return STUDENT_ERROR;
     }
-    if(Subject.EMPTY.equals(finalObj.getSubject())) {
+    if (Subject.EMPTY.equals(finalObj.getSubject())) {
       return SUBJECT_ERROR;
     }
     return NO_ERROR;
   }
-  
+
   private final Subject subject;
   private final Student student;
   private final LocalDate date;
-  private final Note note;
+  private final Qualification qualification;
 
   public Final() {
-    this(0, Subject.EMPTY, Student.EMPTY, LocalDate.now(), Note.NONE);
+    this(0, Subject.EMPTY, Student.EMPTY, LocalDate.now(), Qualification.NONE);
   }
 
-  public Final(int id, Subject subject, Student student, LocalDate date, Note note) {
+  public Final(int id, Subject subject, Student student, LocalDate date,
+      Qualification qualification) {
     super(id);
     this.subject = subject;
     this.student = student;
     this.date = requireNonNull(date);
-    this.note = requireNonNull(note);
+    this.qualification = requireNonNull(qualification);
   }
 
   public Subject getSubject() {
@@ -56,18 +57,18 @@ public class Final extends Entity {
     return date;
   }
 
-  public Note getNote() {
-    return note;
+  public Qualification getQualification() {
+    return qualification;
   }
 
   @Override
   public int hashCode() {
     return reflectionHashCode(this);
   }
-  
+
   @Override
   public boolean equals(Object obj) {
     return reflectionEquals(this, obj);
   }
-  
+
 }

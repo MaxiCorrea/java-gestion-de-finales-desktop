@@ -36,7 +36,7 @@ public enum FinalColumn {
   NOTE("Nota") {
     @Override
     public Object valueIn(Final finalObj) {
-      return finalObj.getNote().number;
+      return finalObj.getQualification().number;
     }
   };
 
