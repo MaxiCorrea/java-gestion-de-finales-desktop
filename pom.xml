@@ -109,6 +109,12 @@
 			<artifactId>jasperreports</artifactId>
 			<version>6.1.0</version>
 		</dependency>
+		<!-- Equals and Hashcode Utilities -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.8</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>

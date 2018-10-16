@@ -15,4 +15,6 @@ public interface AddStudentDialog {
 
   void close();
 
+  void showError(String errorMessage);
+
 }

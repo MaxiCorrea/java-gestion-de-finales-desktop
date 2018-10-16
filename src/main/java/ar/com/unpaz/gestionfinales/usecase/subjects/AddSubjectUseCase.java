@@ -10,14 +10,19 @@ public class AddSubjectUseCase implements DialogController {
   @Override
   public void accept() {
     Subject subject = AppViewContext.addSubjectDialog.getSubject();
-    AppRepositoryContext.subjectRepository.add(subject);
-    AppViewContext.subjectsView.setSubjects(AppRepositoryContext.subjectRepository.getAll());
-    AppViewContext.addSubjectDialog.close();
+    String errorMessage = Subject.validateFieldsOf(subject);
+    if (!errorMessage.isEmpty()) {
+      AppViewContext.addSubjectDialog.showError(errorMessage);
+    } else {
+      AppRepositoryContext.subjectRepository.add(subject);
+      AppViewContext.subjectsView.setSubjects(AppRepositoryContext.subjectRepository.getAll());
+      AppViewContext.addSubjectDialog.close();
+    }
   }
 
   @Override
   public void cancel() {
     AppViewContext.addSubjectDialog.close();
   }
-  
+
 }

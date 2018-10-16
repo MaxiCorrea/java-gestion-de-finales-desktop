@@ -10,7 +10,7 @@ import ar.com.unpaz.gestionfinales.domain.Student;
 public class InMemoryStudentRepository extends AbstractInMemoryRepository<Student>
     implements StudentRepository {
 
-  private Map<Integer, Student> students;
+  private Map<String, Student> students;
 
   public InMemoryStudentRepository() {
     students = new HashMap<>();
@@ -18,25 +18,25 @@ public class InMemoryStudentRepository extends AbstractInMemoryRepository<Studen
 
   @Override
   public void add(Student entity) {
-    students.put(entity.getId(), entity);
+    students.put(entity.getDni(), entity);
   }
 
   @Override
   public void remove(Student entity) {
-    students.remove(entity.getId());
+    students.remove(entity.getDni());
   }
 
   @Override
   public void update(Student entity) {
-    students.put(entity.getId(), entity);
+    students.put(entity.getDni(), entity);
   }
 
   @Override
   public List<Student> getAll() {
     List<Student> result = new ArrayList<>();
-    for (Integer key : students.keySet()) {
+    for (String key : students.keySet()) {
       Student student = students.get(key);
-      int dni = student.getId();
+      String dni = student.getDni();
       String name = student.getName();
       String surname = student.getSurname();
       String email = student.getEmail();

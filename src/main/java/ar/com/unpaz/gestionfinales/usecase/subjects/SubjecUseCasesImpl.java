@@ -17,6 +17,7 @@ public class SubjecUseCasesImpl implements SubjectUseCases {
   @Override
   public void addSubject() {
     AppViewContext.addSubjectDialog.setSubject(Subject.EMPTY);
+    AppViewContext.addSubjectDialog.showError("");
     AppViewContext.addSubjectDialog.show();
   }
 

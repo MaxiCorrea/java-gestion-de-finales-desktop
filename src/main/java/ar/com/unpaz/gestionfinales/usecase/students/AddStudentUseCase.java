@@ -10,11 +10,16 @@ public class AddStudentUseCase implements DialogController {
   @Override
   public void accept() {
     Student student = AppViewContext.addStudentDialog.getStudent();
-    AppRepositoryContext.studentRepository.add(student);
-    AppViewContext.studentsView.setStudents(AppRepositoryContext.studentRepository.getAll());
-    AppViewContext.addStudentDialog.close();
+    String errorMessage = Student.validateFieldsOf(student);
+    if(!errorMessage.isEmpty()) {
+      AppViewContext.addStudentDialog.showError(errorMessage);
+    } else {
+      AppRepositoryContext.studentRepository.add(student);
+      AppViewContext.studentsView.setStudents(AppRepositoryContext.studentRepository.getAll());
+      AppViewContext.addStudentDialog.close();
+    }
   }
-
+  
   @Override
   public void cancel() {
     AppViewContext.addStudentDialog.close();

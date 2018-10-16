@@ -4,6 +4,7 @@ import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_BACKGROUND
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND_COLOR;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.SOUTH;
+import static java.awt.Color.RED;
 import static java.awt.Color.WHITE;
 import static javax.swing.BorderFactory.createTitledBorder;
 import java.awt.BorderLayout;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Final;
@@ -32,6 +34,7 @@ public class AddFinalDialogSwing implements AddFinalDialog {
   private JComboBox<NoteCombo> comboNote;
   private JButton acceptButton;
   private JButton cancelButton;
+  private JLabel errorLabel;
 
   private Subject selectedSubject;
   private Student selectedStudent;
@@ -55,6 +58,9 @@ public class AddFinalDialogSwing implements AddFinalDialog {
     pane.add(comboNote);
     pane.add(createSubPanelSubject());
     pane.add(createSubPanelStudent());
+    errorLabel = new JLabel("",JLabel.CENTER);
+    errorLabel.setForeground(RED);
+    pane.add(errorLabel);
     return pane;
   }
 
@@ -104,7 +110,9 @@ public class AddFinalDialogSwing implements AddFinalDialog {
   public void setFinal(Final finalObj) {
     comboNote.setSelectedIndex(finalObj.getNote().number);
     selectedStudentField.setText(finalObj.getStudent().getName());
+    selectedStudent = finalObj.getStudent();
     selectedSubjectField.setText(finalObj.getSubject().getDescription());
+    selectedSubject = finalObj.getSubject();
     comboNote.setSelectedIndex(finalObj.getNote().number);
   }
 
@@ -151,6 +159,11 @@ public class AddFinalDialogSwing implements AddFinalDialog {
   public void setStudent(Student student) {
     selectedStudent = student;
     selectedStudentField.setText(student.getFullName());
+  }
+
+  @Override
+  public void showError(String errorMessage) {
+    this.errorLabel.setText(errorMessage);
   }
 
 }

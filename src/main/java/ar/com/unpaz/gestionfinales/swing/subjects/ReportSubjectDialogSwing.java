@@ -8,14 +8,8 @@ import ar.com.unpaz.gestionfinales.usecase.DialogController;
 public class ReportSubjectDialogSwing implements ReportDialog {
 
   private static final String TITLE = "Ubicacion de Reporte de Materias";
-  private JFileChooser chooser;
   private File fileSelected;
   private DialogController controller;
-
-  public ReportSubjectDialogSwing() {
-    chooser = new JFileChooser();
-    chooser.setDialogTitle(TITLE);
-  }
 
   @Override
   public void setController(DialogController controller) {
@@ -24,6 +18,8 @@ public class ReportSubjectDialogSwing implements ReportDialog {
 
   @Override
   public void show() {
+    JFileChooser chooser = new JFileChooser();
+    chooser.setDialogTitle(TITLE);
     if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
       fileSelected = chooser.getSelectedFile();
       controller.accept();

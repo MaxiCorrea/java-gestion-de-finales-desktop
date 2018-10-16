@@ -15,18 +15,30 @@ public class StudentDataAdapter {
   }
   
   public String getId() {
-    return String.valueOf(student.getId());
+    if(student == null) {
+      return "";
+    }
+    return student.getDni();
   }
   
   public String getName() {
+    if(student == null) {
+      return "";
+    }
     return student.getName();
   }
   
   public String getSurname() {
+    if(student == null) {
+      return "";
+    }
     return student.getSurname();
   }
   
   public String getEmail() {
+    if(student == null) {
+      return "";
+    }
     return student.getEmail();
   }
   

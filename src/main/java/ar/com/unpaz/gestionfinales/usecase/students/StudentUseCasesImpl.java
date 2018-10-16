@@ -15,6 +15,7 @@ public class StudentUseCasesImpl implements StudentUseCases {
   @Override
   public void addStudent() {
     AppViewContext.addStudentDialog.setStudent(Student.EMPTY);
+    AppViewContext.addStudentDialog.showError("");
     AppViewContext.addStudentDialog.show();
   }
 

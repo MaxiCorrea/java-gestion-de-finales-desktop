@@ -7,7 +7,7 @@ public enum StudentColumn {
   DNI("Dni") {
     @Override
     public Object valueIn(Student student) {
-      return student.getId();
+      return student.getDni();
     }
   },
 

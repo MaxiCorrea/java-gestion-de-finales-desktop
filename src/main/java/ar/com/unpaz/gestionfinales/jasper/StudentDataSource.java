@@ -18,6 +18,9 @@ public class StudentDataSource {
     for (Student student : AppRepositoryContext.studentRepository.getAll()) {
       students.add(new StudentDataAdapter(student));
     }
+    if(students.isEmpty()) {
+      students.add(new StudentDataAdapter());
+    }
     return students;
   }
 

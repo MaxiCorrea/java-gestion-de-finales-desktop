@@ -4,12 +4,14 @@ import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_BACKGROUND
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND_COLOR;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.SOUTH;
+import static java.awt.Color.RED;
 import static java.awt.Color.WHITE;
 import static javax.swing.BorderFactory.createTitledBorder;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Student;
@@ -25,6 +27,7 @@ public class AddStudentDialogSwing implements AddStudentDialog {
   private JTextField emailField;
   private JButton acceptButton;
   private JButton cancelButton;
+  private JLabel errorLabel;
 
   public AddStudentDialogSwing() {
     dialog = new JDialog();
@@ -52,6 +55,9 @@ public class AddStudentDialogSwing implements AddStudentDialog {
     emailField = new JTextField(25);
     emailField.setBorder(createTitledBorder("Email"));
     pane.add(emailField);
+    errorLabel = new JLabel("",JLabel.CENTER);
+    errorLabel.setForeground(RED);
+    pane.add(errorLabel);
     return pane;
   }
 
@@ -100,7 +106,7 @@ public class AddStudentDialogSwing implements AddStudentDialog {
 
   @Override
   public Student getStudent() {
-    int dni = Integer.valueOf(dniField.getText());
+    String dni = dniField.getText();
     String name = nameField.getText();
     String surname = surnameField.getText();
     String email = emailField.getText();
@@ -110,6 +116,11 @@ public class AddStudentDialogSwing implements AddStudentDialog {
   @Override
   public void close() {
     dialog.dispose();
+  }
+
+  @Override
+  public void showError(String errorMessage) {
+    errorLabel.setText(errorMessage);
   }
 
 }

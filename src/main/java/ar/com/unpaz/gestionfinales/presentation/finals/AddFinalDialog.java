@@ -20,5 +20,7 @@ public interface AddFinalDialog {
   void setSubject(Subject subject);
 
   void setStudent(Student student);
+
+  void showError(String errorMessage);
   
 }

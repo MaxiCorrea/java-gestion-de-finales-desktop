@@ -5,12 +5,14 @@ import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
+import static java.awt.Color.RED;
 import static javax.swing.BorderFactory.createTitledBorder;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -27,11 +29,12 @@ public class AddSubjectDialogSwing implements AddSubjectDialog {
   private JComboBox<YearCombo> comboYear;
   private JButton acceptButton;
   private JButton cancelButton;
+  private JLabel errorMessage;
 
   public AddSubjectDialogSwing() {
     dialog = new JDialog();
     dialog.setModal(true);
-    dialog.setSize(420, 160);
+    dialog.setSize(420, 170);
     dialog.setResizable(false);
     dialog.setTitle("Nueva Materia");
     dialog.getContentPane().setLayout(new BorderLayout());
@@ -49,6 +52,9 @@ public class AddSubjectDialogSwing implements AddSubjectDialog {
     JScrollPane scrollPane = new JScrollPane(fieldDescription);
     scrollPane.setPreferredSize(new Dimension(5, 40));
     pane.add(scrollPane, CENTER);
+    errorMessage = new JLabel("", JLabel.CENTER);
+    errorMessage.setForeground(RED);
+    pane.add(errorMessage, SOUTH);
     return pane;
   }
 
@@ -103,4 +109,10 @@ public class AddSubjectDialogSwing implements AddSubjectDialog {
     fieldDescription.setText(subject.getDescription());
     comboYear.setSelectedIndex(subject.getYear().number);
   }
+  
+  @Override
+  public void showError(String message) {
+    errorMessage.setText(message);
+  }
+  
 }

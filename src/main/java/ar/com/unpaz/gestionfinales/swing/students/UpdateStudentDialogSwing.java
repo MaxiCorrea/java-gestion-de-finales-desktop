@@ -93,7 +93,7 @@ public class UpdateStudentDialogSwing implements UpdateStudentDialog {
 
   @Override
   public void setStudent(Student student) {
-    dniField.setText(String.valueOf(student.getId()));
+    dniField.setText(String.valueOf(student.getDni()));
     nameField.setText(student.getName());
     surnameField.setText(student.getSurname());
     emailField.setText(student.getEmail());
@@ -101,7 +101,7 @@ public class UpdateStudentDialogSwing implements UpdateStudentDialog {
 
   @Override
   public Student getStudent() {
-    int dni = Integer.valueOf(dniField.getText());
+    String dni = dniField.getText();
     String name = nameField.getText();
     String surname = surnameField.getText();
     String email = emailField.getText();

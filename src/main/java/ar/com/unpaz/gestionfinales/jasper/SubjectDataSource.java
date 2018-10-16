@@ -18,7 +18,10 @@ public class SubjectDataSource {
     for (Subject subject : AppRepositoryContext.subjectRepository.getAll()) {
       subjets.add(new SubjectDataAdapter(subject));
     }
+    if (subjets.isEmpty()) {
+      subjets.add(new SubjectDataAdapter());
+    }
     return subjets;
   }
-  
+
 }

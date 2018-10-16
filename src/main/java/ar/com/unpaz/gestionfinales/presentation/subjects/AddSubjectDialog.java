@@ -15,4 +15,6 @@ public interface AddSubjectDialog {
 
   void setSubject(Subject subject);
   
+  void showError(String message);
+  
 }

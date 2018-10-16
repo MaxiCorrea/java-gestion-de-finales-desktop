@@ -16,14 +16,23 @@ public class SubjectDataAdapter {
   }
 
   public String getId() {
+    if(subject == null) {
+      return "";
+    }
     return valueOf(subject.getId());
   }
 
   public String getDescription() {
+    if(subject == null) {
+      return "";
+    }
     return subject.getDescription();
   }
 
   public String getYear() {
+    if(subject == null) {
+      return "";
+    }
     return valueOf(subject.getYear().number);
   }
 
