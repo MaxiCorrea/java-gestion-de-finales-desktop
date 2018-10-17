@@ -3,6 +3,7 @@ package ar.com.unpaz.gestionfinales.mysql;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import ar.com.unpaz.gestionfinales.database.Specification;
@@ -13,20 +14,41 @@ public class MySqlSubjectRepository implements SubjectRepository {
 
   @Override
   public void add(Subject entity) {
-    // TODO Auto-generated method stub
-
+    String sql = "INSERT INTO Subject(description,year) values(?,?)";
+    Connection connection = MySqlConexion.getConexion();
+    try (PreparedStatement st = connection.prepareStatement(sql)) {
+      st.setString(1, entity.getDescription());
+      st.setInt(2, entity.getYear().number);
+      st.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
   public void remove(Subject entity) {
-    // TODO Auto-generated method stub
-
+    String sql = "DELETE FROM Subject WHERE idSubject=?";
+    Connection connection = MySqlConexion.getConexion();
+    try (PreparedStatement st = connection.prepareStatement(sql)) {
+      st.setInt(1, entity.getId());
+      st.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
   public void update(Subject entity) {
-    // TODO Auto-generated method stub
-
+    String sql = "UPDATE Subject SET description=? , year=? WHERE idSubject=?";
+    Connection connection = MySqlConexion.getConexion();
+    try (PreparedStatement st = connection.prepareStatement(sql)) {
+      st.setString(1, entity.getDescription());
+      st.setInt(2, entity.getYear().number);
+      st.setInt(3, entity.getId());
+      st.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
