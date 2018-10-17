@@ -24,9 +24,10 @@
 
 ![screenshot from 2018-10-17 11 13 06](https://user-images.githubusercontent.com/34853850/47092901-65865180-d1fe-11e8-9882-ae38d911f15b.png)
 
+## Reportes
+
 ![screenshot from 2018-10-17 11 15 07](https://user-images.githubusercontent.com/34853850/47092906-67501500-d1fe-11e8-813f-44c398e3c987.png)
 
-## Reportes
 ![screenshot from 2018-10-17 11 15 39](https://user-images.githubusercontent.com/34853850/47092910-68814200-d1fe-11e8-852c-00a0ea2e1138.png)
 
 ![screenshot from 2018-10-17 11 16 11](https://user-images.githubusercontent.com/34853850/47092916-6a4b0580-d1fe-11e8-90ed-477cf034463e.png)
