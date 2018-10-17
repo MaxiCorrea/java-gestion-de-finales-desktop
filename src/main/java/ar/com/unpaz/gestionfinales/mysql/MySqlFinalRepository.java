@@ -23,7 +23,7 @@ public class MySqlFinalRepository implements FinalRepository {
   public void add(Final entity) {
     String sql = "INSERT INTO Final(subjectIdSubject,studentDniStudent,"
         + "dateFinal,qualification) VALUES(?,?,?,?)";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     try (PreparedStatement st = connection.prepareStatement(sql)) {
       st.setInt(1, entity.getSubject().getId());
       st.setInt(2, valueOf(entity.getStudent().getDni()));
@@ -38,7 +38,7 @@ public class MySqlFinalRepository implements FinalRepository {
   @Override
   public void remove(Final entity) {
     String sql = "DELETE FROM Final WHERE idFinal=?";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     try (PreparedStatement st = connection.prepareStatement(sql)) {
       st.setInt(1, entity.getId());
       st.executeUpdate();
@@ -51,7 +51,7 @@ public class MySqlFinalRepository implements FinalRepository {
   public void update(Final entity) {
     String sql = "UPDATE Final SET subjectIdSubject=?,studentDniStudent=?,"
         + "dateFinal=?,qualification=? WHERE idFinal=?";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     try (PreparedStatement st = connection.prepareStatement(sql)) {
       st.setInt(1, entity.getSubject().getId());
       st.setInt(2, valueOf(entity.getStudent().getDni()));
@@ -67,7 +67,7 @@ public class MySqlFinalRepository implements FinalRepository {
   @Override
   public List<Final> getAll() {
     String query = "SELECT * FROM Final";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     List<Final> finals = new ArrayList<>();
     try (PreparedStatement st = connection.prepareStatement(query);
         ResultSet resultSet = st.executeQuery()) {
@@ -86,7 +86,7 @@ public class MySqlFinalRepository implements FinalRepository {
   }
 
   private Subject getSubject(int id) {
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     String query = "SELECT * FROM Subject WHERE idSubject =?";
     try (PreparedStatement st = connection.prepareStatement(query)) {
       st.setInt(1, id);
@@ -102,7 +102,7 @@ public class MySqlFinalRepository implements FinalRepository {
   }
 
   private Student getStudent(int dni) {
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     String query = "SELECT * FROM Student WHERE dniStudent =?";
     try (PreparedStatement st = connection.prepareStatement(query)) {
       st.setInt(1, dni);

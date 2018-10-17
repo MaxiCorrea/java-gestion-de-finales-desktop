@@ -16,7 +16,7 @@ public class MySqlStudentRepository implements StudentRepository {
   @Override
   public void add(Student entity) {
     String sql = "INSERT INTO Student(dniStudent,name,surname,email) VALUES(?,?,?,?)";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     try (PreparedStatement st = connection.prepareStatement(sql)) {
       st.setInt(1, valueOf(entity.getDni()));
       st.setString(2, entity.getName());
@@ -31,7 +31,7 @@ public class MySqlStudentRepository implements StudentRepository {
   @Override
   public void remove(Student entity) {
     String sql = "DELETE FROM Student WHERE dniStudent=?";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     try (PreparedStatement st = connection.prepareStatement(sql)) {
       st.setInt(1, valueOf(entity.getDni()));
       st.executeUpdate();
@@ -43,7 +43,7 @@ public class MySqlStudentRepository implements StudentRepository {
   @Override
   public void update(Student entity) {
     String sql = "UPDATE Student SET name=?,surname=?,email=? WHERE dniStudent=?";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     try (PreparedStatement st = connection.prepareStatement(sql)) {
       st.setString(1, entity.getName());
       st.setString(2, entity.getSurname());
@@ -58,7 +58,7 @@ public class MySqlStudentRepository implements StudentRepository {
   @Override
   public List<Student> getAll() {
     String query = "SELECT * FROM Student";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     List<Student> students = new ArrayList<>();
     try (PreparedStatement st = connection.prepareStatement(query);
         ResultSet resultSet = st.executeQuery()) {

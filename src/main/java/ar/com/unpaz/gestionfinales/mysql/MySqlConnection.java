@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
 
-public class MySqlConexion {
+public class MySqlConnection {
 
   private static Connection connection;
 
@@ -13,7 +13,7 @@ public class MySqlConexion {
   private static String user;
   private static String pass;
 
-  private MySqlConexion() {
+  private MySqlConnection() {
     throw new AssertionError();
   }
 

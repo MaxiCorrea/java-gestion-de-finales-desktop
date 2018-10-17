@@ -15,7 +15,7 @@ public class MySqlSubjectRepository implements SubjectRepository {
   @Override
   public void add(Subject entity) {
     String sql = "INSERT INTO Subject(description,year) values(?,?)";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     try (PreparedStatement st = connection.prepareStatement(sql)) {
       st.setString(1, entity.getDescription());
       st.setInt(2, entity.getYear().number);
@@ -28,7 +28,7 @@ public class MySqlSubjectRepository implements SubjectRepository {
   @Override
   public void remove(Subject entity) {
     String sql = "DELETE FROM Subject WHERE idSubject=?";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     try (PreparedStatement st = connection.prepareStatement(sql)) {
       st.setInt(1, entity.getId());
       st.executeUpdate();
@@ -40,7 +40,7 @@ public class MySqlSubjectRepository implements SubjectRepository {
   @Override
   public void update(Subject entity) {
     String sql = "UPDATE Subject SET description=? , year=? WHERE idSubject=?";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     try (PreparedStatement st = connection.prepareStatement(sql)) {
       st.setString(1, entity.getDescription());
       st.setInt(2, entity.getYear().number);
@@ -54,7 +54,7 @@ public class MySqlSubjectRepository implements SubjectRepository {
   @Override
   public List<Subject> getAll() {
     String query = "SELECT * FROM Subject";
-    Connection connection = MySqlConexion.getConexion();
+    Connection connection = MySqlConnection.getConexion();
     List<Subject> subjects = new ArrayList<>();
     try (PreparedStatement st = connection.prepareStatement(query);
         ResultSet resultSet = st.executeQuery()) {
