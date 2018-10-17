@@ -1,12 +1,12 @@
 package ar.com.unpaz.gestionfinales.application;
 
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
-import ar.com.unpaz.gestionfinales.inmemory.InMemoryFinalRepository;
-import ar.com.unpaz.gestionfinales.inmemory.InMemoryStudentRepository;
-import ar.com.unpaz.gestionfinales.inmemory.InMemorySubjectRepository;
 import ar.com.unpaz.gestionfinales.jasper.FinalJasperReport;
 import ar.com.unpaz.gestionfinales.jasper.StudentJasperReport;
 import ar.com.unpaz.gestionfinales.jasper.SubjectJasperReport;
+import ar.com.unpaz.gestionfinales.mysql.MySqlFinalRepository;
+import ar.com.unpaz.gestionfinales.mysql.MySqlStudentRepository;
+import ar.com.unpaz.gestionfinales.mysql.MySqlSubjectRepository;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.reports.AppReportContext;
 import ar.com.unpaz.gestionfinales.swing.AboutDialogSwing;
@@ -36,10 +36,10 @@ import ar.com.unpaz.gestionfinales.usecase.subjects.SubjecUseCasesImpl;
 public class Main {
 
   public static void main(String[] args) {
-
-    AppRepositoryContext.subjectRepository = new InMemorySubjectRepository();
-    AppRepositoryContext.studentRepository = new InMemoryStudentRepository();
-    AppRepositoryContext.finalRepository = new InMemoryFinalRepository();
+        
+    AppRepositoryContext.subjectRepository = new MySqlSubjectRepository();
+    AppRepositoryContext.studentRepository = new MySqlStudentRepository();
+    AppRepositoryContext.finalRepository = new MySqlFinalRepository();
 
     AppReportContext.subjectReport = new SubjectJasperReport();
     AppReportContext.studentReport = new StudentJasperReport();

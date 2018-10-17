@@ -26,9 +26,6 @@
 		<junit.version>4.11</junit.version>
 		<!-- Logs -->
 		<log4j.version>2.3</log4j.version>
-		<!-- Data Base -->
-		<database.driver>com.mysql.jdbc.Driver</database.driver>
-		<database.url>jdbc:mysql://localhost:3306/finals</database.url>
 	</properties>
 
 	<profiles>
