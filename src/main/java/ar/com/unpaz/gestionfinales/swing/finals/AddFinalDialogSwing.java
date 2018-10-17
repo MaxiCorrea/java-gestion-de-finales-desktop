@@ -70,6 +70,7 @@ public class AddFinalDialogSwing implements AddFinalDialog {
     pane.setBorder(createTitledBorder("Materia"));
     selectSubjectButton = createButton("Seleccionar");
     selectedSubjectField = new JTextField(12);
+    selectedSubjectField.setEditable(false);
     pane.add(selectSubjectButton);
     pane.add(selectedSubjectField);
     return pane;
@@ -81,6 +82,7 @@ public class AddFinalDialogSwing implements AddFinalDialog {
     pane.setBorder(createTitledBorder("Alumno"));
     selectStudentButton = createButton("Seleccionar");
     selectedStudentField = new JTextField(12);
+    selectedStudentField.setEditable(false);
     pane.add(selectStudentButton);
     pane.add(selectedStudentField);
     return pane;
