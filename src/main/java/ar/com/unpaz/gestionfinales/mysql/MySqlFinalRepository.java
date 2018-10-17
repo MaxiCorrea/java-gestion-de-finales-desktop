@@ -1,7 +1,9 @@
 package ar.com.unpaz.gestionfinales.mysql;
 
 import static ar.com.unpaz.gestionfinales.domain.Qualification.of;
+import static java.lang.Integer.valueOf;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,20 +21,47 @@ public class MySqlFinalRepository implements FinalRepository {
 
   @Override
   public void add(Final entity) {
-    // TODO Auto-generated method stub
-
+    String sql = "INSERT INTO Final(subjectIdSubject,studentDniStudent,"
+        + "dateFinal,qualification) VALUES(?,?,?,?)";
+    Connection connection = MySqlConexion.getConexion();
+    try (PreparedStatement st = connection.prepareStatement(sql)) {
+      st.setInt(1, entity.getSubject().getId());
+      st.setInt(2, valueOf(entity.getStudent().getDni()));
+      st.setDate(3, Date.valueOf(entity.getDate()));
+      st.setInt(4, entity.getQualification().number);
+      st.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
   public void remove(Final entity) {
-    // TODO Auto-generated method stub
-
+    String sql = "DELETE FROM Final WHERE idFinal=?";
+    Connection connection = MySqlConexion.getConexion();
+    try (PreparedStatement st = connection.prepareStatement(sql)) {
+      st.setInt(1, entity.getId());
+      st.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
   public void update(Final entity) {
-    // TODO Auto-generated method stub
-
+    String sql = "UPDATE Final SET subjectIdSubject=?,studentDniStudent=?,"
+        + "dateFinal=?,qualification=? WHERE idFinal=?";
+    Connection connection = MySqlConexion.getConexion();
+    try (PreparedStatement st = connection.prepareStatement(sql)) {
+      st.setInt(1, entity.getSubject().getId());
+      st.setInt(2, valueOf(entity.getStudent().getDni()));
+      st.setDate(3, Date.valueOf(entity.getDate()));
+      st.setInt(4, entity.getQualification().number);
+      st.setInt(5, entity.getId());
+      st.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
@@ -61,29 +90,29 @@ public class MySqlFinalRepository implements FinalRepository {
     String query = "SELECT * FROM Subject WHERE idSubject =?";
     try (PreparedStatement st = connection.prepareStatement(query)) {
       st.setInt(1, id);
-      try(ResultSet resultSet = st.executeQuery()) {
-        if(resultSet.next()) {
+      try (ResultSet resultSet = st.executeQuery()) {
+        if (resultSet.next()) {
           return ResultSetToSubject.convert(resultSet);
         }
       }
-    }catch(SQLException e) {
-     e.printStackTrace(); 
+    } catch (SQLException e) {
+      e.printStackTrace();
     }
     return null;
   }
-  
+
   private Student getStudent(int dni) {
     Connection connection = MySqlConexion.getConexion();
     String query = "SELECT * FROM Student WHERE dniStudent =?";
     try (PreparedStatement st = connection.prepareStatement(query)) {
       st.setInt(1, dni);
-      try(ResultSet resultSet = st.executeQuery()) {
-        if(resultSet.next()) {
+      try (ResultSet resultSet = st.executeQuery()) {
+        if (resultSet.next()) {
           return ResultSetToStudent.convert(resultSet);
         }
       }
-    }catch(SQLException e) {
-     e.printStackTrace(); 
+    } catch (SQLException e) {
+      e.printStackTrace();
     }
     return null;
   }
