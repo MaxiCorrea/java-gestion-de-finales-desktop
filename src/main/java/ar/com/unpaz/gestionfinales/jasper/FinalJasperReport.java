@@ -8,10 +8,8 @@ import ar.com.unpaz.gestionfinales.reports.ReportException;
 
 public class FinalJasperReport implements Report {
 
-  private static final String JASPER =
-      "/home/max/Develop/gestionfinales/src/main/resources/reports/finals.jasper";
-  private static final String JPRINT =
-      "/home/max/Develop/gestionfinales/src/main/resources/reports/finals.jrprint";
+  private static final String JASPER = "src/main/resources/reports/finals.jasper";
+  private static final String JPRINT = "src/main/resources/reports/finals.jrprint";
 
   @Override
   public void generateReport(String absolutePath) throws ReportException {
