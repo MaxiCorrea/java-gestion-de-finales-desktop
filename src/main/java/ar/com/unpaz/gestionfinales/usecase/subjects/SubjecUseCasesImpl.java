@@ -1,8 +1,6 @@
 package ar.com.unpaz.gestionfinales.usecase.subjects;
 
-import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.inmemory.ByYearSpecification;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 
 public class SubjecUseCasesImpl implements SubjectUseCases {
@@ -43,10 +41,7 @@ public class SubjecUseCasesImpl implements SubjectUseCases {
 
   @Override
   public void filterByYear() {
-    int year = AppViewContext.subjectsView.getYearSelected().ordinal();
-    AppViewContext.subjectsView
-        .setSubjects((year == 0) ? AppRepositoryContext.subjectRepository.getAll()
-            : AppRepositoryContext.subjectRepository.query(new ByYearSpecification(year)));
+    
   }
 
   @Override
