@@ -86,7 +86,6 @@ public class AddFinalDialogSwing implements AddFinalDialog {
     return pane;
   }
 
-
   private JPanel createSouthPane() {
     JPanel pane = new JPanel();
     pane.setBackground(WHITE);
