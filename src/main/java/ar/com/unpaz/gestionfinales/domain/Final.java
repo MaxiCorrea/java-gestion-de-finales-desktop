@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 public class Final extends Entity {
 
+  /// Quizas esto aqui no..
   public static String NOTE_ERROR = "Seleccione Nota";
   public static String STUDENT_ERROR = "Seleccione Alumno";
   public static String SUBJECT_ERROR = "Seleccione Materia";

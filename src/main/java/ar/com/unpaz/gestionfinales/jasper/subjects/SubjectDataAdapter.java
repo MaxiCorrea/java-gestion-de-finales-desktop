@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.jasper;
+package ar.com.unpaz.gestionfinales.jasper.subjects;
 
 import static java.lang.String.valueOf;
 import ar.com.unpaz.gestionfinales.domain.Subject;

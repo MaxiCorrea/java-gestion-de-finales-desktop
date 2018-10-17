@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.mysql;
+package ar.com.unpaz.gestionfinales.mysql.subjects;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

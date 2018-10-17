@@ -9,6 +9,7 @@ import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode
 
 public class Student extends Entity {
 
+  /// Quizas esto aqui no..
   public static String ERROR_DNI_MSG = "DNI invalido";
   public static String ERROR_NAME_MSG = "Ingrese nombre";
   public static String ERROR_SURNAME_MSG = "Ingrese apellido";

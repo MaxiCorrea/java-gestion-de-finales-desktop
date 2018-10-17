@@ -1,12 +1,12 @@
 package ar.com.unpaz.gestionfinales.application;
 
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
-import ar.com.unpaz.gestionfinales.jasper.FinalJasperReport;
-import ar.com.unpaz.gestionfinales.jasper.StudentJasperReport;
-import ar.com.unpaz.gestionfinales.jasper.SubjectJasperReport;
-import ar.com.unpaz.gestionfinales.mysql.MySqlFinalRepository;
-import ar.com.unpaz.gestionfinales.mysql.MySqlStudentRepository;
-import ar.com.unpaz.gestionfinales.mysql.MySqlSubjectRepository;
+import ar.com.unpaz.gestionfinales.jasper.finals.FinalJasperReport;
+import ar.com.unpaz.gestionfinales.jasper.students.StudentJasperReport;
+import ar.com.unpaz.gestionfinales.jasper.subjects.SubjectJasperReport;
+import ar.com.unpaz.gestionfinales.mysql.finals.MySqlFinalRepository;
+import ar.com.unpaz.gestionfinales.mysql.students.MySqlStudentRepository;
+import ar.com.unpaz.gestionfinales.mysql.subjects.MySqlSubjectRepository;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.reports.AppReportContext;
 import ar.com.unpaz.gestionfinales.swing.AboutDialogSwing;

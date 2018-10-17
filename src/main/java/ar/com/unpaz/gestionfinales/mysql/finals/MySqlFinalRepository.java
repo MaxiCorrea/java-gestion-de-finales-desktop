@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.mysql;
+package ar.com.unpaz.gestionfinales.mysql.finals;
 
 import static ar.com.unpaz.gestionfinales.domain.Qualification.of;
 import static java.lang.Integer.valueOf;
@@ -16,6 +16,9 @@ import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.domain.Qualification;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.mysql.MySqlConnection;
+import ar.com.unpaz.gestionfinales.mysql.students.ResultSetToStudent;
+import ar.com.unpaz.gestionfinales.mysql.subjects.ResultSetToSubject;
 
 public class MySqlFinalRepository implements FinalRepository {
 

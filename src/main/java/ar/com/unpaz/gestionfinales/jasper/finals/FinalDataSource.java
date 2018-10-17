@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.jasper;
+package ar.com.unpaz.gestionfinales.jasper.finals;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.mysql;
+package ar.com.unpaz.gestionfinales.mysql.students;
 
 import static java.lang.Integer.valueOf;
 import java.sql.Connection;
@@ -10,6 +10,7 @@ import java.util.List;
 import ar.com.unpaz.gestionfinales.database.Specification;
 import ar.com.unpaz.gestionfinales.database.StudentRepository;
 import ar.com.unpaz.gestionfinales.domain.Student;
+import ar.com.unpaz.gestionfinales.mysql.MySqlConnection;
 
 public class MySqlStudentRepository implements StudentRepository {
 

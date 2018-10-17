@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.mysql;
+package ar.com.unpaz.gestionfinales.mysql.subjects;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +9,7 @@ import java.util.List;
 import ar.com.unpaz.gestionfinales.database.Specification;
 import ar.com.unpaz.gestionfinales.database.SubjectRepository;
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.mysql.MySqlConnection;
 
 public class MySqlSubjectRepository implements SubjectRepository {
 

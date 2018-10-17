@@ -6,6 +6,7 @@ import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode
 
 public class Subject extends Entity {
 
+  /// Quizas esto aqui no..
   public static String YEAR_ERROR_MSG = "Seleccione el año";
   public static String DESC_ERROR_MSG = "ingrese descripcion";
   public static String NO_ERROR = "";

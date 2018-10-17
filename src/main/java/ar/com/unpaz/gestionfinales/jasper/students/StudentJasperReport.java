@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.jasper;
+package ar.com.unpaz.gestionfinales.jasper.students;
 
 import static net.sf.jasperreports.engine.JasperExportManager.exportReportToPdfFile;
 import static net.sf.jasperreports.engine.JasperFillManager.fillReportToFile;
