@@ -36,14 +36,14 @@
 				<staticText>
 					<reportElement x="100" y="35" width="350" height="30" uuid="393125b4-951f-44f1-8320-757a207190f3"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans" size="24"/>
+						<font fontName="Serif" size="24"/>
 					</textElement>
 					<text><![CDATA[Reporte de Finales]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="0" y="8" width="170" height="22" uuid="d9687d7d-aded-4f9b-842a-fb6b5fdc1d40"/>
 					<textElement>
-						<font fontName="DejaVu Sans" size="8"/>
+						<font fontName="Serif" size="8"/>
 					</textElement>
 					<text><![CDATA[Designer : jmaxicorrea@gmail.com]]></text>
 				</staticText>
@@ -60,35 +60,35 @@
 				<staticText>
 					<reportElement x="0" y="16" width="70" height="30" uuid="3087a90d-ae01-46a9-996e-23d626a4f10e"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans" size="16"/>
+						<font fontName="Serif" size="16"/>
 					</textElement>
 					<text><![CDATA[Id]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="350" y="16" width="120" height="30" uuid="fd3a69bd-0ab4-4fe8-85b5-e1ba64900bd7"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans" size="16"/>
+						<font fontName="Serif" size="16"/>
 					</textElement>
 					<text><![CDATA[Fecha]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="70" y="16" width="140" height="30" uuid="699b53ab-605b-45da-90f8-41ed7a975ea4"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans" size="16"/>
+						<font fontName="Serif" size="16"/>
 					</textElement>
 					<text><![CDATA[Materia]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="210" y="16" width="140" height="30" uuid="8fac31b8-d9ae-4d46-913b-0a60d7b21bf8"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans" size="16"/>
+						<font fontName="Serif" size="16"/>
 					</textElement>
 					<text><![CDATA[Alumno]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="470" y="16" width="80" height="30" uuid="50a3eb8c-43a1-435d-a250-587282f00602"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans" size="16"/>
+						<font fontName="Serif" size="16"/>
 					</textElement>
 					<text><![CDATA[Nota]]></text>
 				</staticText>
@@ -102,35 +102,35 @@
 				<textField>
 					<reportElement x="0" y="0" width="70" height="30" uuid="743af637-046c-41c1-b2c1-3a9178c2a088"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans"/>
+						<font fontName="Serif"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="70" y="0" width="140" height="30" uuid="49360180-97d6-4562-bc9e-49cfb013749f"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans"/>
+						<font fontName="Serif"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{subject}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="210" y="0" width="140" height="30" uuid="523f9d4a-ee50-4ff2-b74f-5e2ed11d36db"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans"/>
+						<font fontName="Serif"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{student}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="350" y="0" width="120" height="30" uuid="79bd3855-d6fe-469a-a7ba-aebd723d2214"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans"/>
+						<font fontName="Serif"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="470" y="0" width="80" height="30" uuid="9ff504b2-9a1b-4277-bc75-b915e211bbe6"/>
 					<textElement textAlignment="Center">
-						<font fontName="DejaVu Sans"/>
+						<font fontName="Serif"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{qualification}]]></textFieldExpression>
 				</textField>
@@ -144,12 +144,16 @@
 		<band height="54" splitType="Stretch">
 			<textField evaluationTime="Report">
 				<reportElement x="450" y="0" width="100" height="30" uuid="3bec43a5-3997-4fd5-a442-66212079f9fb"/>
-				<textElement textAlignment="Left"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif"/>
+				</textElement>
 				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="350" y="0" width="100" height="30" uuid="4632ab42-e1a3-4598-b9c4-5cc10d9160ee"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
 				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
