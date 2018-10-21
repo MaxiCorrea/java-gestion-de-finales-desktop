@@ -5,9 +5,6 @@ import ar.com.unpaz.gestionfinales.domain.Subject;
 
 public class SubjectValidator implements Validator<Subject> {
 
-  private static String YEAR_ERROR_MSG = "Seleccione el año";
-  private static String DESC_ERROR_MSG_1 = "Ingrese descripcion";
-  private static String DESC_ERROR_MSG_2 = "Descripcion muy larga";
   private static String NO_ERROR = "";
 
   private String errorMessage;
@@ -24,18 +21,24 @@ public class SubjectValidator implements Validator<Subject> {
     return errorMessage.equals(NO_ERROR);
   }
 
+  private static String YEAR_ERROR_MSG = "Seleccione el año";
+  
   private void checkYear(Subject entity) {
     if (entity.haveThisYear(NONE)) {
       errorMessage = YEAR_ERROR_MSG;
     }
   }
 
+  private static String DESC_ERROR_MSG_1 = "Ingrese descripcion";
+  
   private void checkDescriptionEmpty(Subject entity) {
     if (entity.hasEmptyDescription()) {
       errorMessage = DESC_ERROR_MSG_1;
     }
   }
 
+  private static String DESC_ERROR_MSG_2 = "Descripcion muy larga";
+  
   private void checkDescriptionLenght(Subject entity) {
     if (entity.getDescription().length() > 
         Subject.MAX_NUMBER_OF_CHARACTERS) {
