@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import ar.com.unpaz.gestionfinales.domain.Student;
 
 public class StudentValidator implements Validator<Student> {
-  
+
   private static String NO_ERROR = "";
 
   private String errorMessage;
@@ -22,12 +22,16 @@ public class StudentValidator implements Validator<Student> {
     checkSurname(entity);
     checkEmail(entity);
     checkEmailFormat(entity);
-    return errorMessage.equals(NO_ERROR);
+    return !hasErrors();
+  }
+
+  boolean hasErrors() {
+    return !errorMessage.equals(NO_ERROR);
   }
 
   private static String ERROR_DNI_MSG = "DNI invalido";
-  
-  private void checkDNI(Student entity) {
+
+  void checkDNI(Student entity) {
     if (!isDNI(entity.getDni())) {
       errorMessage = ERROR_DNI_MSG;
     }
@@ -38,32 +42,32 @@ public class StudentValidator implements Validator<Student> {
   }
 
   private static String ERROR_NAME_MSG = "Ingrese nombre";
-  
-  private void checkName(Student entity) {
+
+  void checkName(Student entity) {
     if (entity.hasEmptyName()) {
       errorMessage = ERROR_NAME_MSG;
     }
   }
 
   private static String ERROR_SURNAME_MSG = "Ingrese apellido";
-  
-  private void checkSurname(Student entity) {
+
+  void checkSurname(Student entity) {
     if (entity.hasEmptySurname()) {
       errorMessage = ERROR_SURNAME_MSG;
     }
   }
 
   public static String ERROR_EMAIL_MSG = "Ingrese email";
-  
-  private void checkEmail(Student entity) {
+
+  void checkEmail(Student entity) {
     if (entity.hasEmptyEmail()) {
       errorMessage = ERROR_EMAIL_MSG;
     }
   }
 
   private static String ERROR_EMAIL_FORMAT = "Parece que el email es incorrecto";
-  
-  private void checkEmailFormat(Student entity) {
+
+  void checkEmailFormat(Student entity) {
     if (!VALID_EMAIL_ADDRESS_REGEX.matcher(entity.getEmail()).find()) {
       errorMessage = ERROR_EMAIL_FORMAT;
     }
@@ -71,7 +75,7 @@ public class StudentValidator implements Validator<Student> {
 
   static final Pattern VALID_EMAIL_ADDRESS_REGEX =
       compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", CASE_INSENSITIVE);
-  
+
   @Override
   public String getErrorMessage() {
     String message = errorMessage;
