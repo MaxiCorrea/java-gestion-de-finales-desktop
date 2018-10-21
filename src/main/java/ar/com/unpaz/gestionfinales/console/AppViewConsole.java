@@ -13,11 +13,11 @@ public class AppViewConsole implements AppView {
   }
 
   private static final String APP_TITLE = "Sistema de gestion de finales";
-  private static final String MENU_SUBJECT_TITLE = "1 ) Materias ";
-  private static final String MENU_STUDENTS_TITLE = "2 ) Alumnos ";
-  private static final String MENU_FINALS_TITLE = "3 ) Finales ";
-  private static final String MENU_ABOUT_TITLE = "4 ) Acerca de ";
-  private static final String MENU_EXIT_TITLE = "5 ) Salir ";
+  private static final String SUBJECT_TITLE = "1 ) Materias ";
+  private static final String STUDENTS_TITLE = "2 ) Alumnos ";
+  private static final String FINALS_TITLE = "3 ) Finales ";
+  private static final String ABOUT_TITLE = "4 ) Acerca de ";
+  private static final String EXIT_TITLE = "5 ) Salir ";
 
   private boolean running;
 
@@ -44,11 +44,11 @@ public class AppViewConsole implements AppView {
   }
 
   private void showMenu() {
-    println(MENU_SUBJECT_TITLE);
-    println(MENU_STUDENTS_TITLE);
-    println(MENU_FINALS_TITLE);
-    println(MENU_ABOUT_TITLE);
-    println(MENU_EXIT_TITLE);
+    println(SUBJECT_TITLE);
+    println(STUDENTS_TITLE);
+    println(FINALS_TITLE);
+    println(ABOUT_TITLE);
+    println(EXIT_TITLE);
   }
 
   private void controlOption() {
