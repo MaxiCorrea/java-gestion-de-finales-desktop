@@ -4,8 +4,8 @@ import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
-import ar.com.unpaz.gestionfinales.validations.SubjectValidator;
-import ar.com.unpaz.gestionfinales.validations.Validator;
+import ar.com.unpaz.gestionfinales.validation.SubjectValidator;
+import ar.com.unpaz.gestionfinales.validation.Validator;
 
 public class UpdateSubjectUseCase implements DialogController {
 

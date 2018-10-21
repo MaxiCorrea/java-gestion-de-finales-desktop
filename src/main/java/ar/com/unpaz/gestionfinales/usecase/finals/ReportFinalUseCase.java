@@ -2,8 +2,8 @@ package ar.com.unpaz.gestionfinales.usecase.finals;
 
 import java.io.File;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.reports.AppReportContext;
-import ar.com.unpaz.gestionfinales.reports.ReportException;
+import ar.com.unpaz.gestionfinales.report.AppReportContext;
+import ar.com.unpaz.gestionfinales.report.ReportException;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
 public class ReportFinalUseCase implements DialogController {

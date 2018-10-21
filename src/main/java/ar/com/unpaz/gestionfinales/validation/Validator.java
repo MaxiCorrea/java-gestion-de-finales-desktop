@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.validations;
+package ar.com.unpaz.gestionfinales.validation;
 
 public interface Validator<E> {
 

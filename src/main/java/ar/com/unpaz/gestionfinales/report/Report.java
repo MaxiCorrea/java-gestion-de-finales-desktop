@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.reports;
+package ar.com.unpaz.gestionfinales.report;
 
 public interface Report {
 

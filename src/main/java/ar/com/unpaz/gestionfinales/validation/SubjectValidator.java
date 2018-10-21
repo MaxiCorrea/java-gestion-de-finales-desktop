@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.validations;
+package ar.com.unpaz.gestionfinales.validation;
 
 import static ar.com.unpaz.gestionfinales.domain.Year.NONE;
 import ar.com.unpaz.gestionfinales.domain.Subject;

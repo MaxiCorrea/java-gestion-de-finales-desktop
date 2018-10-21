@@ -3,8 +3,8 @@ package ar.com.unpaz.gestionfinales.jasper.subjects;
 import static net.sf.jasperreports.engine.JasperExportManager.exportReportToPdfFile;
 import static net.sf.jasperreports.engine.JasperFillManager.fillReportToFile;
 import java.util.HashMap;
-import ar.com.unpaz.gestionfinales.reports.Report;
-import ar.com.unpaz.gestionfinales.reports.ReportException;
+import ar.com.unpaz.gestionfinales.report.Report;
+import ar.com.unpaz.gestionfinales.report.ReportException;
 
 public class SubjectJasperReport implements Report {
 

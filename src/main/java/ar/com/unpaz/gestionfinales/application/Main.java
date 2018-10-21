@@ -9,7 +9,7 @@ import ar.com.unpaz.gestionfinales.jasper.finals.FinalJasperReport;
 import ar.com.unpaz.gestionfinales.jasper.students.StudentJasperReport;
 import ar.com.unpaz.gestionfinales.jasper.subjects.SubjectJasperReport;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.reports.AppReportContext;
+import ar.com.unpaz.gestionfinales.report.AppReportContext;
 import ar.com.unpaz.gestionfinales.swing.AppViewSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.AddFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.DeleteFinalDialogSwing;

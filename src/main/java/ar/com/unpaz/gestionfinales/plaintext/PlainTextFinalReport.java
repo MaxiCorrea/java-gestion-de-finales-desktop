@@ -6,8 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.reports.Report;
-import ar.com.unpaz.gestionfinales.reports.ReportException;
+import ar.com.unpaz.gestionfinales.report.Report;
+import ar.com.unpaz.gestionfinales.report.ReportException;
 
 public class PlainTextFinalReport implements Report {
 
