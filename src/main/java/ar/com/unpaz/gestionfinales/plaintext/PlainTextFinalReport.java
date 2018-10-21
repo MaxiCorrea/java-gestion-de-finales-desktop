@@ -11,8 +11,6 @@ import ar.com.unpaz.gestionfinales.report.ReportException;
 
 public class PlainTextFinalReport implements Report {
 
-  private static final String SLASH = "/";
-  
   @Override
   public void generateReport(String absolutePath) throws ReportException {
     try(FileWriter out = new FileWriter(absolutePath) ;
@@ -34,4 +32,17 @@ public class PlainTextFinalReport implements Report {
     }
   }
 
+  private static final String SLASH = "/";
+  
+  String formatString(Final finalObj) {
+    return new StringBuilder().append(finalObj.getId())
+                              .append(SLASH)
+                              .append(finalObj.getSubject().getDescription())
+                              .append(SLASH)
+                              .append(finalObj.getDate())
+                              .append(SLASH)
+                              .append(finalObj.getQualification().number)
+                              .toString();
+  }
+  
 }

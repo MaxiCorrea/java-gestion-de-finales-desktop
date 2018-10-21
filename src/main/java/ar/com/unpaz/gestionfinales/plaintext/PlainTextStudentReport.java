@@ -10,20 +10,12 @@ import ar.com.unpaz.gestionfinales.report.ReportException;
 
 public class PlainTextStudentReport implements Report {
 
-  private static final String SLASH = "/";
-  
   @Override
   public void generateReport(String absolutePath) throws ReportException {
     try(FileWriter out = new FileWriter(absolutePath) ;
         BufferedWriter buffer = new BufferedWriter(out)) {
       for(Student student : AppRepositoryContext.studentRepository.getAll()) {
-        buffer.write(String.valueOf(student.getId()));
-        buffer.write(SLASH);
-        buffer.write(student.getName());
-        buffer.write(SLASH);
-        buffer.write(student.getSurname());
-        buffer.write(SLASH);
-        buffer.write(student.getEmail());
+        buffer.write(formatString(student));
         buffer.newLine();
       }
     } catch(IOException ex) {
@@ -31,4 +23,17 @@ public class PlainTextStudentReport implements Report {
     }
   }
 
+  private static final String SLASH = "/";
+  
+  String formatString(Student student) {
+    return new StringBuilder().append(student.getDni())
+                              .append(SLASH)
+                              .append(student.getName())
+                              .append(SLASH)
+                              .append(student.getSurname())
+                              .append(SLASH)
+                              .append(student.getEmail())
+                              .toString();
+  }
+  
 }
