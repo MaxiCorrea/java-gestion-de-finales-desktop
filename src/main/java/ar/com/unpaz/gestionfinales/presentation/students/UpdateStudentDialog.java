@@ -15,4 +15,6 @@ public interface UpdateStudentDialog {
   
   void close();
 
+  void showError(String message);
+
 }
