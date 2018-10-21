@@ -1,6 +1,6 @@
 package ar.com.unpaz.gestionfinales.application;
 
-import ar.com.unpaz.gestionfinales.console.AppViewConsole;
+import ar.com.unpaz.gestionfinales.console.AboutDialogConsole;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.jasper.finals.FinalJasperReport;
 import ar.com.unpaz.gestionfinales.jasper.students.StudentJasperReport;
@@ -10,7 +10,7 @@ import ar.com.unpaz.gestionfinales.mysql.students.MySqlStudentRepository;
 import ar.com.unpaz.gestionfinales.mysql.subjects.MySqlSubjectRepository;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.reports.AppReportContext;
-import ar.com.unpaz.gestionfinales.swing.AboutDialogSwing;
+import ar.com.unpaz.gestionfinales.swing.AppViewSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.AddFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.DeleteFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.FinalViewSwing;
@@ -45,13 +45,13 @@ public class Main {
     AppReportContext.studentReport = new StudentJasperReport();
     AppReportContext.finalReport = new FinalJasperReport();
     
-    AppViewContext.appView = new AppViewConsole();
+    AppViewContext.appView = new AppViewSwing();
     AppViewContext.subjectsView = new SubjectsViewSwing();
     AppViewContext.addSubjectDialog = new AddSubjectDialogSwing();
     AppViewContext.updSubjectDialog = new UpdateSubjectDialogSwing();
     AppViewContext.delSubjectDialog = new DeleteSubjectDialogSwing();
     AppViewContext.reportSubjectDialog = new ReportSubjectDialogSwing();
-    AppViewContext.aboutDialog = new AboutDialogSwing();
+    AppViewContext.aboutDialog = new AboutDialogConsole();
 
     AppViewContext.studentsView = new StudentsViewSwing();
     AppViewContext.addStudentDialog = new AddStudentDialogSwing();
