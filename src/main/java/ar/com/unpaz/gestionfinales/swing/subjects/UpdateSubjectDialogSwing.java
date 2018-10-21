@@ -5,12 +5,14 @@ import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
+import static java.awt.Color.RED;
 import static javax.swing.BorderFactory.createTitledBorder;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -22,19 +24,22 @@ import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
 public class UpdateSubjectDialogSwing implements UpdateSubjectDialog {
 
+  private static final String TITLE = "Actualizar Materia";
+  
   private JDialog dialog;
   private JTextField fieldDescription;
   private JComboBox<YearCombo> comboYear;
   private JButton acceptButton;
   private JButton cancelButton;
+  private JLabel errorMessage;
   private int id;
 
   public UpdateSubjectDialogSwing() {
     dialog = new JDialog();
     dialog.setModal(true);
-    dialog.setSize(420, 150);
+    dialog.setSize(420, 170);
     dialog.setResizable(false);
-    dialog.setTitle("Actualizar Materia");
+    dialog.setTitle(TITLE);
     dialog.getContentPane().setLayout(new BorderLayout());
     dialog.getContentPane().add(createCenterPane(), NORTH);
     dialog.getContentPane().add(createSouthPane(), SOUTH);
@@ -50,6 +55,9 @@ public class UpdateSubjectDialogSwing implements UpdateSubjectDialog {
     JScrollPane scrollPane = new JScrollPane(fieldDescription);
     scrollPane.setPreferredSize(new Dimension(5, 40));
     pane.add(scrollPane, CENTER);
+    errorMessage = new JLabel("", JLabel.CENTER);
+    errorMessage.setForeground(RED);
+    pane.add(errorMessage, SOUTH);
     return pane;
   }
 
@@ -104,6 +112,11 @@ public class UpdateSubjectDialogSwing implements UpdateSubjectDialog {
   @Override
   public void close() {
     dialog.dispose();
+  }
+
+  @Override
+  public void showError(String message) {
+    errorMessage.setText(message);
   }
 
 }

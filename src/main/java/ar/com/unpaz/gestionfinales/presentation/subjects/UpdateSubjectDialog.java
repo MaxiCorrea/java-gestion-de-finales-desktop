@@ -15,4 +15,6 @@ public interface UpdateSubjectDialog {
 
   Subject getSubject();
 
+  void showError(String message);
+
 }

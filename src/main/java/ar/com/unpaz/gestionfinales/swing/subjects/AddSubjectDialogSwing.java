@@ -24,6 +24,8 @@ import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
 public class AddSubjectDialogSwing implements AddSubjectDialog {
 
+  private static final String TITLE = "Nueva Materia";
+  
   private JDialog dialog;
   private JTextField fieldDescription;
   private JComboBox<YearCombo> comboYear;
@@ -36,7 +38,7 @@ public class AddSubjectDialogSwing implements AddSubjectDialog {
     dialog.setModal(true);
     dialog.setSize(420, 170);
     dialog.setResizable(false);
-    dialog.setTitle("Nueva Materia");
+    dialog.setTitle(TITLE);
     dialog.getContentPane().setLayout(new BorderLayout());
     dialog.getContentPane().add(createCenterPane(), CENTER);
     dialog.getContentPane().add(createSouthPane(), SOUTH);

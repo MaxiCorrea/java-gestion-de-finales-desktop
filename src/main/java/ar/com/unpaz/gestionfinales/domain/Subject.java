@@ -5,24 +5,10 @@ import static org.apache.commons.lang.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode;
 
 public class Subject extends Entity {
-
-  /// Quizas esto aqui no..
-  public static String YEAR_ERROR_MSG = "Seleccione el año";
-  public static String DESC_ERROR_MSG = "ingrese descripcion";
-  public static String NO_ERROR = "";
-
+  
+  public static final int MAX_NUMBER_OF_CHARACTERS = 50;
   public static final Subject EMPTY = new Subject();
-
-  public static String validateFieldsOf(Subject subject) {
-    if (subject.getYear() == Year.NONE) {
-      return YEAR_ERROR_MSG;
-    }
-    if (subject.getDescription().isEmpty()) {
-      return DESC_ERROR_MSG;
-    }
-    return NO_ERROR;
-  }
-
+  
   private final String description;
   private final Year year;
 
@@ -48,6 +34,14 @@ public class Subject extends Entity {
     return year;
   }
 
+  public boolean haveThisYear(Year year) {
+    return getYear() == year;
+  }
+  
+  public boolean hasEmptyDescription() {
+    return getDescription().isEmpty();
+  }
+  
   @Override
   public int hashCode() {
     return reflectionHashCode(this);
