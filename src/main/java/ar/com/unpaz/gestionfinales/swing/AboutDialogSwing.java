@@ -19,12 +19,6 @@ import ar.com.unpaz.gestionfinales.presentation.AboutDialog;
 import ar.com.unpaz.gestionfinales.swing.IconResource.IconPathOf;
 
 public class AboutDialogSwing implements AboutDialog {
-
-  private static final String TITLE = "Acerca De";
-  private static final String DEVELOPER = "Desarrollador : Maximiliano Correa";
-  private static final String INFORMATION = "Proyecto : Gestion de Finales";
-  private static final String EMAIL = "Email : jmaxicorrea@gmail.com";
-  private static final String YEAR = "Año : 2018  ";
   
   private JDialog dialog;
 
