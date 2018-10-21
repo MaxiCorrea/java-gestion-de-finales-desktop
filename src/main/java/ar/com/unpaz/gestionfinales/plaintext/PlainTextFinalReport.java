@@ -1,6 +1,5 @@
 package ar.com.unpaz.gestionfinales.plaintext;
 
-import static java.lang.String.valueOf;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,15 +15,7 @@ public class PlainTextFinalReport implements Report {
     try(FileWriter out = new FileWriter(absolutePath) ;
         BufferedWriter buffer = new BufferedWriter(out)) {
       for(Final finalObj : AppRepositoryContext.finalRepository.getAll()) {
-        buffer.write(valueOf(finalObj.getId()));
-        buffer.write(SLASH);
-        buffer.write(finalObj.getSubject().getDescription());
-        buffer.write(SLASH);
-        buffer.write(finalObj.getStudent().getFullName());
-        buffer.write(SLASH);
-        buffer.write(valueOf(finalObj.getDate()));
-        buffer.write(SLASH);
-        buffer.write(valueOf(finalObj.getQualification().number));
+        buffer.write(formatString(finalObj));
         buffer.newLine();
       }
     } catch(IOException ex) {
