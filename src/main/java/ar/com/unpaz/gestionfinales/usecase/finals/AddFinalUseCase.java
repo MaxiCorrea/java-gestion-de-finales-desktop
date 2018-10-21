@@ -6,19 +6,31 @@ import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
+import ar.com.unpaz.gestionfinales.validation.FinalValidator;
+import ar.com.unpaz.gestionfinales.validation.Validator;
 
 public class AddFinalUseCase implements FinalDialogController {
+
+  private final Validator<Final> validator;
+
+  public AddFinalUseCase() {
+    validator = new FinalValidator();
+  }
+
+  public AddFinalUseCase(Validator<Final> validator) {
+    this.validator = validator;
+  }
 
   @Override
   public void accept() {
     Final finalObj = AppViewContext.addFinalDialog.getFinal();
-    String errorMessage = Final.validateFieldsOf(finalObj);
-    if (!errorMessage.isEmpty()) {
-      AppViewContext.addFinalDialog.showError(errorMessage);
-    } else {
+    if (validator.isValid(finalObj)) {
       AppRepositoryContext.finalRepository.add(finalObj);
       AppViewContext.finalsView.setFinals(AppRepositoryContext.finalRepository.getAll());
       AppViewContext.addFinalDialog.close();
+    } else {
+      String errorMessage = validator.getErrorMessage();
+      AppViewContext.addFinalDialog.showError(errorMessage);
     }
   }
 

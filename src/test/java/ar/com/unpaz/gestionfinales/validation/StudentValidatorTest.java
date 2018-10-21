@@ -52,26 +52,37 @@ public class StudentValidatorTest {
 
   @Test
   public void theNameCanNotBeBlank() {
-    validator.checkName(new Student("","","",""));
+    validator.checkName(new Student("", "", "", ""));
     assertTrue(validator.hasErrors());
   }
-  
+
   @Test
   public void theSurnameCanNotBeBlank() {
-    validator.checkSurname(new Student("","","",""));
+    validator.checkSurname(new Student("", "", "", ""));
     assertTrue(validator.hasErrors());
   }
-  
+
   @Test
   public void theEmailCanNotBeEmpty() {
-    validator.checkEmail(new Student("","","",""));
+    validator.checkEmail(new Student("", "", "", ""));
     assertTrue(validator.hasErrors());
   }
-  
+
   @Test
   public void testingValidEmail() {
-    validator.checkEmail(new Student("","","","jmaxicorrea@gmail.com"));
+    validator.checkEmail(new Student("", "", "", "jmaxicorrea@gmail.com"));
     assertFalse(validator.hasErrors());
   }
-  
+
+  @Test
+  public void testingStudentValid() {
+    String dni = "34160451";
+    String name = "Maximiliano";
+    String surname = "Correa";
+    String email = "jmaxicorrea@gmail.com";
+    Student student = new Student(dni, name, surname, email);
+    assertTrue(validator.isValid(student));
+    assertFalse(validator.hasErrors());
+  }
+
 }

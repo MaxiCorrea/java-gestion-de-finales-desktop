@@ -57,7 +57,7 @@ public class StudentValidator implements Validator<Student> {
     }
   }
 
-  public static String ERROR_EMAIL_MSG = "Ingrese email";
+  private static String ERROR_EMAIL_MSG = "Ingrese email";
 
   void checkEmail(Student entity) {
     if (entity.hasEmptyEmail()) {
@@ -73,7 +73,7 @@ public class StudentValidator implements Validator<Student> {
     }
   }
 
-  static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+  private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
       compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", CASE_INSENSITIVE);
 
   @Override

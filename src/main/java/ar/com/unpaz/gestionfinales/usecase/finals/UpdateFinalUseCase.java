@@ -6,19 +6,31 @@ import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
+import ar.com.unpaz.gestionfinales.validation.FinalValidator;
+import ar.com.unpaz.gestionfinales.validation.Validator;
 
 public class UpdateFinalUseCase implements FinalDialogController {
+
+  private final Validator<Final> validator;
+
+  public UpdateFinalUseCase() {
+    validator = new FinalValidator();
+  }
+
+  public UpdateFinalUseCase(Validator<Final> validator) {
+    this.validator = validator;
+  }
 
   @Override
   public void accept() {
     Final finalObject = AppViewContext.updFinalDialog.getFinal();
-    String errorMessage = Final.validateFieldsOf(finalObject);
-    if (!errorMessage.isEmpty()) {
-      AppViewContext.updFinalDialog.showError(errorMessage);
-    } else {
+    if (validator.isValid(finalObject)) {
       AppRepositoryContext.finalRepository.update(finalObject);
       AppViewContext.finalsView.setFinals(AppRepositoryContext.finalRepository.getAll());
       AppViewContext.updFinalDialog.close();
+    } else {
+      String errorMessage = validator.getErrorMessage();
+      AppViewContext.updFinalDialog.showError(errorMessage);
     }
   }
 
@@ -47,8 +59,8 @@ public class UpdateFinalUseCase implements FinalDialogController {
   @Override
   public void selectSubject() {
     AppViewContext.selectSubjectDialog.setSubjects(AppRepositoryContext.subjectRepository.getAll());
-    AppViewContext.selectSubjectDialog.setController( new DialogController() {
-      
+    AppViewContext.selectSubjectDialog.setController(new DialogController() {
+
       @Override
       public void accept() {
         if (AppViewContext.selectSubjectDialog.getSelectedRow() != -1) {
@@ -58,12 +70,12 @@ public class UpdateFinalUseCase implements FinalDialogController {
           AppViewContext.selectSubjectDialog.close();
         }
       }
-      
+
       @Override
       public void cancel() {
         AppViewContext.selectSubjectDialog.close();
       }
-      
+
     });
     AppViewContext.selectSubjectDialog.show();
   }

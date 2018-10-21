@@ -1,6 +1,7 @@
 package ar.com.unpaz.gestionfinales.validation;
 
 import static ar.com.unpaz.gestionfinales.domain.Subject.MAX_NUMBER_OF_CHARACTERS;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,5 +45,14 @@ public class SubjectValidatorTest {
       builder.append(c);
     }
     return builder.toString();
+  }
+
+  @Test
+  public void testingSubjectValid() {
+    String description = "Java Programming";
+    Year year = Year.FIFTH;
+    Subject subject = new Subject(description, year);
+    assertTrue(validator.isValid(subject));
+    assertFalse(validator.hasErrors());
   }
 }
