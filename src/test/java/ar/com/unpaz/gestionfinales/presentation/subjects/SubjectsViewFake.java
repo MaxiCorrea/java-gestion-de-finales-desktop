@@ -33,4 +33,8 @@ public class SubjectsViewFake implements SubjectsView {
     return null;
   }
 
+  public List<Subject> getSubjects() {
+    return subjectsShown;
+  }
+  
 }

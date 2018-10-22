@@ -16,18 +16,22 @@ import ar.com.unpaz.gestionfinales.validation.ValidatorFake;
 
 public class AddSubjectUseCaseTest {
 
-  private AddSubjectDialogFake dialogFake;
+  private AddSubjectDialogFake addSubjectDialogFake;
   private ValidatorFake<Subject> validatorFake;
   private InMemorySubjectRepository subjectRepositoryFake;
   private SubjectsViewFake subjectsViewFake;
   private AddSubjectUseCase usecase;
 
   @Before
-  public void contextConfiguration() {
-    dialogFake = new AddSubjectDialogFake();
-    AppViewContext.addSubjectDialog = dialogFake;
+  public void setup() {
     validatorFake = new ValidatorFake<>();
     usecase = new AddSubjectUseCase(validatorFake);
+  }
+
+  @Before
+  public void contextConfiguration() {
+    addSubjectDialogFake = new AddSubjectDialogFake();
+    AppViewContext.addSubjectDialog = addSubjectDialogFake;
     subjectRepositoryFake = new InMemorySubjectRepository();
     AppRepositoryContext.subjectRepository = subjectRepositoryFake;
     subjectsViewFake = new SubjectsViewFake();
@@ -36,32 +40,32 @@ public class AddSubjectUseCaseTest {
 
   @Test
   public void whenTheOperationOfAddingASubjectIsCanceledTheDialogShouldBeClosed() {
-    assertFalse(dialogFake.isClosed());
+    assertFalse(addSubjectDialogFake.isClosed());
     usecase.cancel();
-    assertTrue(dialogFake.isClosed());
+    assertTrue(addSubjectDialogFake.isClosed());
     assertTrue(subjectRepositoryFake.noInteractions());
   }
 
   @Test
   public void whenTheSubjectDataIsInvalidAErrorMessageMustBeDisplayedInTheDialog() {
-    assertFalse(dialogFake.isClosed());
+    assertFalse(addSubjectDialogFake.isClosed());
     validatorFake.isValidWillReturnFalse();
     validatorFake.getErrorMessageReturn("Error");
     usecase.accept();
     assertTrue(subjectRepositoryFake.noInteractions());
-    assertEquals(validatorFake.getErrorMessage(), dialogFake.getErrorMessageDisplayed());
+    assertEquals(validatorFake.getErrorMessage(), addSubjectDialogFake.getErrorMessageDisplayed());
   }
 
   @Test
-  public void whenSubjectIsValidItShouldPersistInTheRepositoryUpdateSubjectsViewAndCloseTheDialog() {
-    assertFalse(dialogFake.isClosed());
-    dialogFake.setSubject(new Subject(0, "Description", Year.FIFTH));
+  public void whenSubjectIsValidItShouldPersistUpdateSubjectsViewAndCloseTheDialog() {
+    assertFalse(addSubjectDialogFake.isClosed());
+    Subject dataStructures = new Subject(0, "Data-Structures", Year.FOURTH);
+    addSubjectDialogFake.setSubject(dataStructures);
     validatorFake.isValidWillReturnTrue();
     usecase.accept();
-    assertEquals(2 ,subjectRepositoryFake.getNumberOfInteractions());
-    assertEquals(subjectRepositoryFake.getAll().get(0), dialogFake.getSubject());
-    assertEquals(subjectsViewFake.getSubjectInRow(0), subjectRepositoryFake.getAll().get(0));
-    assertTrue(dialogFake.isClosed());
+    assertFalse(subjectRepositoryFake.getAll().isEmpty());
+    assertTrue(subjectsViewFake.getSubjects().contains(dataStructures));
+    assertTrue(addSubjectDialogFake.isClosed());
   }
 
 }
