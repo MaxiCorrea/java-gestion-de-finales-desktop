@@ -44,6 +44,7 @@ public class AddSubjectUseCaseTest {
 
   @Test
   public void whenTheSubjectDataIsInvalidAErrorMessageMustBeDisplayedInTheDialog() {
+    assertFalse(dialogFake.isClosed());
     validatorFake.isValidWillReturnFalse();
     validatorFake.getErrorMessageReturn("Error");
     usecase.accept();
@@ -52,6 +53,7 @@ public class AddSubjectUseCaseTest {
 
   @Test
   public void whenSubjectIsValidItShouldPersistInTheRepositoryUpdateSubjectsViewAndCloseTheDialog() {
+    assertFalse(dialogFake.isClosed());
     dialogFake.setSubject(new Subject(0, "Description", Year.FIFTH));
     validatorFake.isValidWillReturnTrue();
     usecase.accept();
