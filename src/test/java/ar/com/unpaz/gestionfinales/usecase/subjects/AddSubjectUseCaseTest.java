@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
-import ar.com.unpaz.gestionfinales.database.SubjectRepository;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
 import ar.com.unpaz.gestionfinales.inmemory.InMemorySubjectRepository;
@@ -19,7 +18,7 @@ public class AddSubjectUseCaseTest {
 
   private AddSubjectDialogFake dialogFake;
   private ValidatorFake<Subject> validatorFake;
-  private SubjectRepository subjectRepositoryFake;
+  private InMemorySubjectRepository subjectRepositoryFake;
   private SubjectsViewFake subjectsViewFake;
   private AddSubjectUseCase usecase;
 
@@ -40,6 +39,7 @@ public class AddSubjectUseCaseTest {
     assertFalse(dialogFake.isClosed());
     usecase.cancel();
     assertTrue(dialogFake.isClosed());
+    assertTrue(subjectRepositoryFake.noInteractions());
   }
 
   @Test
@@ -48,6 +48,7 @@ public class AddSubjectUseCaseTest {
     validatorFake.isValidWillReturnFalse();
     validatorFake.getErrorMessageReturn("Error");
     usecase.accept();
+    assertTrue(subjectRepositoryFake.noInteractions());
     assertEquals(validatorFake.getErrorMessage(), dialogFake.getErrorMessageDisplayed());
   }
 
@@ -57,6 +58,7 @@ public class AddSubjectUseCaseTest {
     dialogFake.setSubject(new Subject(0, "Description", Year.FIFTH));
     validatorFake.isValidWillReturnTrue();
     usecase.accept();
+    assertEquals(2 ,subjectRepositoryFake.getNumberOfInteractions());
     assertEquals(subjectRepositoryFake.getAll().get(0), dialogFake.getSubject());
     assertEquals(subjectsViewFake.getSubjectInRow(0), subjectRepositoryFake.getAll().get(0));
     assertTrue(dialogFake.isClosed());
