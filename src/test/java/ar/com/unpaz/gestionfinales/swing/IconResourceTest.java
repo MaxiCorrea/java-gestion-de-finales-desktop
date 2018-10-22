@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.presentation.view;
+package ar.com.unpaz.gestionfinales.swing;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
