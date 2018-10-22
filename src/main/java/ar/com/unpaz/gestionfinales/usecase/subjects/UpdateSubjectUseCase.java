@@ -3,37 +3,38 @@ package ar.com.unpaz.gestionfinales.usecase.subjects;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.usecase.DialogController;
 import ar.com.unpaz.gestionfinales.validation.SubjectValidator;
 import ar.com.unpaz.gestionfinales.validation.Validator;
 
-public class UpdateSubjectUseCase implements DialogController {
-
-  private final Validator<Subject> validator;
+public class UpdateSubjectUseCase extends SkeletonSubjectUseCase {
 
   public UpdateSubjectUseCase() {
-    validator = new SubjectValidator();
+    this(new SubjectValidator());
   }
 
   public UpdateSubjectUseCase(Validator<Subject> validator) {
-    this.validator = validator;
+    super(validator);
   }
 
   @Override
-  public void accept() {
-    Subject subject = AppViewContext.updSubjectDialog.getSubject();
-    if(validator.isValid(subject)) {
-      AppRepositoryContext.subjectRepository.update(subject);
-      AppViewContext.subjectsView.setSubjects(AppRepositoryContext.subjectRepository.getAll());
-      AppViewContext.updSubjectDialog.close();
-    } else {
-      String errorMessage = validator.getErrorMessage();
-      AppViewContext.updSubjectDialog.showError(errorMessage);
-    }
+  Subject getTheSubjectOfTheDialog() {
+    return AppViewContext.updSubjectDialog.getSubject();
   }
 
   @Override
-  public void cancel() {
+  void executeAction(Subject subject) {
+    AppRepositoryContext.subjectRepository.update(subject);
+    AppViewContext.subjectsView.setSubjects(AppRepositoryContext.subjectRepository.getAll());
+    AppViewContext.updSubjectDialog.close();
+  }
+
+  @Override
+  void showErrorInTheDialog(String errorMessage) {
+    AppViewContext.updSubjectDialog.showError(errorMessage);
+  }
+
+  @Override
+  void cancelAction() {
     AppViewContext.updSubjectDialog.close();
   }
 

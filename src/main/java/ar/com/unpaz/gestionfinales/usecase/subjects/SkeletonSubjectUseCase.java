@@ -7,32 +7,32 @@ import ar.com.unpaz.gestionfinales.validation.Validator;
 public abstract class SkeletonSubjectUseCase implements DialogController {
 
   private final Validator<Subject> validator;
-  
+
   public SkeletonSubjectUseCase(Validator<Subject> validator) {
     this.validator = validator;
   }
 
   @Override
   public void accept() {
-    Subject subject = getSubject();
-    if(validator.isValid(subject)) {
+    Subject subject = getTheSubjectOfTheDialog();
+    if (validator.isValid(subject)) {
       executeAction(subject);
     } else {
-      showError(validator.getErrorMessage());
+      showErrorInTheDialog(validator.getErrorMessage());
     }
   }
-  
-  abstract Subject getSubject();
-  
+
+  abstract Subject getTheSubjectOfTheDialog();
+
   abstract void executeAction(Subject subject);
-  
-  abstract void showError(String errorMessage);
-  
+
+  abstract void showErrorInTheDialog(String errorMessage);
+
   @Override
   public void cancel() {
     cancelAction();
   }
-  
+
   abstract void cancelAction();
-  
+
 }

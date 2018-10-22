@@ -18,7 +18,7 @@ public class AddSubjectUseCase extends SkeletonSubjectUseCase {
   }
 
   @Override
-  Subject getSubject() {
+  Subject getTheSubjectOfTheDialog() {
     return AppViewContext.addSubjectDialog.getSubject();
   }
 
@@ -31,7 +31,7 @@ public class AddSubjectUseCase extends SkeletonSubjectUseCase {
   }
 
   @Override
-  void showError(String errorMessage) {
+  void showErrorInTheDialog(String errorMessage) {
     AppViewContext.addSubjectDialog.showError(errorMessage);
   }
 

@@ -18,7 +18,7 @@ public class DeleteSubjectUseCase extends SkeletonSubjectUseCase {
   }
 
   @Override
-  Subject getSubject() {
+  Subject getTheSubjectOfTheDialog() {
     return AppViewContext.delSubjectDialog.getSubject();
   }
 
@@ -31,7 +31,7 @@ public class DeleteSubjectUseCase extends SkeletonSubjectUseCase {
   }
 
   @Override
-  void showError(String errorMessage) {}
+  void showErrorInTheDialog(String errorMessage) {}
 
   @Override
   void cancelAction() {
