@@ -21,15 +21,11 @@ public class AddSubjectUseCaseTest {
   private InMemorySubjectRepository subjectRepositoryFake;
   private SubjectsViewFake subjectsViewFake;
   private AddSubjectUseCase usecase;
-
+  
   @Before
   public void setup() {
     validatorFake = new ValidatorFake<>();
     usecase = new AddSubjectUseCase(validatorFake);
-  }
-
-  @Before
-  public void contextConfiguration() {
     addSubjectDialogFake = new AddSubjectDialogFake();
     AppViewContext.addSubjectDialog = addSubjectDialogFake;
     subjectRepositoryFake = new InMemorySubjectRepository();
@@ -59,7 +55,7 @@ public class AddSubjectUseCaseTest {
   @Test
   public void whenSubjectIsValidItShouldPersistUpdateSubjectsViewAndCloseTheDialog() {
     assertFalse(addSubjectDialogFake.isClosed());
-    Subject dataStructures = new Subject(0, "Data-Structures", Year.FOURTH);
+    Subject dataStructures = new Subject(0,"Data-Structures", Year.FOURTH);
     addSubjectDialogFake.setSubject(dataStructures);
     validatorFake.isValidWillReturnTrue();
     usecase.accept();

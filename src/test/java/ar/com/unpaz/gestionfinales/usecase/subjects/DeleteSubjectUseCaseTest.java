@@ -1,6 +1,7 @@
 package ar.com.unpaz.gestionfinales.usecase.subjects;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
@@ -19,12 +20,8 @@ public class DeleteSubjectUseCaseTest {
   private DeleteSubjectUseCase usecase;
 
   @Before
-  public void setup() {
-    usecase = new DeleteSubjectUseCase();
-  }
-
-  @Before
   public void contextConfiguration() {
+    usecase = new DeleteSubjectUseCase();
     deleteSubjectDialogFake = new DeleteSubjectDialogFake();
     AppViewContext.delSubjectDialog = deleteSubjectDialogFake;
     subjectRepositoryFake = new InMemorySubjectRepository();
@@ -48,8 +45,8 @@ public class DeleteSubjectUseCaseTest {
     subjectRepositoryFake.add(dataStructures);
     deleteSubjectDialogFake.setSubject(dataStructures);
     usecase.accept();
-    assertTrue(subjectRepositoryFake.getAll().isEmpty());
-    assertTrue(subjectsViewFake.getSubjects().isEmpty());
+    assertFalse(subjectRepositoryFake.getAll().contains(dataStructures));
+    assertFalse(subjectsViewFake.getSubjects().contains(dataStructures));
     assertTrue(deleteSubjectDialogFake.isClosed());
   }
 

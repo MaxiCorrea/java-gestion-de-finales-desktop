@@ -11,7 +11,7 @@ import ar.com.unpaz.gestionfinales.domain.Year;
 public class InMemorySubjectRepository extends AbstractInMemoryRepository<Subject>
     implements SubjectRepository {
 
-  private static int id = 0;
+  private int id = 0;
   private int numberOfInteractions;
 
   private final Map<Integer, Subject> subjects;
