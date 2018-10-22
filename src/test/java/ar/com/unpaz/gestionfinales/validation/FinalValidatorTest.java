@@ -41,7 +41,7 @@ public class FinalValidatorTest {
 
   @Test
   public void aFinalMustHaveAQualification() {
-    Final finalObj = new Final(0, subjectValid, Student.EMPTY, now(), NONE);
+    Final finalObj = new Final(0, subjectValid, studentValid, now(), NONE);
     validator.checkQualification(finalObj);
     assertTrue(validator.hasErrors());
   }
