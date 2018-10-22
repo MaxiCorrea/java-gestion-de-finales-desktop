@@ -1,5 +1,6 @@
 package ar.com.unpaz.gestionfinales.usecase.subjects;
 
+import java.util.List;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
@@ -24,7 +25,8 @@ public class UpdateSubjectUseCase extends SkeletonSubjectUseCase {
   @Override
   void executeAction(Subject subject) {
     AppRepositoryContext.subjectRepository.update(subject);
-    AppViewContext.subjectsView.setSubjects(AppRepositoryContext.subjectRepository.getAll());
+    List<Subject> all = AppRepositoryContext.subjectRepository.getAll();
+    AppViewContext.subjectsView.setSubjects(all);
     AppViewContext.updSubjectDialog.close();
   }
 
