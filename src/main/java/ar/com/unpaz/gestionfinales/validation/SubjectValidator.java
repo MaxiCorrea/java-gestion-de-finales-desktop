@@ -3,33 +3,20 @@ package ar.com.unpaz.gestionfinales.validation;
 import static ar.com.unpaz.gestionfinales.domain.Year.NONE;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 
-public class SubjectValidator implements Validator<Subject> {
-
-  private static String NO_ERROR = "";
-
-  private String errorMessage;
-
-  public SubjectValidator() {
-    errorMessage = NO_ERROR;
-  }
-
+public class SubjectValidator extends SkeletonValidator<Subject> {
+ 
   @Override
-  public boolean isValid(Subject entity) {
+  void validateFieldOf(Subject entity) {
     checkYear(entity);
     checkDescriptionEmpty(entity);
     checkDescriptionLenght(entity);
-    return !hasErrors();
-  }
-
-  boolean hasErrors() {
-    return !errorMessage.equals(NO_ERROR);
   }
   
   private static String YEAR_ERROR_MSG = "Seleccione el año";
   
   void checkYear(Subject entity) {
     if (entity.haveThisYear(NONE)) {
-      errorMessage = YEAR_ERROR_MSG;
+      setErrorMessage(YEAR_ERROR_MSG);
     }
   }
 
@@ -37,7 +24,7 @@ public class SubjectValidator implements Validator<Subject> {
   
   void checkDescriptionEmpty(Subject entity) {
     if (entity.hasEmptyDescription()) {
-      errorMessage = DESC_ERROR_MSG_1;
+      setErrorMessage(DESC_ERROR_MSG_1);
     }
   }
 
@@ -46,15 +33,8 @@ public class SubjectValidator implements Validator<Subject> {
   void checkDescriptionLenght(Subject entity) {
     if (entity.getDescription().length() > 
         Subject.MAX_NUMBER_OF_CHARACTERS) {
-      errorMessage = DESC_ERROR_MSG_2;
+      setErrorMessage(DESC_ERROR_MSG_2);
     }
-  }
-
-  @Override
-  public String getErrorMessage() {
-    String message = errorMessage;
-    errorMessage = NO_ERROR;
-    return message;
   }
 
 }
