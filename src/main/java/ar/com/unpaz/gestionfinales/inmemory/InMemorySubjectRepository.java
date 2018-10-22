@@ -12,30 +12,36 @@ public class InMemorySubjectRepository extends AbstractInMemoryRepository<Subjec
     implements SubjectRepository {
 
   private static int id = 0;
+  private int numberOfInteractions;
 
   private final Map<Integer, Subject> subjects;
 
   public InMemorySubjectRepository() {
+    numberOfInteractions = 0;
     subjects = new HashMap<>();
   }
 
   @Override
   public void add(Subject subject) {
+    numberOfInteractions++;
     subjects.put(id++, subject);
   }
 
   @Override
   public void remove(Subject subject) {
+    numberOfInteractions++;
     subjects.remove(subject.getId());
   }
 
   @Override
   public void update(Subject subject) {
+    numberOfInteractions++;
     subjects.put(subject.getId(), subject);
   }
 
   @Override
   public List<Subject> getAll() {
+    numberOfInteractions++;
     List<Subject> result = new ArrayList<>();
     for (Integer key : subjects.keySet()) {
       Subject subject = subjects.get(key);
@@ -44,6 +50,14 @@ public class InMemorySubjectRepository extends AbstractInMemoryRepository<Subjec
       result.add(new Subject(key, des, year));
     }
     return result;
+  }
+
+  public boolean noInteractions() {
+    return getNumberOfInteractions() == 0;
+  }
+
+  public int getNumberOfInteractions() {
+    return numberOfInteractions;
   }
 
 }
