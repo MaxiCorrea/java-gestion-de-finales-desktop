@@ -91,6 +91,7 @@ public class AddSubjectDialogSwing implements AddSubjectDialog {
   @Override
   public void show() {
     dialog.setLocationRelativeTo(null);
+    dialog.repaint();
     dialog.setVisible(true);
   }
 

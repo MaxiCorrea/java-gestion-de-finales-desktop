@@ -86,6 +86,7 @@ public class SelectStudentDialogSwing implements SelectStudentDialog {
   @Override
   public void show() {
     dialog.setLocationRelativeTo(null);
+    dialog.repaint();
     dialog.setVisible(true);
   }
 

@@ -120,6 +120,7 @@ public class SubjectsViewSwing implements SubjectsView {
   @Override
   public void show() {
     dialog.setLocationRelativeTo(null);
+    dialog.repaint();
     dialog.setVisible(true);
   }
 

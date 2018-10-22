@@ -142,6 +142,7 @@ public class AddFinalDialogSwing implements AddFinalDialog {
   @Override
   public void show() {
     dialog.setLocationRelativeTo(null);
+    dialog.repaint();
     dialog.setVisible(true);
   }
 
