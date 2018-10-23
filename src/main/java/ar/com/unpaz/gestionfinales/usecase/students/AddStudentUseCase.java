@@ -1,39 +1,42 @@
 package ar.com.unpaz.gestionfinales.usecase.students;
 
+import java.util.List;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.usecase.DialogController;
 import ar.com.unpaz.gestionfinales.validation.StudentValidator;
 import ar.com.unpaz.gestionfinales.validation.Validator;
 
-public class AddStudentUseCase implements DialogController {
+public class AddStudentUseCase extends SkeletonStudentUseCase {
 
-  private final Validator<Student> validator;
-  
   public AddStudentUseCase() {
-    validator = new StudentValidator();
+    super(new StudentValidator());
   }
-  
+
   public AddStudentUseCase(Validator<Student> validator) {
-    this.validator = validator;
+    super(validator);
   }
-  
+
   @Override
-  public void accept() {
-    Student student = AppViewContext.addStudentDialog.getStudent();
-    if(validator.isValid(student)) {
-      AppRepositoryContext.studentRepository.add(student);
-      AppViewContext.studentsView.setStudents(AppRepositoryContext.studentRepository.getAll());
-      AppViewContext.addStudentDialog.close();
-    } else {
-      String errorMessage = validator.getErrorMessage();
-      AppViewContext.addStudentDialog.showError(errorMessage);
-    }
+  Student getTheStudentOfTheDialog() {
+    return AppViewContext.addStudentDialog.getStudent();
   }
-  
+
   @Override
-  public void cancel() {
+  void executeAction(Student student) {
+    AppRepositoryContext.studentRepository.add(student);
+    List<Student> all = AppRepositoryContext.studentRepository.getAll();
+    AppViewContext.studentsView.setStudents(all);
+    AppViewContext.addStudentDialog.close();
+  }
+
+  @Override
+  void showErrorInTheDialog(String errorMessage) {
+    AppViewContext.addStudentDialog.showError(errorMessage);
+  }
+
+  @Override
+  void cancelAction() {
     AppViewContext.addStudentDialog.close();
   }
 
