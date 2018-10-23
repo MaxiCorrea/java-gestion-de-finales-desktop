@@ -6,6 +6,7 @@ import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
+import ar.com.unpaz.gestionfinales.usecase.FinalDialogController;
 import ar.com.unpaz.gestionfinales.validation.FinalValidator;
 import ar.com.unpaz.gestionfinales.validation.Validator;
 

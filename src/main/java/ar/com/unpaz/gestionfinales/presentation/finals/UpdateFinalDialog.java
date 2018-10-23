@@ -3,7 +3,7 @@ package ar.com.unpaz.gestionfinales.presentation.finals;
 import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.usecase.finals.FinalDialogController;
+import ar.com.unpaz.gestionfinales.usecase.FinalDialogController;
 
 public interface UpdateFinalDialog {
 

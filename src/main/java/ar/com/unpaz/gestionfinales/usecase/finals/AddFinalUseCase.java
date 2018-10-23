@@ -6,6 +6,7 @@ import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
+import ar.com.unpaz.gestionfinales.usecase.FinalDialogController;
 import ar.com.unpaz.gestionfinales.validation.FinalValidator;
 import ar.com.unpaz.gestionfinales.validation.Validator;
 
@@ -34,6 +35,11 @@ public class AddFinalUseCase implements FinalDialogController {
     }
   }
 
+  @Override
+  public void cancel() {
+    AppViewContext.addFinalDialog.close();
+  }
+  
   @Override
   public void selectStudent() {
     AppViewContext.selectStudentDialog.setStudents(AppRepositoryContext.studentRepository.getAll());
@@ -81,11 +87,6 @@ public class AddFinalUseCase implements FinalDialogController {
 
     });
     AppViewContext.selectSubjectDialog.show();
-  }
-
-  @Override
-  public void cancel() {
-    AppViewContext.addFinalDialog.close();
   }
 
 }

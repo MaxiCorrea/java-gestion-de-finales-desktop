@@ -10,7 +10,7 @@ import ar.com.unpaz.gestionfinales.domain.Final;
 public class InMemoryFinalRepository extends AbstractInMemoryRepository<Final>
     implements FinalRepository {
 
-  private static int ids;
+  private int ids;
   private Map<Integer, Final> finals;
 
   public InMemoryFinalRepository() {

@@ -1,6 +1,4 @@
-package ar.com.unpaz.gestionfinales.usecase.finals;
-
-import ar.com.unpaz.gestionfinales.usecase.DialogController;
+package ar.com.unpaz.gestionfinales.usecase;
 
 public interface FinalDialogController extends DialogController {
 
