@@ -42,7 +42,7 @@ public class DeleteStudentUseCaseTest {
     assertFalse(deleteStudentDialogFake.isClosed());
     Student maxi = new Student("1233","Maxi", "Correa", "jmaxicorrea@gmail.com");
     studentRepositoryFake.add(maxi);
-    deleteStudentDialogFake.setStudent(maxi);
+    deleteStudentDialogFake.set(maxi);
     usecase.accept();
     assertFalse(studentRepositoryFake.getAll().contains(maxi));
     assertFalse(studentsViewFake.getStudents().contains(maxi));

@@ -2,8 +2,9 @@ package ar.com.unpaz.gestionfinales.usecase.students;
 
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
+import ar.com.unpaz.gestionfinales.usecase.UseCases;
 
-public class StudentUseCasesImpl implements StudentUseCases {
+public class StudentUseCasesImpl implements UseCases<Student> {
 
   public StudentUseCasesImpl() {
     AppViewContext.addStudentDialog.setController(new AddStudentUseCase());
@@ -13,34 +14,34 @@ public class StudentUseCasesImpl implements StudentUseCases {
   }
 
   @Override
-  public void addStudent() {
-    AppViewContext.addStudentDialog.setStudent(Student.EMPTY);
+  public void add() {
+    AppViewContext.addStudentDialog.set(Student.EMPTY);
     AppViewContext.addStudentDialog.showError("");
     AppViewContext.addStudentDialog.show();
   }
 
   @Override
-  public void deleteStudent() {
+  public void delete() {
     if (AppViewContext.studentsView.getSelectedRow() != -1) {
       int row = AppViewContext.studentsView.getSelectedRow();
-      Student selected = AppViewContext.studentsView.getStudentInRow(row);
-      AppViewContext.delStudentDialog.setStudent(selected);
+      Student selected = AppViewContext.studentsView.getInRow(row);
+      AppViewContext.delStudentDialog.set(selected);
       AppViewContext.delStudentDialog.show();
     }
   }
 
   @Override
-  public void updateStudent() {
+  public void update() {
     if (AppViewContext.studentsView.getSelectedRow() != -1) {
       int row = AppViewContext.studentsView.getSelectedRow();
-      Student selected = AppViewContext.studentsView.getStudentInRow(row);
-      AppViewContext.updStudentDialog.setStudent(selected);
+      Student selected = AppViewContext.studentsView.getInRow(row);
+      AppViewContext.updStudentDialog.set(selected);
       AppViewContext.updStudentDialog.show();
     }
   }
 
   @Override
-  public void generateReport() {
+  public void report() {
     AppViewContext.reportStudentDialog.show();
   }
 

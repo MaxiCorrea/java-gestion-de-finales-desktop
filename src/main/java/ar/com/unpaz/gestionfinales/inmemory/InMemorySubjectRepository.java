@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import ar.com.unpaz.gestionfinales.database.SubjectRepository;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
 
-public class InMemorySubjectRepository extends AbstractInMemoryRepository<Subject>
-    implements SubjectRepository {
+public class InMemorySubjectRepository extends AbstractInMemoryRepository<Subject> {
 
   private int id = 0;
   private int numberOfInteractions;

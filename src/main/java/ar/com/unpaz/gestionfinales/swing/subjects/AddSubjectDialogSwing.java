@@ -18,14 +18,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
-import ar.com.unpaz.gestionfinales.presentation.subjects.AddSubjectDialog;
+import ar.com.unpaz.gestionfinales.presentation.AddDialog;
 import ar.com.unpaz.gestionfinales.presentation.subjects.YearCombo;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class AddSubjectDialogSwing implements AddSubjectDialog {
+public class AddSubjectDialogSwing implements AddDialog<Subject> {
 
   private static final String TITLE = "Nueva Materia";
-  
+
   private JDialog dialog;
   private JTextField fieldDescription;
   private JComboBox<YearCombo> comboYear;
@@ -101,21 +101,21 @@ public class AddSubjectDialogSwing implements AddSubjectDialog {
   }
 
   @Override
-  public Subject getSubject() {
+  public Subject get() {
     String description = fieldDescription.getText();
     int index = comboYear.getSelectedIndex();
     return new Subject(description, Year.of(index));
   }
 
   @Override
-  public void setSubject(Subject subject) {
+  public void set(Subject subject) {
     fieldDescription.setText(subject.getDescription());
     comboYear.setSelectedIndex(subject.getYear().number);
   }
-  
+
   @Override
   public void showError(String message) {
     errorMessage.setText(message);
   }
-  
+
 }

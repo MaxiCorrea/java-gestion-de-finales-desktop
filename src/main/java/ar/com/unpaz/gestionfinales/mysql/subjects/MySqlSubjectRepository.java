@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import ar.com.unpaz.gestionfinales.database.EntityRepository;
 import ar.com.unpaz.gestionfinales.database.Specification;
-import ar.com.unpaz.gestionfinales.database.SubjectRepository;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.mysql.MySqlConnection;
 
-public class MySqlSubjectRepository implements SubjectRepository {
+public class MySqlSubjectRepository implements EntityRepository<Subject> {
 
   @Override
   public void add(Subject entity) {

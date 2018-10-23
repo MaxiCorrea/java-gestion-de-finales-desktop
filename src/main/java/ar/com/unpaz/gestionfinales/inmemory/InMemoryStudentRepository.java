@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import ar.com.unpaz.gestionfinales.database.StudentRepository;
 import ar.com.unpaz.gestionfinales.domain.Student;
 
-public class InMemoryStudentRepository extends AbstractInMemoryRepository<Student>
-    implements StudentRepository {
+public class InMemoryStudentRepository extends AbstractInMemoryRepository<Student> {
 
   private Map<String, Student> students;
   private int numberOfInteractions;

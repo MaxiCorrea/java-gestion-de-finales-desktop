@@ -2,8 +2,9 @@ package ar.com.unpaz.gestionfinales.usecase.finals;
 
 import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
+import ar.com.unpaz.gestionfinales.usecase.UseCases;
 
-public class FinalUseCasesImpl implements FinalUseCases {
+public class FinalUseCasesImpl implements UseCases<Final> {
 
   public FinalUseCasesImpl() {
     AppViewContext.addFinalDialog.setController(new AddFinalUseCase());
@@ -13,14 +14,14 @@ public class FinalUseCasesImpl implements FinalUseCases {
   }
 
   @Override
-  public void addFinal() {
+  public void add() {
     AppViewContext.addFinalDialog.setFinal(Final.EMPTY);
     AppViewContext.addFinalDialog.showError("");
     AppViewContext.addFinalDialog.show();
   }
 
   @Override
-  public void deleteFinal() {
+  public void delete() {
     if (AppViewContext.finalsView.getSelectedRow() != -1) {
       int row = AppViewContext.finalsView.getSelectedRow();
       Final finalObj = AppViewContext.finalsView.getFinalInRow(row);
@@ -30,7 +31,7 @@ public class FinalUseCasesImpl implements FinalUseCases {
   }
 
   @Override
-  public void updateFinal() {
+  public void update() {
     if (AppViewContext.finalsView.getSelectedRow() != -1) {
       int row = AppViewContext.finalsView.getSelectedRow();
       Final finalObj = AppViewContext.finalsView.getFinalInRow(row);
@@ -41,7 +42,7 @@ public class FinalUseCasesImpl implements FinalUseCases {
   }
 
   @Override
-  public void generateReport() {
+  public void report() {
     AppViewContext.reportFinalDialog.show();
   }
 }

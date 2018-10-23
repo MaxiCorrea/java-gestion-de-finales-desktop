@@ -12,11 +12,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
-import ar.com.unpaz.gestionfinales.presentation.subjects.DeleteSubjectDialog;
+import ar.com.unpaz.gestionfinales.presentation.DeleteDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class DeleteSubjectDialogSwing implements DeleteSubjectDialog {
-
+public class DeleteSubjectDialogSwing implements DeleteDialog<Subject> {
+  
   private JDialog dialog;
   private JLabel descriptionLabel;
   private JLabel idLabel;
@@ -68,7 +68,7 @@ public class DeleteSubjectDialogSwing implements DeleteSubjectDialog {
   }
 
   @Override
-  public void setSubject(Subject selected) {
+  public void set(Subject selected) {
     idLabel.setText(String.valueOf(selected.getId()));
     descriptionLabel.setText(selected.getDescription());
     yearLabel.setText(String.valueOf(selected.getYear()));
@@ -92,7 +92,7 @@ public class DeleteSubjectDialogSwing implements DeleteSubjectDialog {
   }
 
   @Override
-  public Subject getSubject() {
+  public Subject get() {
     int id = Integer.valueOf(idLabel.getText());
     String description = descriptionLabel.getText();
     int year = Integer.valueOf(yearLabel.getText());

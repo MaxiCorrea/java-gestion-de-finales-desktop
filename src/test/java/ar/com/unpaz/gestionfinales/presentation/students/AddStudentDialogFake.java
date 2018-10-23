@@ -1,10 +1,10 @@
 package ar.com.unpaz.gestionfinales.presentation.students;
 
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.students.AddStudentDialog;
+import ar.com.unpaz.gestionfinales.presentation.AddDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class AddStudentDialogFake implements AddStudentDialog {
+public class AddStudentDialogFake implements AddDialog<Student> {
 
   private Student student;
   private boolean closed;
@@ -17,12 +17,12 @@ public class AddStudentDialogFake implements AddStudentDialog {
   public void show() {}
 
   @Override
-  public void setStudent(Student student) {
+  public void set(Student student) {
     this.student = student;
   }
 
   @Override
-  public Student getStudent() {
+  public Student get() {
     return student;
   }
 

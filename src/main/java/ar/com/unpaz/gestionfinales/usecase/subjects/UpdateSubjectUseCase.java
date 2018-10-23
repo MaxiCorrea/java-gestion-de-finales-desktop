@@ -19,14 +19,14 @@ public class UpdateSubjectUseCase extends SkeletonSubjectUseCase {
 
   @Override
   Subject getTheSubjectOfTheDialog() {
-    return AppViewContext.updSubjectDialog.getSubject();
+    return AppViewContext.updSubjectDialog.get();
   }
 
   @Override
   void executeAction(Subject subject) {
     AppRepositoryContext.subjectRepository.update(subject);
     List<Subject> all = AppRepositoryContext.subjectRepository.getAll();
-    AppViewContext.subjectsView.setSubjects(all);
+    AppViewContext.subjectsView.set(all);
     AppViewContext.updSubjectDialog.close();
   }
 

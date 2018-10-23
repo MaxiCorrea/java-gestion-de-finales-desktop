@@ -2,10 +2,9 @@ package ar.com.unpaz.gestionfinales.console.subjects;
 
 import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectsView;
-import ar.com.unpaz.gestionfinales.presentation.subjects.YearCombo;
+import ar.com.unpaz.gestionfinales.presentation.View;
 
-public class SubjectsViewConsole implements SubjectsView {
+public class SubjectsViewConsole implements View<Subject> {
 
   private SubjectTableConsole table;
 
@@ -19,7 +18,7 @@ public class SubjectsViewConsole implements SubjectsView {
   }
 
   @Override
-  public void setSubjects(List<Subject> subjects) {
+  public void set(List<Subject> subjects) {
     table.updateList(subjects);
   }
 
@@ -30,14 +29,8 @@ public class SubjectsViewConsole implements SubjectsView {
   }
 
   @Override
-  public Subject getSubjectInRow(int rowIndex) {
+  public Subject getInRow(int rowIndex) {
     return table.getInRow(rowIndex);
-  }
-
-  @Override
-  public YearCombo getYearSelected() {
-    // TODO Auto-generated method stub
-    return null;
   }
 
 }

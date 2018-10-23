@@ -3,10 +3,9 @@ package ar.com.unpaz.gestionfinales.presentation.subjects;
 import java.util.ArrayList;
 import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectsView;
-import ar.com.unpaz.gestionfinales.presentation.subjects.YearCombo;
+import ar.com.unpaz.gestionfinales.presentation.View;
 
-public class SubjectsViewFake implements SubjectsView {
+public class SubjectsViewFake implements View<Subject> {
 
   private List<Subject> subjectsShown = new ArrayList<>();
 
@@ -14,7 +13,7 @@ public class SubjectsViewFake implements SubjectsView {
   public void show() {}
 
   @Override
-  public void setSubjects(List<Subject> subjects) {
+  public void set(List<Subject> subjects) {
     this.subjectsShown = subjects;
   }
 
@@ -24,13 +23,8 @@ public class SubjectsViewFake implements SubjectsView {
   }
 
   @Override
-  public Subject getSubjectInRow(int rowIndex) {
+  public Subject getInRow(int rowIndex) {
     return subjectsShown.get(rowIndex);
-  }
-
-  @Override
-  public YearCombo getYearSelected() {
-    return null;
   }
 
   public List<Subject> getSubjects() {

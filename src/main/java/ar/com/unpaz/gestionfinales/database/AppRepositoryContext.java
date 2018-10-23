@@ -1,11 +1,15 @@
 package ar.com.unpaz.gestionfinales.database;
 
-public class AppRepositoryContext {
+import ar.com.unpaz.gestionfinales.domain.Final;
+import ar.com.unpaz.gestionfinales.domain.Student;
+import ar.com.unpaz.gestionfinales.domain.Subject;
 
-  public static SubjectRepository subjectRepository;
+public class AppRepositoryContext {
   
-  public static StudentRepository studentRepository;
+  public static EntityRepository<Subject> subjectRepository;
   
-  public static FinalRepository finalRepository;
+  public static EntityRepository<Student> studentRepository;
   
+  public static EntityRepository<Final> finalRepository;
+
 }

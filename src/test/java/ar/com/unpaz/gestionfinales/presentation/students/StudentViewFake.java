@@ -2,9 +2,9 @@ package ar.com.unpaz.gestionfinales.presentation.students;
 
 import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.students.StudentsView;
+import ar.com.unpaz.gestionfinales.presentation.View;
 
-public class StudentViewFake implements StudentsView {
+public class StudentViewFake implements View<Student> {
 
   private List<Student> students;
   
@@ -15,13 +15,13 @@ public class StudentViewFake implements StudentsView {
   }
 
   @Override
-  public Student getStudentInRow(int row) {
+  public Student getInRow(int row) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public void setStudents(List<Student> all) {
+  public void set(List<Student> all) {
     this.students = all;
   }
 

@@ -19,14 +19,14 @@ public class AddStudentUseCase extends SkeletonStudentUseCase {
 
   @Override
   Student getTheStudentOfTheDialog() {
-    return AppViewContext.addStudentDialog.getStudent();
+    return AppViewContext.addStudentDialog.get();
   }
 
   @Override
   void executeAction(Student student) {
     AppRepositoryContext.studentRepository.add(student);
     List<Student> all = AppRepositoryContext.studentRepository.getAll();
-    AppViewContext.studentsView.setStudents(all);
+    AppViewContext.studentsView.set(all);
     AppViewContext.addStudentDialog.close();
   }
 

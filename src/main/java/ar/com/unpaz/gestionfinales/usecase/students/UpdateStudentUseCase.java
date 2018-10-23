@@ -19,14 +19,14 @@ public class UpdateStudentUseCase extends SkeletonStudentUseCase {
 
   @Override
   Student getTheStudentOfTheDialog() {
-    return AppViewContext.updStudentDialog.getStudent();
+    return AppViewContext.updStudentDialog.get();
   }
 
   @Override
   void executeAction(Student student) {
     AppRepositoryContext.studentRepository.update(student);
     List<Student> all = AppRepositoryContext.studentRepository.getAll();
-    AppViewContext.studentsView.setStudents(all);
+    AppViewContext.studentsView.set(all);
     AppViewContext.updStudentDialog.close();
   }
 

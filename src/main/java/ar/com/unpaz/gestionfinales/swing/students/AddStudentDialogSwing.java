@@ -15,10 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.students.AddStudentDialog;
+import ar.com.unpaz.gestionfinales.presentation.AddDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class AddStudentDialogSwing implements AddStudentDialog {
+public class AddStudentDialogSwing implements AddDialog<Student> {
 
   private JDialog dialog;
   private JTextField dniField;
@@ -98,7 +98,7 @@ public class AddStudentDialogSwing implements AddStudentDialog {
   }
 
   @Override
-  public void setStudent(Student student) {
+  public void set(Student student) {
     dniField.setText("");
     nameField.setText(student.getName());
     surnameField.setText(student.getSurname());
@@ -106,7 +106,7 @@ public class AddStudentDialogSwing implements AddStudentDialog {
   }
 
   @Override
-  public Student getStudent() {
+  public Student get() {
     String dni = dniField.getText();
     String name = nameField.getText();
     String surname = surnameField.getText();

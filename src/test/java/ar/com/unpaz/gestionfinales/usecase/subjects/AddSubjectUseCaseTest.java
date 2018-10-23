@@ -56,7 +56,7 @@ public class AddSubjectUseCaseTest {
   public void whenSubjectIsValidItShouldPersistUpdateSubjectsViewAndCloseTheDialog() {
     assertFalse(addSubjectDialogFake.isClosed());
     Subject dataStructures = new Subject(0,"Data-Structures", Year.FOURTH);
-    addSubjectDialogFake.setSubject(dataStructures);
+    addSubjectDialogFake.set(dataStructures);
     validatorFake.isValidWillReturnTrue();
     usecase.accept();
     assertFalse(subjectRepositoryFake.getAll().isEmpty());

@@ -1,10 +1,10 @@
 package ar.com.unpaz.gestionfinales.presentation.subjects;
 
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.subjects.AddSubjectDialog;
+import ar.com.unpaz.gestionfinales.presentation.AddDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class AddSubjectDialogFake implements AddSubjectDialog {
+public class AddSubjectDialogFake implements AddDialog<Subject> {
 
   private boolean closeCalled;
   private String errorMessageDisplayed;
@@ -26,12 +26,12 @@ public class AddSubjectDialogFake implements AddSubjectDialog {
   }
   
   @Override
-  public Subject getSubject() {
+  public Subject get() {
     return subject;
   }
 
   @Override
-  public void setSubject(Subject subject) {
+  public void set(Subject subject) {
     this.subject = subject;
   }
 

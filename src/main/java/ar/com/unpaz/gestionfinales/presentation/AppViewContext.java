@@ -1,34 +1,28 @@
 package ar.com.unpaz.gestionfinales.presentation;
 
+import ar.com.unpaz.gestionfinales.domain.Student;
+import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.finals.AddFinalDialog;
 import ar.com.unpaz.gestionfinales.presentation.finals.DeleteFinalDialog;
 import ar.com.unpaz.gestionfinales.presentation.finals.FinalsView;
 import ar.com.unpaz.gestionfinales.presentation.finals.UpdateFinalDialog;
-import ar.com.unpaz.gestionfinales.presentation.students.AddStudentDialog;
-import ar.com.unpaz.gestionfinales.presentation.students.DeleteStudentDialog;
 import ar.com.unpaz.gestionfinales.presentation.students.SelectStudentDialog;
-import ar.com.unpaz.gestionfinales.presentation.students.StudentsView;
-import ar.com.unpaz.gestionfinales.presentation.students.UpdateStudentDialog;
-import ar.com.unpaz.gestionfinales.presentation.subjects.AddSubjectDialog;
-import ar.com.unpaz.gestionfinales.presentation.subjects.DeleteSubjectDialog;
 import ar.com.unpaz.gestionfinales.presentation.subjects.SelectSubjectDialog;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectsView;
-import ar.com.unpaz.gestionfinales.presentation.subjects.UpdateSubjectDialog;
 
 public class AppViewContext {
 
   public static AppView appView;
 
-  public static SubjectsView subjectsView;
-  public static AddSubjectDialog addSubjectDialog;
-  public static DeleteSubjectDialog delSubjectDialog;
-  public static UpdateSubjectDialog updSubjectDialog;
+  public static View<Subject> subjectsView;
+  public static AddDialog<Subject> addSubjectDialog;
+  public static DeleteDialog<Subject> delSubjectDialog;
+  public static UpdateDialog<Subject> updSubjectDialog;
   public static ReportDialog reportSubjectDialog;
 
-  public static StudentsView studentsView;
-  public static AddStudentDialog addStudentDialog;
-  public static UpdateStudentDialog updStudentDialog;
-  public static DeleteStudentDialog delStudentDialog;
+  public static View<Student> studentsView;
+  public static AddDialog<Student> addStudentDialog;
+  public static DeleteDialog<Student> delStudentDialog;
+  public static UpdateDialog<Student> updStudentDialog;
   public static ReportDialog reportStudentDialog;
 
   public static FinalsView finalsView;

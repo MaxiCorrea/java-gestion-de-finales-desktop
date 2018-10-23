@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import ar.com.unpaz.gestionfinales.database.FinalRepository;
+import ar.com.unpaz.gestionfinales.database.EntityRepository;
 import ar.com.unpaz.gestionfinales.database.Specification;
 import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.domain.Qualification;
@@ -20,7 +20,7 @@ import ar.com.unpaz.gestionfinales.mysql.MySqlConnection;
 import ar.com.unpaz.gestionfinales.mysql.students.ResultSetToStudent;
 import ar.com.unpaz.gestionfinales.mysql.subjects.ResultSetToSubject;
 
-public class MySqlFinalRepository implements FinalRepository {
+public class MySqlFinalRepository implements EntityRepository<Final> {
 
   @Override
   public void add(Final entity) {

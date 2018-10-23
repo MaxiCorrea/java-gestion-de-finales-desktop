@@ -70,19 +70,19 @@ public class FinalViewSwing implements FinalsView {
     pane.setBackground(Color.WHITE);
     JButton buttonAdd = createButton("Agregar");
     buttonAdd.addActionListener((e) -> {
-      AppControllerContext.finalController.addFinal();
+      AppControllerContext.finalUseCases.add();
     });
     JButton buttonUpdate = createButton("Modificar");
     buttonUpdate.addActionListener((e) -> {
-      AppControllerContext.finalController.updateFinal();
+      AppControllerContext.finalUseCases.update();
     });
     JButton buttonDelete = createButton("Borrar");
     buttonDelete.addActionListener((e) -> {
-      AppControllerContext.finalController.deleteFinal();
+      AppControllerContext.finalUseCases.delete();
     });
     JButton buttonReport = createButton("Reporte");
     buttonReport.addActionListener((e)->{
-      AppControllerContext.finalController.generateReport();
+      AppControllerContext.finalUseCases.report();
     });
     pane.add(buttonUpdate);
     pane.add(buttonReport);

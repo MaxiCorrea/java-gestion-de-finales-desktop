@@ -13,10 +13,10 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.students.DeleteStudentDialog;
+import ar.com.unpaz.gestionfinales.presentation.DeleteDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class DeleteStudentDialogSwing implements DeleteStudentDialog {
+public class DeleteStudentDialogSwing implements DeleteDialog<Student> {
 
   private JDialog dialog;
   private JTextField dniField;
@@ -96,7 +96,7 @@ public class DeleteStudentDialogSwing implements DeleteStudentDialog {
   }
 
   @Override
-  public void setStudent(Student student) {
+  public void set(Student student) {
     dniField.setText(String.valueOf(student.getDni()));
     nameField.setText(student.getName());
     surnameField.setText(student.getSurname());
@@ -104,7 +104,7 @@ public class DeleteStudentDialogSwing implements DeleteStudentDialog {
   }
 
   @Override
-  public Student getStudent() {
+  public Student get() {
     String dni = dniField.getText();
     String name = nameField.getText();
     String surname = surnameField.getText();

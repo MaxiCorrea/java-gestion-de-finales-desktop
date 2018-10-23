@@ -18,10 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.students.StudentsView;
+import ar.com.unpaz.gestionfinales.presentation.View;
 import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 
-public class StudentsViewSwing implements StudentsView {
+public class StudentsViewSwing implements View<Student> {
 
   private static final int HEIGHT = 300;
   private static final int WIDTH = 600;
@@ -70,19 +70,19 @@ public class StudentsViewSwing implements StudentsView {
     pane.setBackground(Color.WHITE);
     JButton buttonAdd = createButton("Agregar");
     buttonAdd.addActionListener((e) -> {
-      AppControllerContext.studentController.addStudent();
+      AppControllerContext.studentUseCases.add();
     });
     JButton buttonUpdate = createButton("Modificar");
     buttonUpdate.addActionListener((e) -> {
-      AppControllerContext.studentController.updateStudent();
+      AppControllerContext.studentUseCases.update();
     });
     JButton buttonDelete = createButton("Borrar");
     buttonDelete.addActionListener((e) -> {
-      AppControllerContext.studentController.deleteStudent();
+      AppControllerContext.studentUseCases.delete();
     });
     JButton buttonReport = createButton("Reporte");
     buttonReport.addActionListener((e)->{
-      AppControllerContext.studentController.generateReport();
+      AppControllerContext.studentUseCases.report();
     });
     pane.add(buttonUpdate);
     pane.add(buttonReport);
@@ -106,12 +106,12 @@ public class StudentsViewSwing implements StudentsView {
   }
 
   @Override
-  public Student getStudentInRow(int row) {
+  public Student getInRow(int row) {
     return tableModel.getInRow(row);
   }
 
   @Override
-  public void setStudents(List<Student> all) {
+  public void set(List<Student> all) {
     tableModel.setStudents(all);
   }
 

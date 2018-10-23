@@ -2,7 +2,6 @@ package ar.com.unpaz.gestionfinales.swing.subjects;
 
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_BACKGROUND_COLOR;
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND_COLOR;
-import static ar.com.unpaz.gestionfinales.usecase.AppControllerContext.subjectController;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
@@ -25,10 +24,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectsView;
+import ar.com.unpaz.gestionfinales.presentation.View;
 import ar.com.unpaz.gestionfinales.presentation.subjects.YearCombo;
+import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 
-public class SubjectsViewSwing implements SubjectsView {
+public class SubjectsViewSwing implements View<Subject> {
 
   private static final int HEIGHT = 300;
   private static final int WIDTH = 600;
@@ -59,7 +59,7 @@ public class SubjectsViewSwing implements SubjectsView {
     comboxYear.setBackground(WHITE);
     comboxYear.addItemListener((ItemEvent e) -> {
       if (e.getStateChange() == SELECTED) {
-        subjectController.filterByYear();
+        // subjectController.filterByYear();
       }
     });
     pane.add(new JLabel("Filtrar por año : "));
@@ -87,19 +87,19 @@ public class SubjectsViewSwing implements SubjectsView {
     pane.setBackground(Color.WHITE);
     JButton buttonAdd = createButton("Agregar");
     buttonAdd.addActionListener((e) -> {
-      subjectController.addSubject();
+      AppControllerContext.subjectUseCases.add();
     });
     JButton buttonUpdate = createButton("Modificar");
     buttonUpdate.addActionListener((e) -> {
-      subjectController.updateSubject();
+      AppControllerContext.subjectUseCases.update();
     });
     JButton buttonDelete = createButton("Borrar");
     buttonDelete.addActionListener((e) -> {
-      subjectController.deleteSubject();
+      AppControllerContext.subjectUseCases.delete();
     });
     JButton buttonReport = createButton("Reporte");
-    buttonReport.addActionListener((e)->{
-      subjectController.generateReport();
+    buttonReport.addActionListener((e) -> {
+      AppControllerContext.subjectUseCases.report();
     });
     pane.add(buttonUpdate);
     pane.add(buttonReport);
@@ -125,7 +125,7 @@ public class SubjectsViewSwing implements SubjectsView {
   }
 
   @Override
-  public void setSubjects(List<Subject> subjects) {
+  public void set(List<Subject> subjects) {
     tableModel.setSubjects(subjects);
   }
 
@@ -135,13 +135,8 @@ public class SubjectsViewSwing implements SubjectsView {
   }
 
   @Override
-  public Subject getSubjectInRow(int rowIndex) {
+  public Subject getInRow(int rowIndex) {
     return tableModel.getInRow(rowIndex);
-  }
-
-  @Override
-  public YearCombo getYearSelected() {
-    return comboxYear.getItemAt(comboxYear.getSelectedIndex());
   }
 
 }

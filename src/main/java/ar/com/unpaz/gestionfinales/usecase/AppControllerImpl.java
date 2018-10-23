@@ -7,13 +7,13 @@ public class AppControllerImpl implements AppController {
 
   @Override
   public void selectedSubjects() {
-    AppViewContext.subjectsView.setSubjects(AppRepositoryContext.subjectRepository.getAll());
+    AppViewContext.subjectsView.set(AppRepositoryContext.subjectRepository.getAll());
     AppViewContext.subjectsView.show();
   }
 
   @Override
   public void selectedStudents() {
-    AppViewContext.studentsView.setStudents(AppRepositoryContext.studentRepository.getAll());
+    AppViewContext.studentsView.set(AppRepositoryContext.studentRepository.getAll());
     AppViewContext.studentsView.show();
   }
 

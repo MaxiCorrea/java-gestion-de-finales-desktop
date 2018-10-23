@@ -1,9 +1,10 @@
 package ar.com.unpaz.gestionfinales.presentation.students;
 
 import ar.com.unpaz.gestionfinales.domain.Student;
+import ar.com.unpaz.gestionfinales.presentation.UpdateDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class UpdateStudentDialogFake implements UpdateStudentDialog {
+public class UpdateStudentDialogFake implements UpdateDialog<Student> {
 
   private Student student;
   private boolean closed;
@@ -13,12 +14,12 @@ public class UpdateStudentDialogFake implements UpdateStudentDialog {
   public void setController(DialogController controller) {}
 
   @Override
-  public void setStudent(Student selected) {
+  public void set(Student selected) {
     this.student = selected;
   }
 
   @Override
-  public Student getStudent() {
+  public Student get() {
     return student;
   }
 

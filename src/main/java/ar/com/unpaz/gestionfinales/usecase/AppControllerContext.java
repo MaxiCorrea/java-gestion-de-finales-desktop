@@ -1,19 +1,19 @@
 package ar.com.unpaz.gestionfinales.usecase;
 
-import ar.com.unpaz.gestionfinales.usecase.finals.FinalUseCases;
-import ar.com.unpaz.gestionfinales.usecase.students.StudentUseCases;
-import ar.com.unpaz.gestionfinales.usecase.subjects.SubjectUseCases;
+import ar.com.unpaz.gestionfinales.domain.Final;
+import ar.com.unpaz.gestionfinales.domain.Student;
+import ar.com.unpaz.gestionfinales.domain.Subject;
 
 public class AppControllerContext {
 
   public static AppController appController;
+      
+  public static UseCases<Final> finalUseCases;
   
-  public static SubjectUseCases subjectController;
-
-  public static StudentUseCases studentController;
+  public static UseCases<Subject> subjectUseCases;
   
-  public static FinalUseCases finalController;
-  
+  public static UseCases<Student> studentUseCases;
+    
   public static DialogController dialogController;
   
 }

@@ -19,14 +19,14 @@ public class DeleteStudentUseCase extends SkeletonStudentUseCase {
 
   @Override
   Student getTheStudentOfTheDialog() {
-    return AppViewContext.delStudentDialog.getStudent();
+    return AppViewContext.delStudentDialog.get();
   }
 
   @Override
   void executeAction(Student student) {
     AppRepositoryContext.studentRepository.remove(student);
     List<Student> all = AppRepositoryContext.studentRepository.getAll();
-    AppViewContext.studentsView.setStudents(all);
+    AppViewContext.studentsView.set(all);
     AppViewContext.delStudentDialog.close();
   }
 

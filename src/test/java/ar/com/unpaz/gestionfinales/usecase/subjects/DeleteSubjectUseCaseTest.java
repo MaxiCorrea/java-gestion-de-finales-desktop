@@ -43,7 +43,7 @@ public class DeleteSubjectUseCaseTest {
     assertFalse(deleteSubjectDialogFake.isClosed());
     Subject dataStructures = new Subject(0, "Data-Structures", Year.FOURTH);
     subjectRepositoryFake.add(dataStructures);
-    deleteSubjectDialogFake.setSubject(dataStructures);
+    deleteSubjectDialogFake.set(dataStructures);
     usecase.accept();
     assertFalse(subjectRepositoryFake.getAll().contains(dataStructures));
     assertFalse(subjectsViewFake.getSubjects().contains(dataStructures));

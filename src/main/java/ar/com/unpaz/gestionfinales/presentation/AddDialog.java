@@ -1,12 +1,14 @@
 package ar.com.unpaz.gestionfinales.presentation;
 
-import java.io.File;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public interface ReportDialog extends Dialog {
+public interface AddDialog<E> extends Dialog {
 
   void setController(DialogController controller);
 
-  File getFile();
+  E get();
 
+  void set(E e);
+
+  void showError(String message);
 }

@@ -19,14 +19,14 @@ public class DeleteSubjectUseCase extends SkeletonSubjectUseCase {
 
   @Override
   Subject getTheSubjectOfTheDialog() {
-    return AppViewContext.delSubjectDialog.getSubject();
+    return AppViewContext.delSubjectDialog.get();
   }
 
   @Override
   void executeAction(Subject subject) {
     AppRepositoryContext.subjectRepository.remove(subject);
     List<Subject> all = AppRepositoryContext.subjectRepository.getAll();
-    AppViewContext.subjectsView.setSubjects(all);
+    AppViewContext.subjectsView.set(all);
     AppViewContext.delSubjectDialog.close();
   }
 

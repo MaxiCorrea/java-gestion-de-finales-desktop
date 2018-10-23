@@ -18,11 +18,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
-import ar.com.unpaz.gestionfinales.presentation.subjects.UpdateSubjectDialog;
+import ar.com.unpaz.gestionfinales.presentation.UpdateDialog;
 import ar.com.unpaz.gestionfinales.presentation.subjects.YearCombo;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class UpdateSubjectDialogSwing implements UpdateSubjectDialog {
+public class UpdateSubjectDialogSwing implements UpdateDialog<Subject> {
 
   private static final String TITLE = "Actualizar Materia";
   
@@ -97,14 +97,14 @@ public class UpdateSubjectDialogSwing implements UpdateSubjectDialog {
   }
 
   @Override
-  public Subject getSubject() {
+  public Subject get() {
     String description = fieldDescription.getText();
     int year = comboYear.getSelectedIndex();
     return new Subject(id, description, Year.of(year));
   }
 
   @Override
-  public void setSubject(Subject selected) {
+  public void set(Subject selected) {
     this.id = selected.getId();
     fieldDescription.setText(selected.getDescription());
     comboYear.setSelectedIndex(selected.getYear().ordinal());

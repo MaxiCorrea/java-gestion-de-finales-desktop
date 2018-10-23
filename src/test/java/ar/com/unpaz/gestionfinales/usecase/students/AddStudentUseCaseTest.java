@@ -55,7 +55,7 @@ public class AddStudentUseCaseTest {
   public void whenStudentIsValidItShouldPersistUpdateStudentsViewAndCloseTheDialog() {
     assertFalse(addStudentDialogFake.isClosed());
     Student maxi = new Student("1233","Maxi", "Correa", "jmaxicorrea@gmail.com");
-    addStudentDialogFake.setStudent(maxi);
+    addStudentDialogFake.set(maxi);
     validatorFake.isValidWillReturnTrue();
     usecase.accept();
     assertFalse(studentRepositoryFake.getAll().isEmpty());

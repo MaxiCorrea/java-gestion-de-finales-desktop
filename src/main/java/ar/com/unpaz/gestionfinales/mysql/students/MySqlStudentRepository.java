@@ -7,12 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import ar.com.unpaz.gestionfinales.database.EntityRepository;
 import ar.com.unpaz.gestionfinales.database.Specification;
-import ar.com.unpaz.gestionfinales.database.StudentRepository;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.mysql.MySqlConnection;
 
-public class MySqlStudentRepository implements StudentRepository {
+public class MySqlStudentRepository implements EntityRepository<Student> {
 
   @Override
   public void add(Student entity) {

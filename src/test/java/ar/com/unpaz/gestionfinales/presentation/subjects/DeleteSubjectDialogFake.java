@@ -1,15 +1,16 @@
 package ar.com.unpaz.gestionfinales.presentation.subjects;
 
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.presentation.DeleteDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class DeleteSubjectDialogFake implements DeleteSubjectDialog {
+public class DeleteSubjectDialogFake implements DeleteDialog<Subject> {
 
   private boolean closed;
   private Subject selected;
   
   @Override
-  public void setSubject(Subject selected) {
+  public void set(Subject selected) {
     this.selected = selected;
   }
 
@@ -20,7 +21,7 @@ public class DeleteSubjectDialogFake implements DeleteSubjectDialog {
   public void show() {}
 
   @Override
-  public Subject getSubject() {
+  public Subject get() {
     return selected;
   }
 

@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import ar.com.unpaz.gestionfinales.database.FinalRepository;
 import ar.com.unpaz.gestionfinales.domain.Final;
 
-public class InMemoryFinalRepository extends AbstractInMemoryRepository<Final>
-    implements FinalRepository {
+public class InMemoryFinalRepository extends AbstractInMemoryRepository<Final> {
 
   private int ids;
   private Map<Integer, Final> finals;

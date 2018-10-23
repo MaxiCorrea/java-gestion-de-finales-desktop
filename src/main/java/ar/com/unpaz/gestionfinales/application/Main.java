@@ -68,9 +68,9 @@ public class Main {
     AppViewContext.reportFinalDialog = new ReportFinalDialogSwing();
 
     AppControllerContext.appController = new AppControllerImpl();
-    AppControllerContext.subjectController = new SubjecUseCasesImpl();
-    AppControllerContext.studentController = new StudentUseCasesImpl();
-    AppControllerContext.finalController = new FinalUseCasesImpl();
+    AppControllerContext.subjectUseCases = new SubjecUseCasesImpl();
+    AppControllerContext.studentUseCases = new StudentUseCasesImpl();
+    AppControllerContext.finalUseCases = new FinalUseCasesImpl();
 
     AppControllerContext.appController.startApp();
 
