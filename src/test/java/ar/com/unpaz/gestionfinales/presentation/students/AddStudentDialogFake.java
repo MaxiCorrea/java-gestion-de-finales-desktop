@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.presentation.subjects;
+package ar.com.unpaz.gestionfinales.presentation.students;
 
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.students.AddStudentDialog;

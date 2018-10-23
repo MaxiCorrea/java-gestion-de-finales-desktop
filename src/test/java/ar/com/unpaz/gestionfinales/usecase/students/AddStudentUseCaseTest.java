@@ -9,8 +9,8 @@ import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.inmemory.InMemoryStudentRepository;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.presentation.subjects.AddStudentDialogFake;
-import ar.com.unpaz.gestionfinales.presentation.subjects.StudentViewFake;
+import ar.com.unpaz.gestionfinales.presentation.students.AddStudentDialogFake;
+import ar.com.unpaz.gestionfinales.presentation.students.StudentViewFake;
 import ar.com.unpaz.gestionfinales.validation.ValidatorFake;
 
 public class AddStudentUseCaseTest {
