@@ -6,7 +6,7 @@ import ar.com.unpaz.gestionfinales.domain.Subject;
 public class SubjectValidator extends SkeletonValidator<Subject> {
  
   @Override
-  void validateFieldOf(Subject entity) {
+  void validateFieldsOf(Subject entity) {
     checkYear(entity);
     checkDescriptionEmpty(entity);
     checkDescriptionLenght(entity);

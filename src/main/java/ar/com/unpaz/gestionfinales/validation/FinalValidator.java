@@ -8,7 +8,7 @@ import ar.com.unpaz.gestionfinales.domain.Subject;
 public class FinalValidator extends SkeletonValidator<Final> {
 
   @Override
-  void validateFieldOf(Final entity) {
+  void validateFieldsOf(Final entity) {
     checkQualification(entity);
     checkSubject(entity);
     checkStudent(entity);

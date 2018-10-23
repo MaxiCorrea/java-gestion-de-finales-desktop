@@ -8,7 +8,7 @@ import ar.com.unpaz.gestionfinales.domain.Student;
 public class StudentValidator extends SkeletonValidator<Student> {
 
   @Override
-  void validateFieldOf(Student entity) {
+  void validateFieldsOf(Student entity) {
     checkDNI(entity);
     checkName(entity);
     checkSurname(entity);

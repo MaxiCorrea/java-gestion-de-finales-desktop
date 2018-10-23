@@ -12,7 +12,7 @@ public abstract class SkeletonValidator<E> implements Validator<E> {
   
   @Override
   public final boolean isValid(E entity) {
-    validateFieldOf(entity);
+    validateFieldsOf(entity);
     return !hasErrors();
   }
 
@@ -20,7 +20,7 @@ public abstract class SkeletonValidator<E> implements Validator<E> {
     return !errorMessage.equals(NO_ERROR);
   }
 
-  abstract void validateFieldOf(E entity);
+  abstract void validateFieldsOf(E entity);
   
   void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;

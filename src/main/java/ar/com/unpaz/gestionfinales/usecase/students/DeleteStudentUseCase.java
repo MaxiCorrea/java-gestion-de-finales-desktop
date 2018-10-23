@@ -4,13 +4,13 @@ import java.util.List;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.validation.NoStudentValidator;
+import ar.com.unpaz.gestionfinales.validation.NullValidator;
 import ar.com.unpaz.gestionfinales.validation.Validator;
 
 public class DeleteStudentUseCase extends SkeletonStudentUseCase {
 
   public DeleteStudentUseCase() {
-    this(new NoStudentValidator());
+    this(new NullValidator<Student>());
   }
 
   public DeleteStudentUseCase(Validator<Student> validator) {
