@@ -9,17 +9,17 @@ import ar.com.unpaz.gestionfinales.validation.Validator;
 public abstract class SkeletonUseCase<E> implements DialogController {
 
   private final Validator<E> validator;
-  private final View<E> views;
+  private final View<E> view;
   private final Dialog<E> dialog;
   private final EntityRepository<E> repository;
 
   public SkeletonUseCase(Validator<E> validator, 
-                         View<E> views, 
+                         View<E> view, 
                          Dialog<E> dialog,
                          EntityRepository<E> repository) {
     
     this.validator = validator;
-    this.views = views;
+    this.view = view;
     this.dialog = dialog;    
     this.repository = repository;
   }
@@ -30,7 +30,7 @@ public abstract class SkeletonUseCase<E> implements DialogController {
     if (validator.isValid(entity)) {
       execute(entity);
       List<E> all = repository.getAll();
-      views.set(all);
+      view.set(all);
       dialog.close();
     } else {
       String message = validator.getErrorMessage();

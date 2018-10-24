@@ -1,13 +1,14 @@
 package ar.com.unpaz.gestionfinales.presentation.finals;
 
+import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.Dialog;
 
-public interface FinalDialog<E> extends Dialog<E> {
-
-  void setStudent(Student student);
+public interface FinalDialog extends Dialog<Final> {
 
   void setSubject(Subject subject);
+
+  void setStudent(Student student);
 
 }

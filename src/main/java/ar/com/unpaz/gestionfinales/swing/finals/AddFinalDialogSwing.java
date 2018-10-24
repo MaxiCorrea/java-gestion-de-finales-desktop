@@ -20,12 +20,12 @@ import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.domain.Qualification;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.finals.AddFinalDialog;
+import ar.com.unpaz.gestionfinales.presentation.finals.FinalDialog;
 import ar.com.unpaz.gestionfinales.presentation.finals.QualificationCombo;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 import ar.com.unpaz.gestionfinales.usecase.finals.FinalDialogController;
 
-public class AddFinalDialogSwing implements AddFinalDialog {
+public class AddFinalDialogSwing implements FinalDialog {
 
   private JDialog dialog;
   private JButton selectSubjectButton;

@@ -2,10 +2,10 @@ package ar.com.unpaz.gestionfinales.presentation.subjects;
 
 import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.SelectDialog;
+import ar.com.unpaz.gestionfinales.presentation.Select;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class SelectSubjectDialogFake implements SelectDialog<Subject> {
+public class SelectSubjectDialogFake implements Select<Subject> {
 
   @Override
   public void setController(DialogController controller) {

@@ -3,10 +3,10 @@ package ar.com.unpaz.gestionfinales.swing.subjects;
 import java.io.File;
 import javax.swing.JFileChooser;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.ReportDialog;
+import ar.com.unpaz.gestionfinales.presentation.Report;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class ReportSubjectDialogSwing implements ReportDialog<Subject> {
+public class ReportSubjectDialogSwing implements Report<Subject> {
 
   private static final String TITLE = "Ubicacion de Reporte de Materias";
   private File fileSelected;

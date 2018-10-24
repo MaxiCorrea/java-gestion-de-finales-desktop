@@ -1,6 +1,6 @@
 package ar.com.unpaz.gestionfinales.presentation;
 
-public interface AboutDialog {
+public interface About {
 
   String TITLE = "Acerca De";
   String DEVELOPER = "Desarrollador : Maximiliano Correa";

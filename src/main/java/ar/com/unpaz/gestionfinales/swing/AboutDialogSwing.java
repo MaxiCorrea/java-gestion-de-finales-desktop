@@ -15,10 +15,10 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import ar.com.unpaz.gestionfinales.presentation.AboutDialog;
+import ar.com.unpaz.gestionfinales.presentation.About;
 import ar.com.unpaz.gestionfinales.swing.IconResource.IconPathOf;
 
-public class AboutDialogSwing implements AboutDialog {
+public class AboutDialogSwing implements About {
   
   private JDialog dialog;
 

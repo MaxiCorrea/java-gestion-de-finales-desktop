@@ -16,10 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.SelectDialog;
+import ar.com.unpaz.gestionfinales.presentation.Select;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class SelectStudentDialogSwing implements SelectDialog<Student> {
+public class SelectStudentDialogSwing implements Select<Student> {
 
   private static final Color HEADER_COLOR = new Color(0, 133, 198);
 

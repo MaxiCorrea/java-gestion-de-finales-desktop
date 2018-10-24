@@ -1,8 +1,8 @@
 package ar.com.unpaz.gestionfinales.console;
 
-import ar.com.unpaz.gestionfinales.presentation.AboutDialog;
+import ar.com.unpaz.gestionfinales.presentation.About;
 
-public class AboutDialogConsole implements AboutDialog {
+public class AboutDialogConsole implements About {
     
   private ConsoleWriter writer;
   
