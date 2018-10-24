@@ -24,14 +24,14 @@ public class UpdateSubjectUseCaseTest {
   
   @Before
   public void setup() {
-    validatorFake = new ValidatorFake<>();
-    usecase = new UpdateSubjectUseCase(validatorFake);
     updateSubjectDialogFake = new UpdateSubjectDialogFake();
     AppViewContext.updSubjectDialog = updateSubjectDialogFake;
     subjectsViewFake = new SubjectsViewFake();
     AppViewContext.subjectsView = subjectsViewFake;
     subjectRepositoryFake = new InMemorySubjectRepository();
     AppRepositoryContext.subjectRepository = subjectRepositoryFake;
+    validatorFake = new ValidatorFake<>();
+    usecase = new UpdateSubjectUseCase(validatorFake);
   }
   
   @Test

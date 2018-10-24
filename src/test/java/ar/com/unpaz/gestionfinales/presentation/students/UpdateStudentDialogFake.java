@@ -1,10 +1,10 @@
 package ar.com.unpaz.gestionfinales.presentation.students;
 
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.UpdateDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class UpdateStudentDialogFake implements UpdateDialog<Student> {
+public class UpdateStudentDialogFake implements Dialog<Student> {
 
   private Student student;
   private boolean closed;

@@ -22,7 +22,8 @@ import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.finals.QualificationCombo;
 import ar.com.unpaz.gestionfinales.presentation.finals.UpdateFinalDialog;
-import ar.com.unpaz.gestionfinales.usecase.FinalDialogController;
+import ar.com.unpaz.gestionfinales.usecase.DialogController;
+import ar.com.unpaz.gestionfinales.usecase.finals.FinalDialogController;
 
 public class UpdateFinalDialogSwing implements UpdateFinalDialog {
 
@@ -110,7 +111,7 @@ public class UpdateFinalDialogSwing implements UpdateFinalDialog {
 
 
   @Override
-  public void setFinal(Final finalObj) {
+  public void set(Final finalObj) {
     id = finalObj.getId();
     comboQualification.setSelectedIndex(finalObj.getQualification().number);
     selectedStudentField.setText(finalObj.getStudent().getName());
@@ -121,24 +122,25 @@ public class UpdateFinalDialogSwing implements UpdateFinalDialog {
   }
 
   @Override
-  public Final getFinal() {
+  public Final get() {
     return new Final(id, selectedSubject, selectedStudent, LocalDate.now(),
         Qualification.of(comboQualification.getSelectedIndex()));
   }
 
   @Override
-  public void setController(FinalDialogController controller) {
+  public void setController(DialogController controller) {
+    FinalDialogController c = (FinalDialogController) controller;
     selectStudentButton.addActionListener((e) -> {
-      controller.selectStudent();
+      c.selectStudent();
     });
     selectSubjectButton.addActionListener((e) -> {
-      controller.selectSubject();
+      c.selectSubject();
     });
     acceptButton.addActionListener((e) -> {
-      controller.accept();
+      c.accept();
     });
     cancelButton.addActionListener((e) -> {
-      controller.cancel();
+      c.cancel();
     });
   }
 

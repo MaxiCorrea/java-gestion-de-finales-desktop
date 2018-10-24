@@ -23,14 +23,14 @@ public class UpdateStudentUseCaseTest {
 
   @Before
   public void setup() {
-    validatorFake = new ValidatorFake<>();
-    usecase = new UpdateStudentUseCase(validatorFake);
     studentsViewFake = new StudentViewFake();
     AppViewContext.studentsView = studentsViewFake;
     updateStudentDialogFake = new UpdateStudentDialogFake();
     AppViewContext.updStudentDialog = updateStudentDialogFake;
     studentRepositoryFake = new InMemoryStudentRepository();
     AppRepositoryContext.studentRepository = studentRepositoryFake;
+    validatorFake = new ValidatorFake<>();
+    usecase = new UpdateStudentUseCase(validatorFake);
   }
 
   @Test

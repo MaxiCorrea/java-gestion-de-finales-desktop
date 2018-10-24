@@ -2,8 +2,9 @@ package ar.com.unpaz.gestionfinales.presentation.finals;
 
 import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Final;
+import ar.com.unpaz.gestionfinales.presentation.View;
 
-public class FinalsViewFake implements FinalsView {
+public class FinalsViewFake implements View<Final> {
 
   @Override
   public int getSelectedRow() {
@@ -12,13 +13,13 @@ public class FinalsViewFake implements FinalsView {
   }
 
   @Override
-  public Final getFinalInRow(int row) {
+  public Final getInRow(int row) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public void setFinals(List<Final> finals) {
+  public void set(List<Final> finals) {
     // TODO Auto-generated method stub
     
   }

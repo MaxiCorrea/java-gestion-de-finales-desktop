@@ -18,10 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.presentation.finals.FinalsView;
+import ar.com.unpaz.gestionfinales.presentation.View;
 import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 
-public class FinalViewSwing implements FinalsView {
+public class FinalViewSwing implements View<Final> {
 
   private static final int HEIGHT = 300;
   private static final int WIDTH = 600;
@@ -106,12 +106,12 @@ public class FinalViewSwing implements FinalsView {
   }
 
   @Override
-  public Final getFinalInRow(int row) {
+  public Final getInRow(int row) {
     return tableModel.getInRow(row);
   }
 
   @Override
-  public void setFinals(List<Final> finals) {
+  public void set(List<Final> finals) {
     tableModel.setFinals(finals);
   }
 

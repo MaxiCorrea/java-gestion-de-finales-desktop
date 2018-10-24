@@ -18,6 +18,7 @@ import ar.com.unpaz.gestionfinales.swing.finals.ReportFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.UpdateFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.AddStudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.DeleteStudentDialogSwing;
+import ar.com.unpaz.gestionfinales.swing.students.ReportStudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.SelectStudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.StudentsViewSwing;
 import ar.com.unpaz.gestionfinales.swing.students.UpdateStudentDialogSwing;
@@ -29,9 +30,9 @@ import ar.com.unpaz.gestionfinales.swing.subjects.SubjectsViewSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.UpdateSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 import ar.com.unpaz.gestionfinales.usecase.AppControllerImpl;
-import ar.com.unpaz.gestionfinales.usecase.finals.FinalUseCasesImpl;
-import ar.com.unpaz.gestionfinales.usecase.students.StudentUseCasesImpl;
-import ar.com.unpaz.gestionfinales.usecase.subjects.SubjecUseCasesImpl;
+import ar.com.unpaz.gestionfinales.usecase.finals.FinalUseCases;
+import ar.com.unpaz.gestionfinales.usecase.students.StudentUseCases;
+import ar.com.unpaz.gestionfinales.usecase.subjects.SubjecUseCases;
 
 public class Main {
 
@@ -57,7 +58,7 @@ public class Main {
     AppViewContext.addStudentDialog = new AddStudentDialogSwing();
     AppViewContext.updStudentDialog = new UpdateStudentDialogSwing();
     AppViewContext.delStudentDialog = new DeleteStudentDialogSwing();
-    AppViewContext.reportStudentDialog = new ReportSubjectDialogSwing();
+    AppViewContext.reportStudentDialog = new ReportStudentDialogSwing();
 
     AppViewContext.finalsView = new FinalViewSwing();
     AppViewContext.addFinalDialog = new AddFinalDialogSwing();
@@ -68,9 +69,9 @@ public class Main {
     AppViewContext.reportFinalDialog = new ReportFinalDialogSwing();
 
     AppControllerContext.appController = new AppControllerImpl();
-    AppControllerContext.subjectUseCases = new SubjecUseCasesImpl();
-    AppControllerContext.studentUseCases = new StudentUseCasesImpl();
-    AppControllerContext.finalUseCases = new FinalUseCasesImpl();
+    AppControllerContext.subjectUseCases = new SubjecUseCases();
+    AppControllerContext.studentUseCases = new StudentUseCases();
+    AppControllerContext.finalUseCases = new FinalUseCases();
 
     AppControllerContext.appController.startApp();
 

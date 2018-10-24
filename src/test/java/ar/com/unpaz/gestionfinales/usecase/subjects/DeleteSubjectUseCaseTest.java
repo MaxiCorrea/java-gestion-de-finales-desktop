@@ -21,13 +21,13 @@ public class DeleteSubjectUseCaseTest {
 
   @Before
   public void contextConfiguration() {
-    usecase = new DeleteSubjectUseCase();
     deleteSubjectDialogFake = new DeleteSubjectDialogFake();
     AppViewContext.delSubjectDialog = deleteSubjectDialogFake;
     subjectRepositoryFake = new InMemorySubjectRepository();
     AppRepositoryContext.subjectRepository = subjectRepositoryFake;
     subjectsViewFake = new SubjectsViewFake();
     AppViewContext.subjectsView = subjectsViewFake;
+    usecase = new DeleteSubjectUseCase();
   }
 
   @Test

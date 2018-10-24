@@ -19,13 +19,13 @@ public class SelectStudentDialogFake implements SelectStudentDialog {
   }
 
   @Override
-  public Student getStudentInRow(int row) {
+  public Student getInRow(int row) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public void setStudents(List<Student> students) {
+  public void set(List<Student> students) {
     // TODO Auto-generated method stub
     
   }

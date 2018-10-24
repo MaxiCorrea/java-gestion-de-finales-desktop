@@ -1,10 +1,10 @@
 package ar.com.unpaz.gestionfinales.presentation.subjects;
 
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.UpdateDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class UpdateSubjectDialogFake implements UpdateDialog<Subject> {
+public class UpdateSubjectDialogFake implements Dialog<Subject> {
 
   private boolean closed;
   private Subject subject;

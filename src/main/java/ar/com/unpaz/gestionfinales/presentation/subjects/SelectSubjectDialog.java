@@ -10,12 +10,12 @@ public interface SelectSubjectDialog {
 
   void show();
 
-  void setSubjects(List<Subject> all);
+  void set(List<Subject> all);
 
   void close();
 
   int getSelectedRow();
 
-  Subject getSubjectInRow(int row);
+  Subject getInRow(int row);
 
 }

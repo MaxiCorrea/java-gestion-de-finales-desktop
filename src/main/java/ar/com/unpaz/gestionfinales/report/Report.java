@@ -1,7 +1,10 @@
 package ar.com.unpaz.gestionfinales.report;
 
-public interface Report {
+import java.io.File;
+import java.util.List;
 
-  void generateReport(String absolutePath) throws ReportException;
+public interface Report<E> {
 
+  void generateReport(File file , List<E> all) throws ReportException;
+  
 }

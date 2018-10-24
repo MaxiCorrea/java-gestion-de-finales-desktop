@@ -2,26 +2,22 @@ package ar.com.unpaz.gestionfinales.jasper.finals;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
+import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Final;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class FinalDataSource {
 
-  public JRDataSource createReportDataSource() {
-    return new JRBeanCollectionDataSource(getBeanCollection());
-  }
-
-  Collection<FinalDataAdapter> getBeanCollection() {
+  public JRDataSource createReportDataSource(List<Final> all) {
     Collection<FinalDataAdapter> finals = new ArrayList<>();
-    for (Final finalObj : AppRepositoryContext.finalRepository.getAll()) {
+    for (Final finalObj : all) {
       finals.add(new FinalDataAdapter(finalObj));
     }
-    if(finals.isEmpty()) {
+    if (finals.isEmpty()) {
       finals.add(new FinalDataAdapter());
     }
-    return finals;
+    return new JRBeanCollectionDataSource(finals);
   }
-  
+
 }

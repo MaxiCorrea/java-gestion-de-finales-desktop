@@ -1,6 +1,6 @@
 package ar.com.unpaz.gestionfinales.domain;
 
-public class Entity {
+public abstract class Entity<E> {
 
   private final int id;
 
@@ -15,5 +15,5 @@ public class Entity {
   public int getId() {
     return id;
   }
-
+  
 }

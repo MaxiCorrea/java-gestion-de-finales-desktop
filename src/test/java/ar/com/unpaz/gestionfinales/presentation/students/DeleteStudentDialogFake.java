@@ -1,10 +1,10 @@
 package ar.com.unpaz.gestionfinales.presentation.students;
 
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.DeleteDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class DeleteStudentDialogFake implements DeleteDialog<Student> {
+public class DeleteStudentDialogFake implements Dialog<Student> {
 
   private Student student;
   private boolean closed;
@@ -34,6 +34,12 @@ public class DeleteStudentDialogFake implements DeleteDialog<Student> {
   @Override
   public Student get() {
     return student;
+  }
+
+  @Override
+  public void showError(String message) {
+    // TODO Auto-generated method stub
+    
   }
 
 }

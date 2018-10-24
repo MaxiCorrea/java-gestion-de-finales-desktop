@@ -1,43 +1,28 @@
 package ar.com.unpaz.gestionfinales.usecase.subjects;
 
-import java.util.List;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
+import ar.com.unpaz.gestionfinales.usecase.SkeletonUseCase;
 import ar.com.unpaz.gestionfinales.validation.SubjectValidator;
 import ar.com.unpaz.gestionfinales.validation.Validator;
 
-public class AddSubjectUseCase extends SkeletonSubjectUseCase {
+public class AddSubjectUseCase extends SkeletonUseCase<Subject> {
 
   public AddSubjectUseCase() {
     this(new SubjectValidator());
   }
-
+  
   public AddSubjectUseCase(Validator<Subject> validator) {
-    super(validator);
+    super(validator, 
+          AppViewContext.subjectsView ,
+          AppViewContext.addSubjectDialog,
+          AppRepositoryContext.subjectRepository);
   }
 
   @Override
-  Subject getTheSubjectOfTheDialog() {
-    return AppViewContext.addSubjectDialog.get();
-  }
-
-  @Override
-  void executeAction(Subject subject) {
-    AppRepositoryContext.subjectRepository.add(subject);
-    List<Subject> all = AppRepositoryContext.subjectRepository.getAll();
-    AppViewContext.subjectsView.set(all);
-    AppViewContext.addSubjectDialog.close();
-  }
-
-  @Override
-  void showErrorInTheDialog(String errorMessage) {
-    AppViewContext.addSubjectDialog.showError(errorMessage);
-  }
-
-  @Override
-  void cancelAction() {
-    AppViewContext.addSubjectDialog.close();
+  public void execute(Subject entity) {
+    AppRepositoryContext.subjectRepository.add(entity);
   }
 
 }

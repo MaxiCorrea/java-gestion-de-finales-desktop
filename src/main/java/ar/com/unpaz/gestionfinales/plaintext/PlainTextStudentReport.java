@@ -1,20 +1,21 @@
 package ar.com.unpaz.gestionfinales.plaintext;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
+import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.report.Report;
 import ar.com.unpaz.gestionfinales.report.ReportException;
 
-public class PlainTextStudentReport implements Report {
+public class PlainTextStudentReport implements Report<Student> {
 
   @Override
-  public void generateReport(String absolutePath) throws ReportException {
-    try(FileWriter out = new FileWriter(absolutePath) ;
+  public void generateReport(File file, List<Student> all) throws ReportException {
+    try(FileWriter out = new FileWriter(file) ;
         BufferedWriter buffer = new BufferedWriter(out)) {
-      for(Student student : AppRepositoryContext.studentRepository.getAll()) {
+      for(Student student : all) {
         buffer.write(formatString(student));
         buffer.newLine();
       }
@@ -22,7 +23,7 @@ public class PlainTextStudentReport implements Report {
       throw new ReportException();
     }
   }
-
+  
   private static final String SLASH = "/";
   
   String formatString(Student student) {
@@ -35,5 +36,5 @@ public class PlainTextStudentReport implements Report {
                               .append(student.getEmail())
                               .toString();
   }
-  
+ 
 }

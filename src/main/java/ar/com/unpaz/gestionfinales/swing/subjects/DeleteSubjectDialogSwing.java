@@ -12,10 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
-import ar.com.unpaz.gestionfinales.presentation.DeleteDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class DeleteSubjectDialogSwing implements DeleteDialog<Subject> {
+public class DeleteSubjectDialogSwing implements Dialog<Subject> {
   
   private JDialog dialog;
   private JLabel descriptionLabel;
@@ -102,6 +102,12 @@ public class DeleteSubjectDialogSwing implements DeleteDialog<Subject> {
   @Override
   public void close() {
     dialog.dispose();
+  }
+
+  @Override
+  public void showError(String message) {
+    // TODO Auto-generated method stub
+    
   }
 
 }

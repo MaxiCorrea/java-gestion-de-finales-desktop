@@ -2,10 +2,11 @@ package ar.com.unpaz.gestionfinales.swing.subjects;
 
 import java.io.File;
 import javax.swing.JFileChooser;
+import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.ReportDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class ReportSubjectDialogSwing implements ReportDialog {
+public class ReportSubjectDialogSwing implements ReportDialog<Subject> {
 
   private static final String TITLE = "Ubicacion de Reporte de Materias";
   private File fileSelected;
@@ -33,5 +34,23 @@ public class ReportSubjectDialogSwing implements ReportDialog {
 
   @Override
   public void close() {}
+
+  @Override
+  public void showError(String message) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public Subject get() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void set(Subject e) {
+    // TODO Auto-generated method stub
+    
+  }
 
 }

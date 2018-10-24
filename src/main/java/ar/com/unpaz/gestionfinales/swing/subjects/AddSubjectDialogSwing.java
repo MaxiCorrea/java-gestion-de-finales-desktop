@@ -18,11 +18,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
-import ar.com.unpaz.gestionfinales.presentation.AddDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.presentation.subjects.YearCombo;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class AddSubjectDialogSwing implements AddDialog<Subject> {
+public class AddSubjectDialogSwing implements Dialog<Subject> {
 
   private static final String TITLE = "Nueva Materia";
 

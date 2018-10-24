@@ -1,6 +1,9 @@
 package ar.com.unpaz.gestionfinales.usecase.students;
 
 import java.io.File;
+import java.util.List;
+import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
+import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.report.AppReportContext;
 import ar.com.unpaz.gestionfinales.report.ReportException;
@@ -12,7 +15,8 @@ public class ReportStudentUseCase implements DialogController {
   public void accept() {
     try {
       File file = AppViewContext.reportStudentDialog.getFile();
-      AppReportContext.studentReport.generateReport(file.getAbsolutePath());
+      List<Student> all = AppRepositoryContext.studentRepository.getAll();
+      AppReportContext.studentReport.generateReport(file , all);
     } catch (ReportException e) {
       System.out.println(e.getMessage());
     }

@@ -24,14 +24,14 @@ public class AddSubjectUseCaseTest {
   
   @Before
   public void setup() {
-    validatorFake = new ValidatorFake<>();
-    usecase = new AddSubjectUseCase(validatorFake);
     addSubjectDialogFake = new AddSubjectDialogFake();
     AppViewContext.addSubjectDialog = addSubjectDialogFake;
     subjectRepositoryFake = new InMemorySubjectRepository();
     AppRepositoryContext.subjectRepository = subjectRepositoryFake;
     subjectsViewFake = new SubjectsViewFake();
     AppViewContext.subjectsView = subjectsViewFake;
+    validatorFake = new ValidatorFake<>();
+    usecase = new AddSubjectUseCase(validatorFake);
   }
 
   @Test

@@ -13,7 +13,5 @@ public class AppControllerContext {
   public static UseCases<Subject> subjectUseCases;
   
   public static UseCases<Student> studentUseCases;
-    
-  public static DialogController dialogController;
-  
+      
 }

@@ -20,13 +20,13 @@ public class DeleteStudentUseCaseTest {
 
   @Before
   public void setup() {
-    usecase = new DeleteStudentUseCase();
     studentsViewFake = new StudentViewFake();
     AppViewContext.studentsView = studentsViewFake;
     deleteStudentDialogFake = new DeleteStudentDialogFake();
     AppViewContext.delStudentDialog = deleteStudentDialogFake;
     studentRepositoryFake = new InMemoryStudentRepository();
     AppRepositoryContext.studentRepository = studentRepositoryFake;
+    usecase = new DeleteStudentUseCase();
   }
 
   @Test

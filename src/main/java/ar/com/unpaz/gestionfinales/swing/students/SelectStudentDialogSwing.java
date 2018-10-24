@@ -16,10 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.students.SelectStudentDialog;
+import ar.com.unpaz.gestionfinales.presentation.SelectDialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class SelectStudentDialogSwing implements SelectStudentDialog {
+public class SelectStudentDialogSwing implements SelectDialog<Student> {
 
   private static final Color HEADER_COLOR = new Color(0, 133, 198);
 
@@ -96,18 +96,36 @@ public class SelectStudentDialogSwing implements SelectStudentDialog {
   }
 
   @Override
-  public Student getStudentInRow(int row) {
+  public Student getInRow(int row) {
     return tableModel.getInRow(row);
   }
 
   @Override
-  public void setStudents(List<Student> students) {
+  public void set(List<Student> students) {
     tableModel.setStudents(students);
   }
 
   @Override
   public void close() {
     dialog.dispose();
+  }
+
+  @Override
+  public void showError(String message) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public Student get() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void set(Student e) {
+    // TODO Auto-generated method stub
+    
   }
 
 }

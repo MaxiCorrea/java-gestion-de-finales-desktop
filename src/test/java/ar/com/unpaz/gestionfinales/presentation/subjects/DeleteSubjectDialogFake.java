@@ -1,10 +1,10 @@
 package ar.com.unpaz.gestionfinales.presentation.subjects;
 
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.DeleteDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class DeleteSubjectDialogFake implements DeleteDialog<Subject> {
+public class DeleteSubjectDialogFake implements Dialog<Subject> {
 
   private boolean closed;
   private Subject selected;
@@ -32,6 +32,12 @@ public class DeleteSubjectDialogFake implements DeleteDialog<Subject> {
 
   public boolean isClosed() {
     return closed;
+  }
+
+  @Override
+  public void showError(String message) {
+    // TODO Auto-generated method stub
+    
   }
   
 }

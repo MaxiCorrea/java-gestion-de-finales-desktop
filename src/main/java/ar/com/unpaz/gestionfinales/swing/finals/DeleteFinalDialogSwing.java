@@ -12,10 +12,10 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.presentation.finals.DeleteFinalDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class DeleteFinalDialogSwing implements DeleteFinalDialog {
+public class DeleteFinalDialogSwing implements Dialog<Final> {
 
   private JDialog dialog;
   private JLabel idLabel;
@@ -74,7 +74,7 @@ public class DeleteFinalDialogSwing implements DeleteFinalDialog {
   }
 
   @Override
-  public void setFinal(Final finalObj) {
+  public void set(Final finalObj) {
     this.finalObj = finalObj;
     idLabel.setText(valueOf(finalObj.getId()));
     qualificationLabel.setText(valueOf(finalObj.getQualification().number));
@@ -83,7 +83,7 @@ public class DeleteFinalDialogSwing implements DeleteFinalDialog {
   }
 
   @Override
-  public Final getFinal() {
+  public Final get() {
     return finalObj;
   }
 
@@ -107,6 +107,12 @@ public class DeleteFinalDialogSwing implements DeleteFinalDialog {
   @Override
   public void close() {
     dialog.dispose();
+  }
+
+  @Override
+  public void showError(String message) {
+    // TODO Auto-generated method stub
+    
   }
 
 }

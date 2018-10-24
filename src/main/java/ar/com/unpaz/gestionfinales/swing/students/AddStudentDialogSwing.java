@@ -15,10 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.AddDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class AddStudentDialogSwing implements AddDialog<Student> {
+public class AddStudentDialogSwing implements Dialog<Student> {
 
   private JDialog dialog;
   private JTextField dniField;

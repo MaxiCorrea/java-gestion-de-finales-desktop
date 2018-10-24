@@ -5,7 +5,7 @@ import static org.apache.commons.lang.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode;
 import java.time.LocalDate;
 
-public class Final extends Entity {
+public class Final extends Entity<Final> {
   
   public static final Final EMPTY = new Final();
   

@@ -13,10 +13,10 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.DeleteDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class DeleteStudentDialogSwing implements DeleteDialog<Student> {
+public class DeleteStudentDialogSwing implements Dialog<Student> {
 
   private JDialog dialog;
   private JTextField dniField;
@@ -115,5 +115,11 @@ public class DeleteStudentDialogSwing implements DeleteDialog<Student> {
   @Override
   public void close() {
     dialog.dispose();
+  }
+
+  @Override
+  public void showError(String message) {
+    // TODO Auto-generated method stub
+    
   }
 }

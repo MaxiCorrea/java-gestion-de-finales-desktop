@@ -10,9 +10,9 @@ public interface SelectStudentDialog {
 
   int getSelectedRow();
 
-  Student getStudentInRow(int row);
+  Student getInRow(int row);
 
-  void setStudents(List<Student> students);
+  void set(List<Student> students);
 
   void show();
 

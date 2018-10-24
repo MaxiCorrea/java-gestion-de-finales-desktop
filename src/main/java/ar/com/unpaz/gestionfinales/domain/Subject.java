@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode;
 
-public class Subject extends Entity {
+public class Subject extends Entity<Subject> {
   
   public static final int MAX_NUMBER_OF_CHARACTERS = 50;
   public static final Subject EMPTY = new Subject();

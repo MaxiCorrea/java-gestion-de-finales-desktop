@@ -6,7 +6,7 @@ import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode;
 
-public class Student extends Entity {
+public class Student extends Entity<Student> {
 
   public final static Student EMPTY = new Student("", "", "", "");
 
