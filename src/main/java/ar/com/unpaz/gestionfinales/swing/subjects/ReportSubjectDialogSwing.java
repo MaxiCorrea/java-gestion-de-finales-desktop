@@ -36,21 +36,14 @@ public class ReportSubjectDialogSwing implements Report<Subject> {
   public void close() {}
 
   @Override
-  public void showError(String message) {
-    // TODO Auto-generated method stub
-    
-  }
+  public void showError(String message) {}
 
   @Override
   public Subject get() {
-    // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public void set(Subject e) {
-    // TODO Auto-generated method stub
-    
-  }
+  public void set(Subject e) {}
 
 }
