@@ -18,11 +18,11 @@ import javax.swing.JPanel;
 import ar.com.unpaz.gestionfinales.presentation.About;
 import ar.com.unpaz.gestionfinales.swing.IconResource.IconPathOf;
 
-public class AboutDialogSwing implements About {
+public class AboutSwing implements About {
   
   private JDialog dialog;
 
-  public AboutDialogSwing() {
+  public AboutSwing() {
     dialog = new JDialog();
     dialog.setModal(true);
     dialog.setTitle(TITLE);

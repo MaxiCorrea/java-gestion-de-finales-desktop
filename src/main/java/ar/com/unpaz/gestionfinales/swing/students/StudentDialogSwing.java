@@ -18,7 +18,10 @@ import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class UpdateStudentDialogSwing implements Dialog<Student> {
+public class StudentDialogSwing implements Dialog<Student> {
+
+  private static final int WIDTH_DIALOG = 300;
+  private static final int HEIGHT_DIALOG = 280;
 
   private JDialog dialog;
   private JTextField dniField;
@@ -28,13 +31,16 @@ public class UpdateStudentDialogSwing implements Dialog<Student> {
   private JButton acceptButton;
   private JButton cancelButton;
   private JLabel errorLabel;
+
+  StudentDialogDataFor dataDialog;
   
-  public UpdateStudentDialogSwing() {
+  public StudentDialogSwing(StudentDialogDataFor dataDialog) {
+    this.dataDialog = dataDialog;
     dialog = new JDialog();
     dialog.setModal(true);
-    dialog.setSize(300, 280);
+    dialog.setSize(WIDTH_DIALOG, HEIGHT_DIALOG);
     dialog.setResizable(false);
-    dialog.setTitle("Actualizar Alumno");
+    dialog.setTitle(dataDialog.titleDialog());
     dialog.getContentPane().setLayout(new BorderLayout());
     dialog.getContentPane().add(createCenterPane(), CENTER);
     dialog.getContentPane().add(createSouthPane(), SOUTH);
@@ -44,19 +50,22 @@ public class UpdateStudentDialogSwing implements Dialog<Student> {
     JPanel pane = new JPanel();
     pane.setBackground(WHITE);
     dniField = new JTextField(25);
-    dniField.setEnabled(false);
     dniField.setBorder(createTitledBorder("Dni"));
+    dniField.setEnabled(dataDialog.dniFieldStatus());
     pane.add(dniField);
     nameField = new JTextField(25);
     nameField.setBorder(createTitledBorder("Nombre"));
+    nameField.setEnabled(dataDialog.nameFieldStatus());
     pane.add(nameField);
     surnameField = new JTextField(25);
     surnameField.setBorder(createTitledBorder("Apellido"));
+    surnameField.setEnabled(dataDialog.surnameFieldStatus());
     pane.add(surnameField);
     emailField = new JTextField(25);
     emailField.setBorder(createTitledBorder("Email"));
+    emailField.setEnabled(dataDialog.emailFieldStatus());
     pane.add(emailField);
-    errorLabel = new JLabel("",JLabel.CENTER);
+    errorLabel = new JLabel("", JLabel.CENTER);
     errorLabel.setForeground(RED);
     pane.add(errorLabel);
     return pane;
@@ -65,9 +74,9 @@ public class UpdateStudentDialogSwing implements Dialog<Student> {
   private JPanel createSouthPane() {
     JPanel pane = new JPanel();
     pane.setBackground(WHITE);
-    acceptButton = createButton("Guardar");
+    acceptButton = createButton(dataDialog.buttonAcceptText());
     pane.add(acceptButton);
-    cancelButton = createButton("Cancelar");
+    cancelButton = createButton(dataDialog.buttonCancelText());
     pane.add(cancelButton);
     return pane;
   }
@@ -100,7 +109,7 @@ public class UpdateStudentDialogSwing implements Dialog<Student> {
 
   @Override
   public void set(Student student) {
-    dniField.setText(String.valueOf(student.getDni()));
+    dniField.setText(student.getDni());
     nameField.setText(student.getName());
     surnameField.setText(student.getSurname());
     emailField.setText(student.getEmail());
@@ -124,4 +133,5 @@ public class UpdateStudentDialogSwing implements Dialog<Student> {
   public void showError(String errorMessage) {
     errorLabel.setText(errorMessage);
   }
+
 }

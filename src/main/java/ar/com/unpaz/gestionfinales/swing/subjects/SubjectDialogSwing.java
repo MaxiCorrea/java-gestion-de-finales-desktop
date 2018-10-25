@@ -22,23 +22,28 @@ import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.presentation.subjects.YearCombo;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class AddSubjectDialogSwing implements Dialog<Subject> {
+public class SubjectDialogSwing implements Dialog<Subject> {
 
-  private static final String TITLE = "Nueva Materia";
-
+  private static final int WIDTH_DIALOG = 420;
+  private static final int HEIGHT_DIALOG = 170;
+  
   private JDialog dialog;
   private JTextField fieldDescription;
   private JComboBox<YearCombo> comboYear;
   private JButton acceptButton;
   private JButton cancelButton;
   private JLabel errorMessage;
+  private int id;
 
-  public AddSubjectDialogSwing() {
+  private SubjectDialogDataFor dialogData;
+  
+  public SubjectDialogSwing(SubjectDialogDataFor dialogData) {
+    this.dialogData = dialogData;
     dialog = new JDialog();
     dialog.setModal(true);
-    dialog.setSize(420, 170);
+    dialog.setSize(WIDTH_DIALOG, HEIGHT_DIALOG);
     dialog.setResizable(false);
-    dialog.setTitle(TITLE);
+    dialog.setTitle(dialogData.title());
     dialog.getContentPane().setLayout(new BorderLayout());
     dialog.getContentPane().add(createCenterPane(), CENTER);
     dialog.getContentPane().add(createSouthPane(), SOUTH);
@@ -48,9 +53,11 @@ public class AddSubjectDialogSwing implements Dialog<Subject> {
     JPanel pane = new JPanel(new BorderLayout());
     comboYear = new JComboBox<>(YearCombo.values());
     comboYear.setBorder(createTitledBorder("Año"));
+    comboYear.setEnabled(dialogData.comboYearStatus());
     pane.add(comboYear, NORTH);
     fieldDescription = new JTextField();
     fieldDescription.setBorder(createTitledBorder("Descripcion"));
+    fieldDescription.setEnabled(dialogData.fieldDescriptionStatus());
     JScrollPane scrollPane = new JScrollPane(fieldDescription);
     scrollPane.setPreferredSize(new Dimension(5, 40));
     pane.add(scrollPane, CENTER);
@@ -62,9 +69,9 @@ public class AddSubjectDialogSwing implements Dialog<Subject> {
 
   private JPanel createSouthPane() {
     JPanel pane = new JPanel();
-    acceptButton = createButton("Guardar");
+    acceptButton = createButton(dialogData.acceptButtonName());
     pane.add(acceptButton);
-    cancelButton = createButton("Cancelar");
+    cancelButton = createButton(dialogData.cancelButtonName());
     pane.add(cancelButton);
     return pane;
   }
@@ -104,11 +111,12 @@ public class AddSubjectDialogSwing implements Dialog<Subject> {
   public Subject get() {
     String description = fieldDescription.getText();
     int index = comboYear.getSelectedIndex();
-    return new Subject(description, Year.of(index));
+    return new Subject(id , description, Year.of(index));
   }
 
   @Override
   public void set(Subject subject) {
+    id = subject.getId();
     fieldDescription.setText(subject.getDescription());
     comboYear.setSelectedIndex(subject.getYear().number);
   }

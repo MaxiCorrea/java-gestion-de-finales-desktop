@@ -16,18 +16,16 @@ import ar.com.unpaz.gestionfinales.swing.finals.DeleteFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.FinalViewSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.ReportFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.UpdateFinalDialogSwing;
-import ar.com.unpaz.gestionfinales.swing.students.AddStudentDialogSwing;
-import ar.com.unpaz.gestionfinales.swing.students.DeleteStudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.ReportStudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.SelectStudentDialogSwing;
+import ar.com.unpaz.gestionfinales.swing.students.StudentDialogDataFor;
+import ar.com.unpaz.gestionfinales.swing.students.StudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.StudentsViewSwing;
-import ar.com.unpaz.gestionfinales.swing.students.UpdateStudentDialogSwing;
-import ar.com.unpaz.gestionfinales.swing.subjects.AddSubjectDialogSwing;
-import ar.com.unpaz.gestionfinales.swing.subjects.DeleteSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.ReportSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.SelectSubjectDialogSwing;
+import ar.com.unpaz.gestionfinales.swing.subjects.SubjectDialogDataFor;
+import ar.com.unpaz.gestionfinales.swing.subjects.SubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.SubjectsViewSwing;
-import ar.com.unpaz.gestionfinales.swing.subjects.UpdateSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 import ar.com.unpaz.gestionfinales.usecase.AppControllerImpl;
 import ar.com.unpaz.gestionfinales.usecase.finals.FinalUseCases;
@@ -48,16 +46,16 @@ public class Main {
     
     AppViewContext.appView = new AppViewSwing();
     AppViewContext.subjectsView = new SubjectsViewSwing();
-    AppViewContext.addSubjectDialog = new AddSubjectDialogSwing();
-    AppViewContext.updSubjectDialog = new UpdateSubjectDialogSwing();
-    AppViewContext.delSubjectDialog = new DeleteSubjectDialogSwing();
+    AppViewContext.addSubjectDialog = new SubjectDialogSwing(SubjectDialogDataFor.ADD);
+    AppViewContext.updSubjectDialog = new SubjectDialogSwing(SubjectDialogDataFor.UPDATE);
+    AppViewContext.delSubjectDialog = new SubjectDialogSwing(SubjectDialogDataFor.DELETE);
     AppViewContext.reportSubjectDialog = new ReportSubjectDialogSwing();
     AppViewContext.aboutDialog = new AboutDialogConsole();
 
     AppViewContext.studentsView = new StudentsViewSwing();
-    AppViewContext.addStudentDialog = new AddStudentDialogSwing();
-    AppViewContext.updStudentDialog = new UpdateStudentDialogSwing();
-    AppViewContext.delStudentDialog = new DeleteStudentDialogSwing();
+    AppViewContext.addStudentDialog = new StudentDialogSwing(StudentDialogDataFor.ADD);
+    AppViewContext.updStudentDialog = new StudentDialogSwing(StudentDialogDataFor.UPDATE);
+    AppViewContext.delStudentDialog = new StudentDialogSwing(StudentDialogDataFor.DELETE);
     AppViewContext.reportStudentDialog = new ReportStudentDialogSwing();
 
     AppViewContext.finalsView = new FinalViewSwing();
