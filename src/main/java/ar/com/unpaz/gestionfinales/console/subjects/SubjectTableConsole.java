@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import ar.com.unpaz.gestionfinales.console.ConsoleWriter;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectColumn;
+import ar.com.unpaz.gestionfinales.presentation.subjects.CompleteSubjectColumn;
 
 public class SubjectTableConsole {
 
@@ -26,7 +26,7 @@ public class SubjectTableConsole {
   }
   
   private void printHeader() {
-    for(SubjectColumn col :SubjectColumn.values()) {
+    for(CompleteSubjectColumn col :CompleteSubjectColumn.values()) {
       writer.print(col.name+"  ");
     }
   }
@@ -38,7 +38,7 @@ public class SubjectTableConsole {
   }
   
   private void printRow(Subject subject) {
-    for(SubjectColumn colum : SubjectColumn.values()) {
+    for(CompleteSubjectColumn colum : CompleteSubjectColumn.values()) {
       writer.print(colum.valueIn(subject) +"  ");
     }
     writer.println();

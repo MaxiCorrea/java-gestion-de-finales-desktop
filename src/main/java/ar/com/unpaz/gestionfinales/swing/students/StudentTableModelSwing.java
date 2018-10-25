@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.presentation.students.StudentColumn;
+import ar.com.unpaz.gestionfinales.presentation.students.CompleteStudentColumn;
 
 public class StudentTableModelSwing extends AbstractTableModel {
 
@@ -13,7 +13,7 @@ public class StudentTableModelSwing extends AbstractTableModel {
 
   @Override
   public int getColumnCount() {
-    return StudentColumn.values().length;
+    return CompleteStudentColumn.values().length;
   }
 
   @Override
@@ -23,12 +23,12 @@ public class StudentTableModelSwing extends AbstractTableModel {
 
   @Override
   public String getColumnName(int column) {
-    return StudentColumn.at(column).name;
+    return CompleteStudentColumn.at(column).name;
   }
 
   @Override
   public Object getValueAt(int rowIndex, int columnIndex) {
-    return StudentColumn.at(columnIndex).valueIn(snapshots.get(rowIndex));
+    return CompleteStudentColumn.at(columnIndex).valueIn(snapshots.get(rowIndex));
   }
 
   public void setStudents(List<Student> students) {

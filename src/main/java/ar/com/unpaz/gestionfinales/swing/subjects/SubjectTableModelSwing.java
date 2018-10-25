@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectColumn;
+import ar.com.unpaz.gestionfinales.presentation.subjects.CompleteSubjectColumn;
 
 public class SubjectTableModelSwing extends AbstractTableModel {
 
@@ -13,7 +13,7 @@ public class SubjectTableModelSwing extends AbstractTableModel {
 
   @Override
   public int getColumnCount() {
-    return SubjectColumn.values().length;
+    return CompleteSubjectColumn.values().length;
   }
 
   @Override
@@ -23,12 +23,12 @@ public class SubjectTableModelSwing extends AbstractTableModel {
 
   @Override
   public String getColumnName(int column) {
-    return SubjectColumn.at(column).name;
+    return CompleteSubjectColumn.at(column).name;
   }
 
   @Override
   public Object getValueAt(int rowIndex, int columnIndex) {
-    return SubjectColumn.at(columnIndex).valueIn(snapshots.get(rowIndex));
+    return CompleteSubjectColumn.at(columnIndex).valueIn(snapshots.get(rowIndex));
   }
 
   public void setSubjects(List<Subject> subject) {

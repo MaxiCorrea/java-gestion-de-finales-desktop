@@ -2,7 +2,7 @@ package ar.com.unpaz.gestionfinales.presentation.students;
 
 import ar.com.unpaz.gestionfinales.domain.Student;
 
-public enum StudentColumn {
+public enum CompleteStudentColumn {
 
   DNI("Dni") {
     @Override
@@ -36,11 +36,11 @@ public enum StudentColumn {
 
   public final String name;
 
-  private StudentColumn(String name) {
+  private CompleteStudentColumn(String name) {
     this.name = name;
   }
 
-  public static StudentColumn at(int offset) {
+  public static CompleteStudentColumn at(int offset) {
     return values()[offset];
   }
 

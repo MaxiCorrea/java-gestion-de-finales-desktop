@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.jasper.UtilPDF;
 import ar.com.unpaz.gestionfinales.report.Report;
 import ar.com.unpaz.gestionfinales.report.ReportException;
 
@@ -19,18 +20,11 @@ public class SubjectJasperReport implements Report<Subject> {
     try {
       SubjectDataSource src = new SubjectDataSource();
       fillReportToFile(JASPER, new HashMap<>(), src.createReportDataSource(all));
-      exportReportToPdfFile(JPRINT, addExtension(file.getAbsolutePath()));
+      exportReportToPdfFile(JPRINT, UtilPDF.addExtension(file.getAbsolutePath()));
     } catch (Exception jrex) {
       jrex.printStackTrace();
       throw new ReportException();
     }
-  }
-
-  String addExtension(String location) {
-    if (location.lastIndexOf(".pdf") == -1) {
-      return location + ".pdf";
-    }
-    return location;
   }
 
 }

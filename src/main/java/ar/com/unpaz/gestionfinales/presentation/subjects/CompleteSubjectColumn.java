@@ -2,7 +2,7 @@ package ar.com.unpaz.gestionfinales.presentation.subjects;
 
 import ar.com.unpaz.gestionfinales.domain.Subject;
 
-public enum SubjectColumn {
+public enum CompleteSubjectColumn {
 
   ID("Id") {
     @Override
@@ -29,11 +29,11 @@ public enum SubjectColumn {
 
   public final String name;
 
-  private SubjectColumn(String name) {
+  private CompleteSubjectColumn(String name) {
     this.name = name;
   }
 
-  public static SubjectColumn at(int offset) {
+  public static CompleteSubjectColumn at(int offset) {
     return values()[offset];
   }
   
