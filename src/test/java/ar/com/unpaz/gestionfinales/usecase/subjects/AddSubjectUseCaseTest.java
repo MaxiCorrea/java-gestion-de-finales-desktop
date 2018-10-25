@@ -10,25 +10,25 @@ import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
 import ar.com.unpaz.gestionfinales.inmemory.InMemorySubjectRepository;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.presentation.subjects.AddSubjectDialogFake;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectsViewFake;
+import ar.com.unpaz.gestionfinales.presentation.DialogFake;
+import ar.com.unpaz.gestionfinales.presentation.ViewFake;
 import ar.com.unpaz.gestionfinales.validation.ValidatorFake;
 
 public class AddSubjectUseCaseTest {
 
-  private AddSubjectDialogFake addSubjectDialogFake;
+  private DialogFake<Subject> addSubjectDialogFake;
   private ValidatorFake<Subject> validatorFake;
   private InMemorySubjectRepository subjectRepositoryFake;
-  private SubjectsViewFake subjectsViewFake;
+  private ViewFake<Subject> subjectsViewFake;
   private AddSubjectUseCase usecase;
   
   @Before
   public void setup() {
-    addSubjectDialogFake = new AddSubjectDialogFake();
+    addSubjectDialogFake = new DialogFake<>();
     AppViewContext.addSubjectDialog = addSubjectDialogFake;
     subjectRepositoryFake = new InMemorySubjectRepository();
     AppRepositoryContext.subjectRepository = subjectRepositoryFake;
-    subjectsViewFake = new SubjectsViewFake();
+    subjectsViewFake = new ViewFake<>();
     AppViewContext.subjectsView = subjectsViewFake;
     validatorFake = new ValidatorFake<>();
     usecase = new AddSubjectUseCase(validatorFake);
@@ -49,7 +49,7 @@ public class AddSubjectUseCaseTest {
     validatorFake.getErrorMessageReturn("Error");
     usecase.accept();
     assertTrue(subjectRepositoryFake.noInteractions());
-    assertEquals(validatorFake.getErrorMessage(), addSubjectDialogFake.getErrorMessageDisplayed());
+    assertEquals(validatorFake.getErrorMessage(), addSubjectDialogFake.getErrorMessage());
   }
 
   @Test
@@ -60,7 +60,7 @@ public class AddSubjectUseCaseTest {
     validatorFake.isValidWillReturnTrue();
     usecase.accept();
     assertFalse(subjectRepositoryFake.getAll().isEmpty());
-    assertTrue(subjectsViewFake.getSubjects().contains(dataStructures));
+    assertTrue(subjectsViewFake.getAll().contains(dataStructures));
     assertTrue(addSubjectDialogFake.isClosed());
   }
 

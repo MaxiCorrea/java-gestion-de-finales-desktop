@@ -8,21 +8,21 @@ import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.inmemory.InMemoryStudentRepository;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.presentation.students.DeleteStudentDialogFake;
-import ar.com.unpaz.gestionfinales.presentation.students.StudentViewFake;
+import ar.com.unpaz.gestionfinales.presentation.DialogFake;
+import ar.com.unpaz.gestionfinales.presentation.ViewFake;
 
 public class DeleteStudentUseCaseTest {
 
   private DeleteStudentUseCase usecase;
-  private StudentViewFake studentsViewFake;
-  private DeleteStudentDialogFake deleteStudentDialogFake;
+  private ViewFake<Student> studentsViewFake;
+  private DialogFake<Student> deleteStudentDialogFake;
   private InMemoryStudentRepository studentRepositoryFake;
 
   @Before
   public void setup() {
-    studentsViewFake = new StudentViewFake();
+    studentsViewFake = new ViewFake<>();
     AppViewContext.studentsView = studentsViewFake;
-    deleteStudentDialogFake = new DeleteStudentDialogFake();
+    deleteStudentDialogFake = new DialogFake<>();
     AppViewContext.delStudentDialog = deleteStudentDialogFake;
     studentRepositoryFake = new InMemoryStudentRepository();
     AppRepositoryContext.studentRepository = studentRepositoryFake;
@@ -45,7 +45,7 @@ public class DeleteStudentUseCaseTest {
     deleteStudentDialogFake.set(maxi);
     usecase.accept();
     assertFalse(studentRepositoryFake.getAll().contains(maxi));
-    assertFalse(studentsViewFake.getStudents().contains(maxi));
+    assertFalse(studentsViewFake.getAll().contains(maxi));
     assertTrue(deleteStudentDialogFake.isClosed());
   }
   

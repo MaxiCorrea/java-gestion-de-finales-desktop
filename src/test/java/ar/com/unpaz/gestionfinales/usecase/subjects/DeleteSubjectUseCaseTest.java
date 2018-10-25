@@ -9,23 +9,23 @@ import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.domain.Year;
 import ar.com.unpaz.gestionfinales.inmemory.InMemorySubjectRepository;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.presentation.subjects.DeleteSubjectDialogFake;
-import ar.com.unpaz.gestionfinales.presentation.subjects.SubjectsViewFake;
+import ar.com.unpaz.gestionfinales.presentation.DialogFake;
+import ar.com.unpaz.gestionfinales.presentation.ViewFake;
 
 public class DeleteSubjectUseCaseTest {
 
-  private DeleteSubjectDialogFake deleteSubjectDialogFake;
+  private DialogFake<Subject> deleteSubjectDialogFake;
   private InMemorySubjectRepository subjectRepositoryFake;
-  private SubjectsViewFake subjectsViewFake;
+  private ViewFake<Subject> subjectsViewFake;
   private DeleteSubjectUseCase usecase;
 
   @Before
   public void contextConfiguration() {
-    deleteSubjectDialogFake = new DeleteSubjectDialogFake();
+    deleteSubjectDialogFake = new DialogFake<>();
     AppViewContext.delSubjectDialog = deleteSubjectDialogFake;
     subjectRepositoryFake = new InMemorySubjectRepository();
     AppRepositoryContext.subjectRepository = subjectRepositoryFake;
-    subjectsViewFake = new SubjectsViewFake();
+    subjectsViewFake = new ViewFake<>();
     AppViewContext.subjectsView = subjectsViewFake;
     usecase = new DeleteSubjectUseCase();
   }
@@ -46,7 +46,7 @@ public class DeleteSubjectUseCaseTest {
     deleteSubjectDialogFake.set(dataStructures);
     usecase.accept();
     assertFalse(subjectRepositoryFake.getAll().contains(dataStructures));
-    assertFalse(subjectsViewFake.getSubjects().contains(dataStructures));
+    assertFalse(subjectsViewFake.getAll().contains(dataStructures));
     assertTrue(deleteSubjectDialogFake.isClosed());
   }
 

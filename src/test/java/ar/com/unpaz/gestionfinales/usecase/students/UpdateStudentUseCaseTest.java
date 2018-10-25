@@ -9,23 +9,23 @@ import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.inmemory.InMemoryStudentRepository;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.presentation.students.StudentViewFake;
-import ar.com.unpaz.gestionfinales.presentation.students.UpdateStudentDialogFake;
+import ar.com.unpaz.gestionfinales.presentation.DialogFake;
+import ar.com.unpaz.gestionfinales.presentation.ViewFake;
 import ar.com.unpaz.gestionfinales.validation.ValidatorFake;
 
 public class UpdateStudentUseCaseTest {
 
-  private StudentViewFake studentsViewFake;
-  private UpdateStudentDialogFake updateStudentDialogFake;
+  private ViewFake<Student> studentsViewFake;
+  private DialogFake<Student> updateStudentDialogFake;
   private InMemoryStudentRepository studentRepositoryFake;
   private ValidatorFake<Student> validatorFake;
   private UpdateStudentUseCase usecase;
 
   @Before
   public void setup() {
-    studentsViewFake = new StudentViewFake();
+    studentsViewFake = new ViewFake<>();
     AppViewContext.studentsView = studentsViewFake;
-    updateStudentDialogFake = new UpdateStudentDialogFake();
+    updateStudentDialogFake = new DialogFake<>();
     AppViewContext.updStudentDialog = updateStudentDialogFake;
     studentRepositoryFake = new InMemoryStudentRepository();
     AppRepositoryContext.studentRepository = studentRepositoryFake;
@@ -48,7 +48,7 @@ public class UpdateStudentUseCaseTest {
     validatorFake.getErrorMessageReturn("Error");
     usecase.accept();
     assertTrue(studentRepositoryFake.noInteractions());
-    assertEquals(validatorFake.getErrorMessage(), updateStudentDialogFake.getErrorDisplayed());
+    assertEquals(validatorFake.getErrorMessage(), updateStudentDialogFake.getErrorMessage());
   }
   
   @Test
@@ -59,7 +59,7 @@ public class UpdateStudentUseCaseTest {
     validatorFake.isValidWillReturnTrue();
     usecase.accept();
     assertFalse(studentRepositoryFake.getAll().isEmpty());
-    assertTrue(studentsViewFake.getStudents().contains(maxi));
+    assertTrue(studentsViewFake.getAll().contains(maxi));
     assertTrue(updateStudentDialogFake.isClosed());
   }
   
