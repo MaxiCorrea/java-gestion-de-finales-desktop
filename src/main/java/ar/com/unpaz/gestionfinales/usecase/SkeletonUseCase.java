@@ -27,7 +27,6 @@ public abstract class SkeletonUseCase<E> implements DialogController {
   @Override
   public void accept() {
     E entity = dialog.get();
-    System.out.println(entity);
     if (validator.isValid(entity)) {
       execute(entity);
       List<E> all = repository.getAll();

@@ -27,6 +27,4 @@ public class FinalJasperReport implements Report<Final> {
     }
   }
   
-
- 
 }

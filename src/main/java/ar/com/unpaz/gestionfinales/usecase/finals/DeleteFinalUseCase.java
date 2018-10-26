@@ -15,9 +15,9 @@ public class DeleteFinalUseCase extends SkeletonUseCase<Final> {
   
   public DeleteFinalUseCase(Validator<Final> validator) {
     super(validator,
-        AppViewContext.finalsView ,
-        AppViewContext.delFinalDialog ,
-        AppRepositoryContext.finalRepository);
+          AppViewContext.finalsView ,
+          AppViewContext.delFinalDialog ,
+          AppRepositoryContext.finalRepository);
   }
 
   @Override

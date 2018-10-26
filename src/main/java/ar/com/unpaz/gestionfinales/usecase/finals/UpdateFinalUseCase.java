@@ -17,8 +17,10 @@ public class UpdateFinalUseCase extends SkeletonUseCase<Final> implements FinalD
   }
 
   public UpdateFinalUseCase(Validator<Final> validator) {
-    super(validator, AppViewContext.finalsView, AppViewContext.updFinalDialog,
-        AppRepositoryContext.finalRepository);
+    super(validator, 
+          AppViewContext.finalsView, 
+          AppViewContext.updFinalDialog,
+          AppRepositoryContext.finalRepository);
   }
 
   @Override

@@ -79,4 +79,9 @@ public class AppViewConsole implements AppView {
     reader.close();
   }
 
+  @Override
+  public void showError(String message) {
+    
+  }
+
 }

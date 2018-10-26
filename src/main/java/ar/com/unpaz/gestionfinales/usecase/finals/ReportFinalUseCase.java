@@ -16,9 +16,9 @@ public class ReportFinalUseCase implements DialogController {
     try {
       File file = AppViewContext.reportFinalDialog.getFile();
       List<Final> all = AppRepositoryContext.finalRepository.getAll();
-      AppReportContext.finalReport.generateReport(file,all);
+      AppReportContext.finalReport.generateReport(file, all);
     } catch (ReportException e) {
-      System.out.println(e.getMessage());
+      AppViewContext.appView.showError(e.getMessage());
     }
   }
 

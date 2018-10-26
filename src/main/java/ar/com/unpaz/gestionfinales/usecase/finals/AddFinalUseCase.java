@@ -17,8 +17,10 @@ public class AddFinalUseCase extends SkeletonUseCase<Final> implements FinalDial
   }
 
   public AddFinalUseCase(Validator<Final> validator) {
-    super(validator, AppViewContext.finalsView, AppViewContext.addFinalDialog,
-        AppRepositoryContext.finalRepository);
+    super(validator, 
+          AppViewContext.finalsView, 
+          AppViewContext.addFinalDialog,
+          AppRepositoryContext.finalRepository);
   }
 
   @Override

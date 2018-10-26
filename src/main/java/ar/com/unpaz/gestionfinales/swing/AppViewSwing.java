@@ -18,12 +18,15 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import ar.com.unpaz.gestionfinales.presentation.AppView;
 import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 
 public class AppViewSwing implements AppView {
 
+  private static final int HEIGHT_FRAME = 550;
+  private static final int WITH_FRAME = 900;
   private static final String TITLE = "Sistema de Gestión de Finales";
   private JFrame frame;
 
@@ -31,7 +34,7 @@ public class AppViewSwing implements AppView {
     frame = new JFrame();
     frame.setIconImage(getDefaultToolkit()
         .getImage(getClass().getResource(valueOf(IconResource.IconPathOf.ICON))));
-    frame.setSize(900, 550);
+    frame.setSize(WITH_FRAME, HEIGHT_FRAME);
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     frame.setTitle(TITLE);
     JMenuBar menuBar = new JMenuBar();
@@ -63,7 +66,8 @@ public class AppViewSwing implements AppView {
 
       @Override
       public void paint(Graphics g) {
-        g.drawImage(((ImageIcon) load(BACKGROUND)).getImage(), 0, 0, getWidth(), getHeight(), this);
+        g.drawImage(((ImageIcon) load(BACKGROUND)).getImage(), 0, 0, 
+            getWidth(), getHeight(), this);
       }
     }, CENTER);
 
@@ -95,6 +99,11 @@ public class AppViewSwing implements AppView {
   public void close() {
     frame.setVisible(false);
     frame.dispose();
+  }
+
+  @Override
+  public void showError(String message) {
+    JOptionPane.showMessageDialog(frame, message);
   }
 
 }
