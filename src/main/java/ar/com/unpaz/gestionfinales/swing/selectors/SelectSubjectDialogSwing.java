@@ -1,63 +1,63 @@
-package ar.com.unpaz.gestionfinales.swing.finals;
+package ar.com.unpaz.gestionfinales.swing.selectors;
 
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_BACKGROUND_COLOR;
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND_COLOR;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.SOUTH;
+import static java.awt.Color.BLACK;
 import static java.awt.Color.WHITE;
-import static java.lang.String.valueOf;
+import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.presentation.Dialog;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.presentation.Select;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class DeleteFinalDialogSwing implements Dialog<Final> {
+public class SelectSubjectDialogSwing implements Select<Subject> {
+
+  private static final Color HEADER_COLOR = new Color(0, 133, 198);
 
   private JDialog dialog;
-  private JLabel idLabel;
-  private JLabel qualificationLabel;
-  private JLabel subjectLabel;
-  private JLabel studentLabel;
+  private JTable tableSubjects;
+  private SimpleSubjectTableModelSwing tableModel;
   private JButton acceptButton;
   private JButton cancelButton;
-  private Final finalObj;
 
-  public DeleteFinalDialogSwing() {
+  public SelectSubjectDialogSwing() {
     dialog = new JDialog();
+    dialog.setTitle("Seleccion Materia");
     dialog.setModal(true);
-    dialog.setSize(300, 280);
+    dialog.setSize(300, 350);
     dialog.setResizable(false);
-    dialog.setTitle("Eliminar Final");
     dialog.getContentPane().add(createCenterPane(), CENTER);
     dialog.getContentPane().add(createSouthPane(), SOUTH);
   }
 
-  private JPanel createCenterPane() {
-    JPanel pane = new JPanel();
-    pane.setBackground(WHITE);
-    idLabel = new JLabel("", JLabel.CENTER);
-    qualificationLabel = new JLabel("", JLabel.CENTER);
-    subjectLabel = new JLabel("", JLabel.CENTER);
-    studentLabel = new JLabel("", JLabel.CENTER);
-    pane.add(new JLabel("Id : "));
-    pane.add(idLabel);
-    pane.add(new JLabel("Nota : "));
-    pane.add(qualificationLabel);
-    pane.add(new JLabel("Materia : "));
-    pane.add(subjectLabel);
-    pane.add(new JLabel("Alumno : "));
-    pane.add(studentLabel);
+  private JScrollPane createCenterPane() {
+    JScrollPane pane = new JScrollPane();
+    pane.getViewport().setBackground(WHITE);
+    pane.setVerticalScrollBarPolicy(22);
+    tableModel = new SimpleSubjectTableModelSwing();
+    tableSubjects = new JTable(tableModel);
+    tableSubjects.setSelectionMode(SINGLE_SELECTION);
+    tableSubjects.getTableHeader().setBackground(HEADER_COLOR);
+    tableSubjects.getTableHeader().setForeground(WHITE);
+    tableSubjects.setBackground(WHITE);
+    tableSubjects.setForeground(BLACK);
+    pane.setViewportView(tableSubjects);
     return pane;
   }
 
   private JPanel createSouthPane() {
     JPanel pane = new JPanel();
     pane.setBackground(WHITE);
-    acceptButton = createButton("Guardar");
+    acceptButton = createButton("Aceptar");
     pane.add(acceptButton);
     cancelButton = createButton("Cancelar");
     pane.add(cancelButton);
@@ -73,19 +73,6 @@ public class DeleteFinalDialogSwing implements Dialog<Final> {
     return button;
   }
 
-  @Override
-  public void set(Final finalObj) {
-    this.finalObj = finalObj;
-    idLabel.setText(valueOf(finalObj.getId()));
-    qualificationLabel.setText(valueOf(finalObj.getQualification().number));
-    subjectLabel.setText(finalObj.getSubject().getDescription());
-    studentLabel.setText(finalObj.getStudent().getFullName());
-  }
-
-  @Override
-  public Final get() {
-    return finalObj;
-  }
 
   @Override
   public void setController(DialogController controller) {
@@ -105,13 +92,38 @@ public class DeleteFinalDialogSwing implements Dialog<Final> {
   }
 
   @Override
+  public void set(List<Subject> all) {
+    tableModel.setSubjects(all);
+  }
+
+  @Override
+  public int getSelectedRow() {
+    return tableSubjects.getSelectedRow();
+  }
+
+  @Override
+  public Subject getInRow(int row) {
+    return tableModel.getInRow(row);
+  }
+
+  @Override
   public void close() {
+    dialog.setVisible(false);
     dialog.dispose();
   }
 
   @Override
   public void showError(String message) {
-    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public Subject get() {
+    return null;
+  }
+
+  @Override
+  public void set(Subject e) {
     
   }
 

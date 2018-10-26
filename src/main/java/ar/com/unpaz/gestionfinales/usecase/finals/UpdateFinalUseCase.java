@@ -17,24 +17,22 @@ public class UpdateFinalUseCase extends SkeletonUseCase<Final> implements FinalD
   }
 
   public UpdateFinalUseCase(Validator<Final> validator) {
-    super(validator, 
-          AppViewContext.finalsView, 
-          AppViewContext.updFinalDialog,
-          AppRepositoryContext.finalRepository);
+    super(validator, AppViewContext.finalsView, AppViewContext.updFinalDialog,
+        AppRepositoryContext.finalRepository);
   }
 
   @Override
   public void selectStudent() {
     List<Student> all = AppRepositoryContext.studentRepository.getAll();
-    AppViewContext.addSelectStudentDialog.set(all);
-    AppViewContext.addSelectStudentDialog.show();
+    AppViewContext.updSelectStudentDialog.set(all);
+    AppViewContext.updSelectStudentDialog.show();
   }
 
   @Override
   public void selectSubject() {
     List<Subject> all = AppRepositoryContext.subjectRepository.getAll();
-    AppViewContext.addSelectSubjectDialog.set(all);
-    AppViewContext.addSelectSubjectDialog.show();
+    AppViewContext.updSelectSubjectDialog.set(all);
+    AppViewContext.updSelectSubjectDialog.show();
   }
 
   @Override

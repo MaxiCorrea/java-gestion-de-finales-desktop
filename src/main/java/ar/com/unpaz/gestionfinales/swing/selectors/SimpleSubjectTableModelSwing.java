@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.swing.subjects;
+package ar.com.unpaz.gestionfinales.swing.selectors;
 
 import java.util.ArrayList;
 import java.util.List;

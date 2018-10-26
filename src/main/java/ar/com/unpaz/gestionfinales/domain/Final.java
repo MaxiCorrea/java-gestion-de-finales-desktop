@@ -65,4 +65,10 @@ public class Final extends Entity<Final> {
     return reflectionEquals(this, obj);
   }
 
+  @Override
+  public String toString() {
+    return "Final [subject=" + subject + ", student=" + student + ", date=" + date
+        + ", qualification=" + qualification + "]";
+  }
+
 }

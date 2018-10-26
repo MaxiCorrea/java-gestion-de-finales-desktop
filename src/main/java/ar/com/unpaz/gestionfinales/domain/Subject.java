@@ -51,5 +51,10 @@ public class Subject extends Entity<Subject> {
   public boolean equals(Object obj) {
     return reflectionEquals(this, obj);
   }
+
+  @Override
+  public String toString() {
+    return "Subject [description=" + description + ", year=" + year + "]";
+  }
   
 }

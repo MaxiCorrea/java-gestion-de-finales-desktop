@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.swing.subjects;
+package ar.com.unpaz.gestionfinales.swing.selectors;
 
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_BACKGROUND_COLOR;
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND_COLOR;
@@ -15,24 +15,24 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import ar.com.unpaz.gestionfinales.domain.Subject;
+import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.Select;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
-public class SelectSubjectDialogSwing implements Select<Subject> {
+public class SelectStudentDialogSwing implements Select<Student> {
 
   private static final Color HEADER_COLOR = new Color(0, 133, 198);
 
   private JDialog dialog;
-  private JTable tableSubjects;
-  private SimpleSubjectTableModelSwing tableModel;
+  private JTable tableStudents;
+  private SimpleStudentTableModelSwing tableModel;
   private JButton acceptButton;
   private JButton cancelButton;
 
-  public SelectSubjectDialogSwing() {
+  public SelectStudentDialogSwing() {
     dialog = new JDialog();
-    dialog.setTitle("Seleccion Materia");
     dialog.setModal(true);
+    dialog.setTitle("Seleccione Alumno");
     dialog.setSize(300, 350);
     dialog.setResizable(false);
     dialog.getContentPane().add(createCenterPane(), CENTER);
@@ -43,14 +43,14 @@ public class SelectSubjectDialogSwing implements Select<Subject> {
     JScrollPane pane = new JScrollPane();
     pane.getViewport().setBackground(WHITE);
     pane.setVerticalScrollBarPolicy(22);
-    tableModel = new SimpleSubjectTableModelSwing();
-    tableSubjects = new JTable(tableModel);
-    tableSubjects.setSelectionMode(SINGLE_SELECTION);
-    tableSubjects.getTableHeader().setBackground(HEADER_COLOR);
-    tableSubjects.getTableHeader().setForeground(WHITE);
-    tableSubjects.setBackground(WHITE);
-    tableSubjects.setForeground(BLACK);
-    pane.setViewportView(tableSubjects);
+    tableModel = new SimpleStudentTableModelSwing();
+    tableStudents = new JTable(tableModel);
+    tableStudents.setSelectionMode(SINGLE_SELECTION);
+    tableStudents.getTableHeader().setBackground(HEADER_COLOR);
+    tableStudents.getTableHeader().setForeground(WHITE);
+    tableStudents.setBackground(WHITE);
+    tableStudents.setForeground(BLACK);
+    pane.setViewportView(tableStudents);
     return pane;
   }
 
@@ -58,8 +58,8 @@ public class SelectSubjectDialogSwing implements Select<Subject> {
     JPanel pane = new JPanel();
     pane.setBackground(WHITE);
     acceptButton = createButton("Aceptar");
-    pane.add(acceptButton);
     cancelButton = createButton("Cancelar");
+    pane.add(acceptButton);
     pane.add(cancelButton);
     return pane;
   }
@@ -72,7 +72,6 @@ public class SelectSubjectDialogSwing implements Select<Subject> {
     button.setFocusPainted(false);
     return button;
   }
-
 
   @Override
   public void setController(DialogController controller) {
@@ -92,41 +91,35 @@ public class SelectSubjectDialogSwing implements Select<Subject> {
   }
 
   @Override
-  public void set(List<Subject> all) {
-    tableModel.setSubjects(all);
-  }
-
-  @Override
   public int getSelectedRow() {
-    return tableSubjects.getSelectedRow();
+    return tableStudents.getSelectedRow();
   }
 
   @Override
-  public Subject getInRow(int row) {
+  public Student getInRow(int row) {
     return tableModel.getInRow(row);
   }
 
   @Override
+  public void set(List<Student> students) {
+    tableModel.setStudents(students);
+  }
+
+  @Override
   public void close() {
+    dialog.setVisible(false);
     dialog.dispose();
   }
 
   @Override
-  public void showError(String message) {
-    // TODO Auto-generated method stub
-    
-  }
+  public void showError(String message) {}
 
   @Override
-  public Subject get() {
-    // TODO Auto-generated method stub
+  public Student get() {
     return null;
   }
 
   @Override
-  public void set(Subject e) {
-    // TODO Auto-generated method stub
-    
-  }
+  public void set(Student e) {}
 
 }

@@ -1,4 +1,4 @@
-package ar.com.unpaz.gestionfinales.swing.students;
+package ar.com.unpaz.gestionfinales.swing.selectors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import javax.swing.table.AbstractTableModel;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.presentation.students.SimpleStudentColumn;
 
-public class SimpleStudentTableModel extends AbstractTableModel {
+public class SimpleStudentTableModelSwing extends AbstractTableModel {
 
   private static final long serialVersionUID = 1L;
   private List<Student> snapshots = new ArrayList<>();

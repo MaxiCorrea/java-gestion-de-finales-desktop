@@ -1,5 +1,6 @@
 package ar.com.unpaz.gestionfinales.swing.finals;
 
+import static ar.com.unpaz.gestionfinales.domain.Qualification.of;
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_BACKGROUND_COLOR;
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND_COLOR;
 import static java.awt.BorderLayout.CENTER;
@@ -9,6 +10,7 @@ import static java.awt.Color.WHITE;
 import static javax.swing.BorderFactory.createTitledBorder;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.time.LocalDate;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -16,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Final;
+import ar.com.unpaz.gestionfinales.domain.Student;
+import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.presentation.finals.QualificationCombo;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
@@ -23,6 +27,8 @@ import ar.com.unpaz.gestionfinales.usecase.finals.FinalDialogController;
 
 public class FinalDialogSwing implements Dialog<Final> {
 
+  private static final int HEIGHT_DIALOG = 280;
+  private static final int WIDTH_DIALOG = 300;
   private JDialog dialog;
   private JButton selectSubjectButton;
   private JTextField selectedSubjectField;
@@ -32,15 +38,20 @@ public class FinalDialogSwing implements Dialog<Final> {
   private JButton acceptButton;
   private JButton cancelButton;
   private JLabel errorLabel;
+  private FinalDialogData dialogData;
 
-  private Final finalObj;
+  private int id;
+  private Student studentSelected;
+  private Subject subjectSelected;
+  private LocalDate date;
 
-  public FinalDialogSwing() {
+  public FinalDialogSwing(FinalDialogData dialogData) {
+    this.dialogData = dialogData;
     dialog = new JDialog();
     dialog.setModal(true);
-    dialog.setSize(300, 280);
+    dialog.setSize(WIDTH_DIALOG, HEIGHT_DIALOG);
     dialog.setResizable(false);
-    dialog.setTitle("Nuevo Final");
+    dialog.setTitle(dialogData.title());
     dialog.getContentPane().setLayout(new BorderLayout());
     dialog.getContentPane().add(createCenterPane(), CENTER);
     dialog.getContentPane().add(createSouthPane(), SOUTH);
@@ -51,10 +62,11 @@ public class FinalDialogSwing implements Dialog<Final> {
     pane.setBackground(WHITE);
     comboQualification = new JComboBox<>(QualificationCombo.values());
     comboQualification.setBackground(WHITE);
+    comboQualification.setEnabled(dialogData.comboQualificationStatus());
     pane.add(comboQualification);
     pane.add(createSubPanelSubject());
     pane.add(createSubPanelStudent());
-    errorLabel = new JLabel("",JLabel.CENTER);
+    errorLabel = new JLabel("", JLabel.CENTER);
     errorLabel.setForeground(RED);
     pane.add(errorLabel);
     return pane;
@@ -65,6 +77,7 @@ public class FinalDialogSwing implements Dialog<Final> {
     pane.setBackground(WHITE);
     pane.setBorder(createTitledBorder("Materia"));
     selectSubjectButton = createButton("Seleccionar");
+    selectSubjectButton.setEnabled(dialogData.buttonSubjectStatus());
     selectedSubjectField = new JTextField(12);
     selectedSubjectField.setEditable(false);
     pane.add(selectSubjectButton);
@@ -77,6 +90,7 @@ public class FinalDialogSwing implements Dialog<Final> {
     pane.setBackground(WHITE);
     pane.setBorder(createTitledBorder("Alumno"));
     selectStudentButton = createButton("Seleccionar");
+    selectStudentButton.setEnabled(dialogData.buttonStudentStatus());
     selectedStudentField = new JTextField(12);
     selectedStudentField.setEditable(false);
     pane.add(selectStudentButton);
@@ -105,33 +119,45 @@ public class FinalDialogSwing implements Dialog<Final> {
 
   @Override
   public void set(Final finalObj) {
-    this.finalObj = finalObj;
+    id = finalObj.getId();
+    date = finalObj.getDate();
     comboQualification.setSelectedIndex(finalObj.getQualification().number);
     selectedStudentField.setText(finalObj.getStudent().getFullName());
+    studentSelected = finalObj.getStudent();
     selectedSubjectField.setText(finalObj.getSubject().getDescription());
-    comboQualification.setSelectedIndex(finalObj.getQualification().number);
+    subjectSelected = finalObj.getSubject();
   }
 
   @Override
   public Final get() {
-    return finalObj;
+    return new Final(id, subjectSelected, studentSelected, date,
+        of(comboQualification.getSelectedIndex()));
   }
 
   @Override
   public void setController(DialogController controller) {
-    FinalDialogController c = (FinalDialogController) controller;
-    selectStudentButton.addActionListener((e) -> {
-      c.selectStudent();
-    });
-    selectSubjectButton.addActionListener((e) -> {
-      c.selectSubject();
-    });
-    acceptButton.addActionListener((e) -> {
-      c.accept();
-    });
-    cancelButton.addActionListener((e) -> {
-      c.cancel();
-    });
+    if (controller instanceof FinalDialogController) {
+      FinalDialogController c = (FinalDialogController) controller;
+      selectStudentButton.addActionListener((e) -> {
+        c.selectStudent();
+      });
+      selectSubjectButton.addActionListener((e) -> {
+        c.selectSubject();
+      });
+      acceptButton.addActionListener((e) -> {
+        c.accept();
+      });
+      cancelButton.addActionListener((e) -> {
+        c.cancel();
+      });
+    } else {
+      acceptButton.addActionListener((e) -> {
+        controller.accept();
+      });
+      cancelButton.addActionListener((e) -> {
+        controller.cancel();
+      });
+    }
   }
 
   @Override
@@ -143,9 +169,10 @@ public class FinalDialogSwing implements Dialog<Final> {
 
   @Override
   public void close() {
+    dialog.setVisible(false);
     dialog.dispose();
   }
-  
+
   @Override
   public void showError(String errorMessage) {
     this.errorLabel.setText(errorMessage);

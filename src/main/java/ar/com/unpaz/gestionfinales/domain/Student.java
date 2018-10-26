@@ -71,5 +71,11 @@ public class Student extends Entity<Student> {
   public String getFullName() {
     return format("%s %s", getName(), getSurname());
   }
+ 
+  @Override
+  public String toString() {
+    return "Student [dni=" + dni + ", name=" + name + ", surname=" + surname + ", email=" + email
+        + "]";
+  }
   
 }

@@ -41,19 +41,16 @@ public class ReportFinalDialogSwing implements Report<Final> {
 
   @Override
   public void showError(String message) {
-    // TODO Auto-generated method stub
-    
+  
   }
 
   @Override
   public Final get() {
-    // TODO Auto-generated method stub
     return null;
   }
 
   @Override
   public void set(Final e) {
-    // TODO Auto-generated method stub
     
   }
   

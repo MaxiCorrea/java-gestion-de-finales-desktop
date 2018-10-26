@@ -1,6 +1,5 @@
 package ar.com.unpaz.gestionfinales.application;
 
-import ar.com.unpaz.gestionfinales.console.AboutDialogConsole;
 import ar.com.unpaz.gestionfinales.database.AppRepositoryContext;
 import ar.com.unpaz.gestionfinales.inmemory.InMemoryFinalRepository;
 import ar.com.unpaz.gestionfinales.inmemory.InMemoryStudentRepository;
@@ -10,18 +9,18 @@ import ar.com.unpaz.gestionfinales.jasper.students.StudentJasperReport;
 import ar.com.unpaz.gestionfinales.jasper.subjects.SubjectJasperReport;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
 import ar.com.unpaz.gestionfinales.report.AppReportContext;
+import ar.com.unpaz.gestionfinales.swing.AboutSwing;
 import ar.com.unpaz.gestionfinales.swing.AppViewSwing;
-import ar.com.unpaz.gestionfinales.swing.finals.AddFinalDialogSwing;
-import ar.com.unpaz.gestionfinales.swing.finals.DeleteFinalDialogSwing;
+import ar.com.unpaz.gestionfinales.swing.finals.FinalDialogData;
+import ar.com.unpaz.gestionfinales.swing.finals.FinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.FinalViewSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.ReportFinalDialogSwing;
-import ar.com.unpaz.gestionfinales.swing.finals.UpdateFinalDialogSwing;
-import ar.com.unpaz.gestionfinales.swing.students.SelectStudentDialogSwing;
+import ar.com.unpaz.gestionfinales.swing.selectors.SelectStudentDialogSwing;
+import ar.com.unpaz.gestionfinales.swing.selectors.SelectSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.ReportStudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.StudentDialogDataFor;
 import ar.com.unpaz.gestionfinales.swing.students.StudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.StudentsViewSwing;
-import ar.com.unpaz.gestionfinales.swing.subjects.SelectSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.ReportSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.SubjectDialogDataFor;
 import ar.com.unpaz.gestionfinales.swing.subjects.SubjectDialogSwing;
@@ -45,12 +44,13 @@ public class Main {
     AppReportContext.finalReport = new FinalJasperReport();
 
     AppViewContext.appView = new AppViewSwing();
+    AppViewContext.aboutDialog = new AboutSwing();  
+    
     AppViewContext.subjectsView = new SubjectsViewSwing();
     AppViewContext.addSubjectDialog = new SubjectDialogSwing(SubjectDialogDataFor.ADD);
     AppViewContext.updSubjectDialog = new SubjectDialogSwing(SubjectDialogDataFor.UPDATE);
     AppViewContext.delSubjectDialog = new SubjectDialogSwing(SubjectDialogDataFor.DELETE);
     AppViewContext.reportSubjectDialog = new ReportSubjectDialogSwing();
-    AppViewContext.aboutDialog = new AboutDialogConsole();
 
     AppViewContext.studentsView = new StudentsViewSwing();
     AppViewContext.addStudentDialog = new StudentDialogSwing(StudentDialogDataFor.ADD);
@@ -59,14 +59,13 @@ public class Main {
     AppViewContext.reportStudentDialog = new ReportStudentDialogSwing();
 
     AppViewContext.finalsView = new FinalViewSwing();
-    AppViewContext.addFinalDialog = new AddFinalDialogSwing();
-    AppViewContext.updFinalDialog = new UpdateFinalDialogSwing();
-    AppViewContext.delFinalDialog = new DeleteFinalDialogSwing();
+    AppViewContext.addFinalDialog = new FinalDialogSwing(FinalDialogData.ADD);
+    AppViewContext.updFinalDialog = new FinalDialogSwing(FinalDialogData.UPDATE);
+    AppViewContext.delFinalDialog = new FinalDialogSwing(FinalDialogData.DELETE);
     AppViewContext.addSelectStudentDialog = new SelectStudentDialogSwing();
     AppViewContext.addSelectSubjectDialog = new SelectSubjectDialogSwing();
     AppViewContext.updSelectStudentDialog = new SelectStudentDialogSwing();
     AppViewContext.updSelectSubjectDialog = new SelectSubjectDialogSwing();
-
     AppViewContext.reportFinalDialog = new ReportFinalDialogSwing();
 
     AppControllerContext.appController = new AppControllerImpl();
