@@ -66,8 +66,7 @@ public class AppViewSwing implements AppView {
 
       @Override
       public void paint(Graphics g) {
-        g.drawImage(((ImageIcon) load(BACKGROUND)).getImage(), 0, 0, 
-            getWidth(), getHeight(), this);
+        g.drawImage(((ImageIcon) load(BACKGROUND)).getImage(), 0, 0, getWidth(), getHeight(), this);
       }
     }, CENTER);
 
@@ -103,7 +102,12 @@ public class AppViewSwing implements AppView {
 
   @Override
   public void showError(String message) {
-    JOptionPane.showMessageDialog(frame, message);
+    JOptionPane.showMessageDialog(frame, message, "", JOptionPane.ERROR_MESSAGE);
+  }
+
+  @Override
+  public void showMessage(String message) {
+    JOptionPane.showMessageDialog(frame, message, "", JOptionPane.INFORMATION_MESSAGE);
   }
 
 }

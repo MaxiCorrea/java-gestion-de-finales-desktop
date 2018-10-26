@@ -7,5 +7,7 @@ public interface AppView {
   void close();
 
   void showError(String message);
+
+  void showMessage(String string);
   
 }

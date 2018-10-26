@@ -17,6 +17,7 @@ public class ReportSubjectUseCase implements DialogController {
       File file = AppViewContext.reportSubjectDialog.getFile();
       List<Subject> all = AppRepositoryContext.subjectRepository.getAll();
       AppReportContext.subjectReport.generateReport(file, all);
+      AppViewContext.appView.showMessage("Reporte de Materias Generado");
     } catch (ReportException e) {
       System.out.println(e.getMessage());
     }

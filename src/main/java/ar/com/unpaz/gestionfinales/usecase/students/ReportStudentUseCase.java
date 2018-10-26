@@ -17,6 +17,7 @@ public class ReportStudentUseCase implements DialogController {
       File file = AppViewContext.reportStudentDialog.getFile();
       List<Student> all = AppRepositoryContext.studentRepository.getAll();
       AppReportContext.studentReport.generateReport(file , all);
+      AppViewContext.appView.showMessage("Reporte de Alumnos Generado");
     } catch (ReportException e) {
       System.out.println(e.getMessage());
     }

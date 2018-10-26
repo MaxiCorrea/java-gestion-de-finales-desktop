@@ -84,4 +84,10 @@ public class AppViewConsole implements AppView {
     
   }
 
+  @Override
+  public void showMessage(String string) {
+    // TODO Auto-generated method stub
+    
+  }
+
 }
