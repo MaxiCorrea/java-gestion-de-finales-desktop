@@ -2,6 +2,7 @@ package ar.com.unpaz.gestionfinales.swing.subjects;
 
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_BACKGROUND_COLOR;
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND_COLOR;
+import static ar.com.unpaz.gestionfinales.swing.ColorConstants.HEADER_COLOR;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
@@ -32,7 +33,6 @@ public class SubjectsViewSwing implements View<Subject> {
 
   private static final int HEIGHT = 300;
   private static final int WIDTH = 600;
-  private static final Color HEADER_COLOR = new Color(0, 133, 198);
   private static final String TITLE = "Materias";
 
   private JDialog dialog;

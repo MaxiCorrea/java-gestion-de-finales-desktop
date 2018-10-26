@@ -2,12 +2,12 @@ package ar.com.unpaz.gestionfinales.swing.selectors;
 
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_BACKGROUND_COLOR;
 import static ar.com.unpaz.gestionfinales.swing.ColorConstants.BUTTON_FOREGROUND_COLOR;
+import static ar.com.unpaz.gestionfinales.swing.ColorConstants.HEADER_COLOR;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.SOUTH;
 import static java.awt.Color.BLACK;
 import static java.awt.Color.WHITE;
 import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.util.List;
 import javax.swing.JButton;
@@ -20,8 +20,6 @@ import ar.com.unpaz.gestionfinales.presentation.Select;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 
 public class SelectSubjectDialogSwing implements Select<Subject> {
-
-  private static final Color HEADER_COLOR = new Color(0, 133, 198);
 
   private JDialog dialog;
   private JTable tableSubjects;
