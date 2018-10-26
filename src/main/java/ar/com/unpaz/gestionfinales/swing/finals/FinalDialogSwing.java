@@ -9,7 +9,6 @@ import static java.awt.Color.WHITE;
 import static javax.swing.BorderFactory.createTitledBorder;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.time.LocalDate;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -17,15 +16,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.domain.Qualification;
-import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.presentation.finals.QualificationCombo;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 import ar.com.unpaz.gestionfinales.usecase.finals.FinalDialogController;
 
-public class AddFinalDialogSwing implements Dialog<Final> {
+public class FinalDialogSwing implements Dialog<Final> {
 
   private JDialog dialog;
   private JButton selectSubjectButton;
@@ -37,10 +33,9 @@ public class AddFinalDialogSwing implements Dialog<Final> {
   private JButton cancelButton;
   private JLabel errorLabel;
 
-  private Subject selectedSubject;
-  private Student selectedStudent;
+  private Final finalObj;
 
-  public AddFinalDialogSwing() {
+  public FinalDialogSwing() {
     dialog = new JDialog();
     dialog.setModal(true);
     dialog.setSize(300, 280);
@@ -110,18 +105,16 @@ public class AddFinalDialogSwing implements Dialog<Final> {
 
   @Override
   public void set(Final finalObj) {
+    this.finalObj = finalObj;
     comboQualification.setSelectedIndex(finalObj.getQualification().number);
-    selectedStudentField.setText(finalObj.getStudent().getName());
-    selectedStudent = finalObj.getStudent();
+    selectedStudentField.setText(finalObj.getStudent().getFullName());
     selectedSubjectField.setText(finalObj.getSubject().getDescription());
-    selectedSubject = finalObj.getSubject();
     comboQualification.setSelectedIndex(finalObj.getQualification().number);
   }
 
   @Override
   public Final get() {
-    return new Final(0, selectedSubject, selectedStudent, LocalDate.now(),
-        Qualification.of(comboQualification.getSelectedIndex()));
+    return finalObj;
   }
 
   @Override
@@ -152,7 +145,7 @@ public class AddFinalDialogSwing implements Dialog<Final> {
   public void close() {
     dialog.dispose();
   }
-
+  
   @Override
   public void showError(String errorMessage) {
     this.errorLabel.setText(errorMessage);

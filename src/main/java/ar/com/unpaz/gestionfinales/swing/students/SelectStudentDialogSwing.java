@@ -111,21 +111,14 @@ public class SelectStudentDialogSwing implements Select<Student> {
   }
 
   @Override
-  public void showError(String message) {
-    // TODO Auto-generated method stub
-    
-  }
+  public void showError(String message) {}
 
   @Override
   public Student get() {
-    // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public void set(Student e) {
-    // TODO Auto-generated method stub
-    
-  }
+  public void set(Student e) {}
 
 }

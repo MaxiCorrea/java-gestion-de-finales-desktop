@@ -22,8 +22,10 @@ public class AppViewContext {
 
   public static View<Final> finalsView;
   public static Dialog<Final> addFinalDialog;
-  public static Select<Subject> selectSubjectDialog;
-  public static Select<Student> selectStudentDialog;
+  public static Select<Subject> addSelectSubjectDialog;
+  public static Select<Student> addSelectStudentDialog;
+  public static Select<Subject> updSelectSubjectDialog;
+  public static Select<Student> updSelectStudentDialog;
   public static Dialog<Final> updFinalDialog;
   public static Dialog<Final> delFinalDialog;
   public static Report<Final> reportFinalDialog;

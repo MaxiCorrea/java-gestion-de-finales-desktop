@@ -1,10 +1,7 @@
 package ar.com.unpaz.gestionfinales.usecase.finals;
 
 import ar.com.unpaz.gestionfinales.domain.Final;
-import ar.com.unpaz.gestionfinales.domain.Student;
-import ar.com.unpaz.gestionfinales.domain.Subject;
 import ar.com.unpaz.gestionfinales.presentation.AppViewContext;
-import ar.com.unpaz.gestionfinales.usecase.DialogController;
 import ar.com.unpaz.gestionfinales.usecase.SkeletonUseCases;
 
 public class FinalUseCases extends SkeletonUseCases<Final> {
@@ -14,16 +11,20 @@ public class FinalUseCases extends SkeletonUseCases<Final> {
     AppViewContext.delFinalDialog.setController(new DeleteFinalUseCase());
     AppViewContext.updFinalDialog.setController(new UpdateFinalUseCase());
     AppViewContext.reportFinalDialog.setController(new ReportFinalUseCase());
-    AppViewContext.selectStudentDialog.setController(new StudentSelection());
-    AppViewContext.selectSubjectDialog.setController(new SubjectSelection());
+    AppViewContext.addSelectStudentDialog.setController(
+        new StudentSelection(AppViewContext.addSelectStudentDialog, AppViewContext.addFinalDialog));
+    AppViewContext.addSelectSubjectDialog.setController(
+        new SubjectSelection(AppViewContext.addSelectSubjectDialog, AppViewContext.addFinalDialog));
+    AppViewContext.updSelectSubjectDialog.setController(
+        new StudentSelection(AppViewContext.updSelectStudentDialog, AppViewContext.updFinalDialog));
+    AppViewContext.updSelectStudentDialog.setController(
+        new SubjectSelection(AppViewContext.updSelectSubjectDialog, AppViewContext.updFinalDialog));
+
   }
-  
+
   public FinalUseCases() {
-    super(AppViewContext.addFinalDialog,
-          AppViewContext.delFinalDialog, 
-          AppViewContext.updFinalDialog,
-          AppViewContext.reportFinalDialog,
-          AppViewContext.finalsView);
+    super(AppViewContext.addFinalDialog, AppViewContext.delFinalDialog,
+        AppViewContext.updFinalDialog, AppViewContext.reportFinalDialog, AppViewContext.finalsView);
   }
 
   @Override
@@ -32,48 +33,4 @@ public class FinalUseCases extends SkeletonUseCases<Final> {
     super.add();
   }
 
-  private class StudentSelection implements DialogController {
-
-    @Override
-    public void accept() {
-      if (AppViewContext.selectStudentDialog.getSelectedRow() != -1) {
-        int row = AppViewContext.selectStudentDialog.getSelectedRow();
-        Student student = AppViewContext.selectStudentDialog.getInRow(row);
-        Final f = AppViewContext.addFinalDialog.get();
-        Final f2 = new Final(f.getId() , f.getSubject() , student ,
-            f.getDate() , f.getQualification());
-        AppViewContext.addFinalDialog.set(f2);
-        AppViewContext.selectStudentDialog.close();
-      }
-    }
-
-    @Override
-    public void cancel() {
-      AppViewContext.selectStudentDialog.close();
-    }
-    
-  }
-  
-  private class SubjectSelection implements DialogController {
-
-    @Override
-    public void accept() {
-      if (AppViewContext.selectSubjectDialog.getSelectedRow() != -1) {
-        int row = AppViewContext.selectSubjectDialog.getSelectedRow();
-        Subject subject = AppViewContext.selectSubjectDialog.getInRow(row);
-        Final f = AppViewContext.addFinalDialog.get();
-        Final f2 = new Final(f.getId(), subject, f.getStudent(), 
-            f.getDate(), f.getQualification());
-        AppViewContext.addFinalDialog.set(f2);
-        AppViewContext.selectSubjectDialog.close();
-      }
-    }
-
-    @Override
-    public void cancel() {
-      AppViewContext.selectSubjectDialog.close();
-    }
-
-  }
-  
 }

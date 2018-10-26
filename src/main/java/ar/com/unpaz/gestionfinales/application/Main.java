@@ -16,13 +16,13 @@ import ar.com.unpaz.gestionfinales.swing.finals.DeleteFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.FinalViewSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.ReportFinalDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.finals.UpdateFinalDialogSwing;
-import ar.com.unpaz.gestionfinales.swing.students.ReportStudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.SelectStudentDialogSwing;
+import ar.com.unpaz.gestionfinales.swing.students.ReportStudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.StudentDialogDataFor;
 import ar.com.unpaz.gestionfinales.swing.students.StudentDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.students.StudentsViewSwing;
-import ar.com.unpaz.gestionfinales.swing.subjects.ReportSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.SelectSubjectDialogSwing;
+import ar.com.unpaz.gestionfinales.swing.subjects.ReportSubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.SubjectDialogDataFor;
 import ar.com.unpaz.gestionfinales.swing.subjects.SubjectDialogSwing;
 import ar.com.unpaz.gestionfinales.swing.subjects.SubjectsViewSwing;
@@ -35,7 +35,7 @@ import ar.com.unpaz.gestionfinales.usecase.subjects.SubjecUseCases;
 public class Main {
 
   public static void main(String[] args) {
-        
+
     AppRepositoryContext.subjectRepository = new InMemorySubjectRepository();
     AppRepositoryContext.studentRepository = new InMemoryStudentRepository();
     AppRepositoryContext.finalRepository = new InMemoryFinalRepository();
@@ -43,7 +43,7 @@ public class Main {
     AppReportContext.subjectReport = new SubjectJasperReport();
     AppReportContext.studentReport = new StudentJasperReport();
     AppReportContext.finalReport = new FinalJasperReport();
-    
+
     AppViewContext.appView = new AppViewSwing();
     AppViewContext.subjectsView = new SubjectsViewSwing();
     AppViewContext.addSubjectDialog = new SubjectDialogSwing(SubjectDialogDataFor.ADD);
@@ -62,8 +62,11 @@ public class Main {
     AppViewContext.addFinalDialog = new AddFinalDialogSwing();
     AppViewContext.updFinalDialog = new UpdateFinalDialogSwing();
     AppViewContext.delFinalDialog = new DeleteFinalDialogSwing();
-    AppViewContext.selectStudentDialog = new SelectStudentDialogSwing();
-    AppViewContext.selectSubjectDialog = new SelectSubjectDialogSwing();
+    AppViewContext.addSelectStudentDialog = new SelectStudentDialogSwing();
+    AppViewContext.addSelectSubjectDialog = new SelectSubjectDialogSwing();
+    AppViewContext.updSelectStudentDialog = new SelectStudentDialogSwing();
+    AppViewContext.updSelectSubjectDialog = new SelectSubjectDialogSwing();
+
     AppViewContext.reportFinalDialog = new ReportFinalDialogSwing();
 
     AppControllerContext.appController = new AppControllerImpl();

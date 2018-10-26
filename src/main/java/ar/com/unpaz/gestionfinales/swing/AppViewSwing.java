@@ -24,6 +24,7 @@ import ar.com.unpaz.gestionfinales.usecase.AppControllerContext;
 
 public class AppViewSwing implements AppView {
 
+  private static final String TITLE = "Sistema de Gestión de Finales";
   private JFrame frame;
 
   public AppViewSwing() {
@@ -32,7 +33,7 @@ public class AppViewSwing implements AppView {
         .getImage(getClass().getResource(valueOf(IconResource.IconPathOf.ICON))));
     frame.setSize(900, 550);
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    frame.setTitle("Sistema de Gestión de Finales");
+    frame.setTitle(TITLE);
     JMenuBar menuBar = new JMenuBar();
     frame.setJMenuBar(menuBar);
     JMenu menuItemAMB = new JMenu("ABM");
@@ -84,7 +85,6 @@ public class AppViewSwing implements AppView {
 
   }
 
-
   @Override
   public void show() {
     frame.setLocationRelativeTo(null);
@@ -93,7 +93,8 @@ public class AppViewSwing implements AppView {
 
   @Override
   public void close() {
-
+    frame.setVisible(false);
+    frame.dispose();
   }
 
 }

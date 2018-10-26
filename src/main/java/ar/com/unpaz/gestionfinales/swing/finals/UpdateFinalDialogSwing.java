@@ -20,12 +20,12 @@ import ar.com.unpaz.gestionfinales.domain.Final;
 import ar.com.unpaz.gestionfinales.domain.Qualification;
 import ar.com.unpaz.gestionfinales.domain.Student;
 import ar.com.unpaz.gestionfinales.domain.Subject;
-import ar.com.unpaz.gestionfinales.presentation.finals.FinalDialog;
+import ar.com.unpaz.gestionfinales.presentation.Dialog;
 import ar.com.unpaz.gestionfinales.presentation.finals.QualificationCombo;
 import ar.com.unpaz.gestionfinales.usecase.DialogController;
 import ar.com.unpaz.gestionfinales.usecase.finals.FinalDialogController;
 
-public class UpdateFinalDialogSwing implements FinalDialog {
+public class UpdateFinalDialogSwing implements Dialog<Final> {
 
   private JDialog dialog;
   private JButton selectSubjectButton;
@@ -159,18 +159,6 @@ public class UpdateFinalDialogSwing implements FinalDialog {
   @Override
   public void showError(String errorMessage) {
     this.errorLabel.setText(errorMessage);
-  }
-
-  @Override
-  public void setStudent(Student student) {
-    selectedStudent = student;
-    selectedStudentField.setText(student.getFullName());
-  }
-
-  @Override
-  public void setSubject(Subject subject) {
-    selectedSubject = subject;
-    selectedSubjectField.setText(subject.getDescription());
   }
 
 }
