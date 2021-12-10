@@ -25,7 +25,7 @@
 		<!-- Pruebas -->
 		<junit.version>4.13.1</junit.version>
 		<!-- Logs -->
-		<log4j.version>2.13.3</log4j.version>
+		<log4j.version>2.15.0</log4j.version>
 	</properties>
 
 	<profiles>
